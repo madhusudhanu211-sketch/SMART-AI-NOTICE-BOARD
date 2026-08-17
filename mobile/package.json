@@ -11,25 +11,32 @@
     "build:apk:local": "npx react-native build-android --mode=release"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/stack": "^6.3.20",
+    "axios": "^1.7.9",
     "expo": "~50.0.14",
+    "expo-av": "~13.10.6",
+    "expo-modules-core": "~1.11.14",
+    "expo-secure-store": "~12.8.1",
+    "expo-speech": "~12.0.2",
     "expo-status-bar": "~1.11.1",
+    "lucide-react-native": "^0.344.0",
     "react": "18.2.0",
     "react-native": "0.73.6",
-    "@react-navigation/native": "^6.1.9",
-    "@react-navigation/bottom-tabs": "^6.5.11",
-    "@react-navigation/stack": "^6.3.20",
-    "react-native-screens": "~3.29.0",
+    "react-native-gesture-handler": "~2.14.0",
     "react-native-safe-area-context": "4.8.2",
-    "axios": "^1.7.9",
-    "expo-speech": "~12.0.2",
-    "expo-secure-store": "~12.8.1",
-    "expo-av": "~13.10.6",
-    "lucide-react-native": "^0.344.0",
+    "react-native-screens": "~3.29.0",
     "react-native-svg": "14.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "eas-cli": "^7.8.0"
+    "@expo/cli": "^57.0.15",
+    "babel-preset-expo": "~10.0.1",
+    "chalk": "^6.0.0",
+    "eas-cli": "^7.8.0",
+    "has-flag": "^5.0.1",
+    "supports-color": "^11.0.0"
   },
   "private": true
 }

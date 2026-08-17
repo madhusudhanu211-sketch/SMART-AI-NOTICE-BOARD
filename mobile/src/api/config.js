@@ -1,7 +1,23 @@
 import { Platform } from 'react-native';
+import Constants from 'expo-constants';
 
-// Default API Base URL: 10.0.2.2 for Android Emulator, localhost for iOS / Web, customizable LAN IP
-const DEFAULT_HOST = Platform.OS === 'android' ? '10.0.2.2' : 'localhost';
+const getHost = () => {
+  try {
+    const hostUri =
+      Constants.expoConfig?.hostUri ||
+      Constants.manifest?.debuggerHost ||
+      Constants.manifest2?.extra?.expoGo?.developer?.tool;
+    if (hostUri) {
+      const ip = hostUri.split(':')[0];
+      if (ip && ip !== 'localhost' && ip !== '127.0.0.1') return ip;
+    }
+  } catch (e) {
+    // Fallback if constants not present
+  }
+  return Platform.OS === 'android' ? '10.0.2.2' : 'localhost';
+};
+
+const DEFAULT_HOST = getHost();
 
 export const API_CONFIG = {
   BASE_URL: `http://${DEFAULT_HOST}:8000/api`,
