@@ -10,6 +10,8 @@ on:
 jobs:
   generate-test-reports:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Repository
@@ -48,9 +50,9 @@ jobs:
             *.md
           retention-days: 30
 
-      - name: Commit & Push Updated Excel Reports (if changed)
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add appium-tests/reports/ selenium-tests/reports/ live_test/reports/ *.md
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(ci): Auto-generate Appium, Selenium & Live Test Excel Reports [skip ci]" && git push)
+      - name: Commit & Push Generated Excel Reports (if updated)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ci): Auto-generate Appium, Selenium & Live Test Excel Reports [skip ci]"
+          file_pattern: "appium-tests/reports/*.xlsx selenium-tests/reports/*.xlsx live_test/reports/*.xlsx *.md"
+
