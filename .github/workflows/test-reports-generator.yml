@@ -1,10 +1,10 @@
-name: Generate & Upload Appium, Selenium, and Live Test Excel Reports
+name: Generate & Upload Load, Appium, Selenium, and Live Test Excel Reports
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
@@ -27,6 +27,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install openpyxl requests
 
+      - name: Run Load Test 300 Test Cases Excel Report Generator
+        run: |
+          python load-tests/generate_300_load_test_excel.py
+
       - name: Run Appium 300 Test Cases Excel Report Generator
         run: |
           python appium-tests/generate_report.py
@@ -44,6 +48,8 @@ jobs:
         with:
           name: Smart-Notice-Board-Test-Reports-Excel
           path: |
+            LOAD_TEST_300_TEST_CASES_REPORT.xlsx
+            load-tests/reports/*.xlsx
             appium-tests/reports/*.xlsx
             selenium-tests/reports/*.xlsx
             live_test/reports/*.xlsx
@@ -53,6 +59,5 @@ jobs:
       - name: Commit & Push Generated Excel Reports (if updated)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(ci): Auto-generate Appium, Selenium & Live Test Excel Reports [skip ci]"
-          file_pattern: "appium-tests/reports/*.xlsx selenium-tests/reports/*.xlsx live_test/reports/*.xlsx *.md"
-
+          commit_message: "chore(ci): Auto-generate Load Test, Appium, Selenium & Live Test Excel Reports [skip ci]"
+          file_pattern: "LOAD_TEST_300_TEST_CASES_REPORT.xlsx load-tests/reports/*.xlsx appium-tests/reports/*.xlsx selenium-tests/reports/*.xlsx live_test/reports/*.xlsx *.md"

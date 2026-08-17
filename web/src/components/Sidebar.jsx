@@ -19,7 +19,10 @@ import {
   Shield,
   BookOpen,
   LogOut,
-  X
+  X,
+  BarChart2,
+  MessageSquare,
+  Trophy
 } from 'lucide-react';
 
 export default function Sidebar({ isOpen, onClose }) {
@@ -45,6 +48,9 @@ export default function Sidebar({ isOpen, onClose }) {
       { name: t('nav.events', 'Campus Events'), path: '/events', icon: CalendarDays },
       { name: t('nav.placements', 'Placements'), path: '/placements', icon: Briefcase },
       { name: t('nav.documents', 'Study Documents'), path: '/documents', icon: FileText },
+      { name: t('nav.calendar', 'Academic Calendar'), path: '/calendar', icon: CalendarDays },
+      { name: t('nav.forum', 'Discussion Forum'), path: '/forum', icon: MessageSquare },
+      { name: t('nav.leaderboard', 'Leaderboard'), path: '/leaderboard', icon: Trophy },
       { name: t('nav.notifications', 'Notifications'), path: '/notifications', icon: Bell },
       { name: t('nav.profile', 'My Profile'), path: '/profile', icon: User },
       { name: t('nav.settings', 'Settings'), path: '/settings', icon: Settings },
@@ -57,6 +63,8 @@ export default function Sidebar({ isOpen, onClose }) {
       { name: t('nav.timetable', 'Timetable'), path: '/timetable', icon: Calendar },
       { name: t('nav.assignments', 'Assignments'), path: '/assignments', icon: FileSpreadsheet },
       { name: t('nav.events', 'Campus Events'), path: '/events', icon: CalendarDays },
+      { name: t('nav.calendar', 'Academic Calendar'), path: '/calendar', icon: CalendarDays },
+      { name: t('nav.forum', 'Discussion Forum'), path: '/forum', icon: MessageSquare },
       { name: t('nav.notifications', 'Notifications'), path: '/notifications', icon: Bell },
       { name: t('nav.faculty', 'Faculty Portal'), path: '/faculty', icon: BookOpen, highlight: true },
       { name: t('nav.profile', 'My Profile'), path: '/profile', icon: User },
@@ -66,6 +74,7 @@ export default function Sidebar({ isOpen, onClose }) {
     navItems = [
       { name: t('nav.dashboard', 'Dashboard'), path: '/dashboard', icon: LayoutDashboard },
       { name: t('nav.admin', 'Admin Panel'), path: '/admin', icon: Shield, highlight: true },
+      { name: t('nav.analytics', 'Analytics'), path: '/analytics', icon: BarChart2, highlight: true },
       { name: t('nav.notices', 'Notice Board'), path: '/notices', icon: Bell, badge: 'NEW' },
       { name: t('nav.attendance', 'Manage Attendance'), path: '/attendance', icon: CheckCircle2 },
       { name: t('nav.timetable', 'Timetable'), path: '/timetable', icon: Calendar },
@@ -74,6 +83,9 @@ export default function Sidebar({ isOpen, onClose }) {
       { name: t('nav.events', 'Campus Events'), path: '/events', icon: CalendarDays },
       { name: t('nav.placements', 'Placements'), path: '/placements', icon: Briefcase },
       { name: t('nav.documents', 'Study Documents'), path: '/documents', icon: FileText },
+      { name: t('nav.calendar', 'Academic Calendar'), path: '/calendar', icon: CalendarDays },
+      { name: t('nav.forum', 'Discussion Forum'), path: '/forum', icon: MessageSquare },
+      { name: t('nav.leaderboard', 'Leaderboard'), path: '/leaderboard', icon: Trophy },
       { name: t('nav.notifications', 'Notifications'), path: '/notifications', icon: Bell },
       { name: t('nav.faculty', 'Faculty Portal'), path: '/faculty', icon: BookOpen },
       { name: t('nav.profile', 'My Profile'), path: '/profile', icon: User },

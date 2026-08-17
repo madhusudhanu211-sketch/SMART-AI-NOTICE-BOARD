@@ -239,7 +239,7 @@ SECURITY & IDENTITY CONSTRAINTS:
         system_prompt = self._build_system_prompt(current_user, language)
 
         if self.client:
-            models_to_try = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-pro']
+            models_to_try = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-pro']
             from google import genai
             from google.genai import types as genai_types
 
@@ -297,7 +297,7 @@ SECURITY & IDENTITY CONSTRAINTS:
         system_prompt = self._build_system_prompt(current_user, language)
 
         if self.client:
-            models_to_try = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-pro']
+            models_to_try = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-pro']
             from google import genai
             from google.genai import types as genai_types
 

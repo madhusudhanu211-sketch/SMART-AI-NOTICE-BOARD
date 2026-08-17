@@ -24,6 +24,7 @@ export default function Navbar({ onMenuToggle, onMicClick }) {
 
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [globalSearch, setGlobalSearch] = useState('');
+  const [unreadCount] = useState(3);
 
   const defaultAvatar = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="%234F46E5"/><circle cx="50" cy="40" r="20" fill="%23FFFFFF"/><path d="M20,85 C20,65 35,55 50,55 C65,55 80,65 80,85 Z" fill="%23FFFFFF"/></svg>`;
 
@@ -45,6 +46,10 @@ export default function Navbar({ onMenuToggle, onMicClick }) {
     if (path.includes('/settings')) return 'Portal Settings';
     if (path.includes('/admin')) return 'Admin Panel';
     if (path.includes('/faculty')) return 'Faculty Portal';
+    if (path.includes('/analytics')) return 'Analytics & Reports';
+    if (path.includes('/calendar')) return 'Academic Calendar';
+    if (path.includes('/forum')) return 'Discussion Forum';
+    if (path.includes('/leaderboard')) return 'Leaderboard';
     return 'Smart Notice Board';
   };
 
@@ -122,14 +127,18 @@ export default function Navbar({ onMenuToggle, onMicClick }) {
           {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
         </button>
 
-        {/* Notification Bell */}
+        {/* Notification Bell with unread count badge */}
         <button
           onClick={() => navigate('/notifications')}
           className="relative p-2.5 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-          title="Notifications"
+          title={`Notifications (${unreadCount} unread)`}
         >
           <Bell className="w-4 h-4" />
-          <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-indigo-600 ring-2 ring-white dark:ring-slate-900 animate-pulse" />
+          {unreadCount > 0 && (
+            <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-indigo-600 text-white text-[10px] font-black flex items-center justify-center ring-2 ring-white dark:ring-slate-900 shadow-lg shadow-indigo-600/40">
+              {unreadCount > 9 ? '9+' : unreadCount}
+            </span>
+          )}
         </button>
 
         <div className="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-1 hidden sm:block" />

@@ -302,11 +302,54 @@ class DocumentResponse(BaseModel):
 class AIChatRequest(BaseModel):
     query: Optional[str] = None
     question: Optional[str] = None
+    conversation_id: Optional[int] = None
+    language: Optional[str] = "en"
+    history: Optional[List[dict]] = []  # [{"role": "user"|"assistant", "content": "..."}]
 
 class AIChatResponse(BaseModel):
     query: str
     answer: str
     suggested_questions: List[str] = []
+    conversation_id: Optional[int] = None
+    message_id: Optional[int] = None
+
+# Conversation Schemas
+class ChatConversationCreate(BaseModel):
+    title: Optional[str] = "New Conversation"
+
+class ChatConversationRename(BaseModel):
+    title: str
+
+class ChatMessageResponse(BaseModel):
+    id: int
+    conversation_id: int
+    role: str
+    content: str
+    feedback: Optional[str] = None
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+class ChatConversationResponse(BaseModel):
+    id: int
+    user_id: int
+    title: str
+    created_at: datetime
+    updated_at: datetime
+    message_count: Optional[int] = 0
+    last_message: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+class ChatStreamRequest(BaseModel):
+    message: str
+    conversation_id: Optional[int] = None
+    language: Optional[str] = "en"
+
+class MessageFeedbackRequest(BaseModel):
+    feedback: str  # "like" or "dislike"
 
 class VoiceCommandRequest(BaseModel):
     command: str
@@ -317,6 +360,32 @@ class VoiceCommandResponse(BaseModel):
     target: Optional[str] = None
     data: Optional[dict] = None
     message: str
+
+class AssistantQueryRequest(BaseModel):
+    message: str
+    language: Optional[str] = "en"
+    platform: Optional[str] = "web"
+    conversation_history: Optional[List[dict]] = []
+
+class AssistantIntentResponse(BaseModel):
+    intent: str
+    response: str
+    data: Optional[dict] = None
+    navigation: Optional[str] = None
+    requires_confirmation: bool = False
+    confirmation_payload: Optional[dict] = None
+    language: str = "en"
+
+class AssistantContextResponse(BaseModel):
+    user_id: int
+    user_name: str
+    role: str
+    department_name: Optional[str] = None
+    attendance_summary: Optional[dict] = None
+    pending_assignments_count: int = 0
+    upcoming_events_count: int = 0
+    unread_notices_count: int = 0
+
 
 # Feedback Schema
 class FeedbackCreate(BaseModel):

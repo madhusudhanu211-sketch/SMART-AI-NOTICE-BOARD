@@ -32,6 +32,10 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import AdminPanel from './pages/AdminPanel';
 import FacultyPanel from './pages/FacultyPanel';
+import Analytics from './pages/Analytics';
+import AcademicCalendar from './pages/AcademicCalendar';
+import Forum from './pages/Forum';
+import Leaderboard from './pages/Leaderboard';
 
 function ProtectedLayout() {
   const { user, loading } = useAuth();
@@ -102,6 +106,10 @@ function ProtectedLayout() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/admin" element={role === 'admin' ? <AdminPanel /> : <Navigate to={defaultDashboard} replace />} />
             <Route path="/faculty" element={role === 'faculty' || role === 'admin' ? <FacultyPanel /> : <Navigate to={defaultDashboard} replace />} />
+            <Route path="/analytics" element={role === 'admin' ? <Analytics /> : <Navigate to={defaultDashboard} replace />} />
+            <Route path="/calendar" element={<AcademicCalendar />} />
+            <Route path="/forum" element={<Forum />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="*" element={<Navigate to={defaultDashboard} replace />} />
           </Routes>
         </main>

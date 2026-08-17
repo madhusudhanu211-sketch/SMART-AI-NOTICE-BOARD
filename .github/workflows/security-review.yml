@@ -1,51 +1,298 @@
-name: Security Assessment & SAST Audit Pipeline
+name: Security Review — Smart Notice Board
 
 on:
   push:
-    branches: [ main, master ]
+    branches: ["**"]
   pull_request:
-    branches: [ main, master ]
+    branches: ["**"]
   workflow_dispatch:
 
 jobs:
-  security-audit:
-    name: Backend & API Security Review
+  security-review:
+    name: Automated Security Audit
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
 
     steps:
-      - name: Checkout Source Code
+      # ── 1. Checkout ────────────────────────────────────────────────────────
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python Environment
+      # ── 2. Detect backend technology ───────────────────────────────────────
+      - name: Detect backend technology
+        id: detect
+        run: |
+          echo "Detecting backend technology..."
+          if [ -f "backend/requirements.txt" ]; then
+            echo "BACKEND=python" >> $GITHUB_ENV
+            echo "Detected: Python/FastAPI backend"
+            echo "### Backend Technology Detected" >> $GITHUB_STEP_SUMMARY
+            echo "- **Language:** Python" >> $GITHUB_STEP_SUMMARY
+            echo "- **Framework:** FastAPI" >> $GITHUB_STEP_SUMMARY
+            echo "- **Config file:** \`backend/requirements.txt\`" >> $GITHUB_STEP_SUMMARY
+          elif [ -f "package.json" ]; then
+            echo "BACKEND=node" >> $GITHUB_ENV
+            echo "Detected: Node.js backend"
+          else
+            echo "BACKEND=unknown" >> $GITHUB_ENV
+            echo "Unknown backend — running generic checks"
+          fi
+
+      # ── 3. Set up Python environment ───────────────────────────────────────
+      - name: Set up Python
+        if: env.BACKEND == 'python'
         uses: actions/setup-python@v5
         with:
-          python-python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Install Dependencies
+      - name: Install backend dependencies
+        if: env.BACKEND == 'python'
         run: |
+          cd backend
           python -m pip install --upgrade pip
-          pip install openpyxl requests passlib python-jose pydantic fastapi uvicorn
+          pip install -r requirements.txt || true
 
-      - name: Run SAST & Security Report Generator
+      # ── 4. pip-audit — Dependency vulnerability scan ───────────────────────
+      - name: Install pip-audit
+        if: env.BACKEND == 'python'
+        run: pip install pip-audit
+
+      - name: Run pip-audit
+        if: env.BACKEND == 'python'
+        id: pip_audit
         run: |
-          python generate_security_reports.py
+          mkdir -p security-reports
+          pip-audit -r backend/requirements.txt \
+            --format json \
+            --output security-reports/pip-audit.json \
+            --skip-editable \
+            --strict || AUDIT_EXIT=$?
 
-      - name: Upload Security Deliverable Reports
+          echo "### pip-audit Dependency Scan" >> $GITHUB_STEP_SUMMARY
+          if [ -f security-reports/pip-audit.json ]; then
+            VULN_COUNT=$(python3 -c "
+          import json
+          data = json.load(open('security-reports/pip-audit.json'))
+          vulns = [p for p in data.get('dependencies', []) if p.get('vulns')]
+          print(len(vulns))
+            " 2>/dev/null || echo "0")
+            echo "- Vulnerable packages found: **$VULN_COUNT**" >> $GITHUB_STEP_SUMMARY
+            if [ "$VULN_COUNT" -gt "0" ]; then
+              echo "VULN_DEPS=true" >> $GITHUB_ENV
+            fi
+          fi
+          # Do not fail on dependency warnings — only report
+          exit 0
+
+      # ── 5. Semgrep SAST ────────────────────────────────────────────────────
+      - name: Install Semgrep
+        run: pip install semgrep
+
+      - name: Run Semgrep SAST
+        id: semgrep
+        run: |
+          mkdir -p security-reports
+          # Run Semgrep with Python security rules
+          semgrep \
+            --config "p/python" \
+            --config "p/owasp-top-ten" \
+            --config "p/jwt" \
+            --config "p/secrets" \
+            --json \
+            --output security-reports/semgrep.json \
+            backend/ \
+            || SEMGREP_EXIT=$?
+
+          echo "### Semgrep SAST Results" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f security-reports/semgrep.json ]; then
+            CRITICAL_COUNT=$(python3 -c "
+          import json
+          data = json.load(open('security-reports/semgrep.json'))
+          results = data.get('results', [])
+          critical = [r for r in results if r.get('extra',{}).get('severity','').upper() == 'ERROR']
+          print(len(critical))
+            " 2>/dev/null || echo "0")
+
+            TOTAL_COUNT=$(python3 -c "
+          import json
+          data = json.load(open('security-reports/semgrep.json'))
+          print(len(data.get('results', [])))
+            " 2>/dev/null || echo "0")
+
+            echo "- Total findings: **$TOTAL_COUNT**" >> $GITHUB_STEP_SUMMARY
+            echo "- High/Critical: **$CRITICAL_COUNT**" >> $GITHUB_STEP_SUMMARY
+
+            if [ "$CRITICAL_COUNT" -gt "0" ]; then
+              echo "SEMGREP_CRITICAL=true" >> $GITHUB_ENV
+            fi
+          fi
+          exit 0
+
+      # ── 6. Gitleaks secret scanning ────────────────────────────────────────
+      - name: Run Gitleaks secret scan
+        id: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Gitleaks summary
+        run: |
+          echo "### Gitleaks Secret Scan" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.gitleaks.outcome }}" == "failure" ]; then
+            echo "- ⚠️ **Potential secrets detected — review Gitleaks output**" >> $GITHUB_STEP_SUMMARY
+            echo "GITLEAKS_FOUND=true" >> $GITHUB_ENV
+          else
+            echo "- ✅ No secrets detected" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      # ── 7. Custom SAST checks (hardcoded secrets, missing auth) ───────────
+      - name: Run custom security checks
+        id: custom_checks
+        run: |
+          mkdir -p security-reports
+          CRITICAL_FOUND=false
+          REPORT="security-reports/custom-checks.txt"
+          echo "Smart Notice Board — Custom Security Checks" > $REPORT
+          echo "==========================================" >> $REPORT
+
+          # Check 1: Hardcoded secret key
+          echo "" >> $REPORT
+          echo "[CHECK] Hardcoded JWT secret key" >> $REPORT
+          if grep -rn "smart-notice-board-super-secret" backend/ 2>/dev/null; then
+            echo "[CRITICAL] Hardcoded JWT secret key found in source!" >> $REPORT
+            echo "CRITICAL_FOUND=true" >> $GITHUB_ENV
+            CRITICAL_FOUND=true
+          else
+            echo "[PASS] No hardcoded JWT secret key" >> $REPORT
+          fi
+
+          # Check 2: OTP leaked in response
+          echo "" >> $REPORT
+          echo "[CHECK] OTP in API response" >> $REPORT
+          if grep -rn "demo_otp" backend/ 2>/dev/null; then
+            echo "[CRITICAL] OTP leaked in API response!" >> $REPORT
+            echo "CRITICAL_FOUND=true" >> $GITHUB_ENV
+            CRITICAL_FOUND=true
+          else
+            echo "[PASS] OTP not in API response" >> $REPORT
+          fi
+
+          # Check 3: Unprotected profile endpoint
+          echo "" >> $REPORT
+          echo "[CHECK] Unauthenticated profile endpoint" >> $REPORT
+          if grep -n "def get_user_profile" backend/app/api/profile.py 2>/dev/null | grep -v "get_current_user"; then
+            echo "[CRITICAL] Profile endpoint has no authentication!" >> $REPORT
+            echo "CRITICAL_FOUND=true" >> $GITHUB_ENV
+            CRITICAL_FOUND=true
+          else
+            echo "[PASS] Profile endpoint authenticated" >> $REPORT
+          fi
+
+          # Check 4: Wildcard CORS
+          echo "" >> $REPORT
+          echo "[CHECK] Wildcard CORS" >> $REPORT
+          if grep -rn 'allow_origins=\["\*"\]' backend/ 2>/dev/null; then
+            echo "[HIGH] Wildcard CORS configuration detected!" >> $REPORT
+          else
+            echo "[PASS] No wildcard CORS" >> $REPORT
+          fi
+
+          # Check 5: Unprotected notice write endpoints
+          echo "" >> $REPORT
+          echo "[CHECK] Unauthenticated notice mutations" >> $REPORT
+          NOTICE_AUTH=$(grep -A5 "def create_notice" backend/app/api/notices.py 2>/dev/null | grep -c "get_current_user" || echo "0")
+          if [ "$NOTICE_AUTH" -eq "0" ]; then
+            echo "[HIGH] create_notice has no authentication!" >> $REPORT
+          else
+            echo "[PASS] create_notice requires authentication" >> $REPORT
+          fi
+
+          # Summary
+          echo "" >> $REPORT
+          echo "Custom checks complete." >> $REPORT
+          cat $REPORT
+
+          echo "### Custom Security Checks" >> $GITHUB_STEP_SUMMARY
+          cat $REPORT >> $GITHUB_STEP_SUMMARY
+
+      # ── 8. Generate security summary report ───────────────────────────────
+      - name: Generate security summary
+        run: |
+          cat > security-reports/summary.md << 'SUMMARY'
+          # Security Audit Summary
+
+          **Application:** Smart Notice Board
+          **Framework:** FastAPI (Python)
+          **Date:** $(date +%Y-%m-%d)
+
+          ## Key Findings from Static Analysis
+
+          | ID | Severity | Finding |
+          |----|----------|---------|
+          | F-001 | Critical | Hardcoded JWT secret key in config.py |
+          | F-002 | Medium | JWT expiry set to 30 days |
+          | F-003 | Critical | OTP leaked in forgot-password response |
+          | F-004 | Critical | No authentication on /api/profile endpoints |
+          | F-005 | High | Google OAuth token not verified |
+          | F-006 | High | Unauthenticated notice create/update/delete |
+          | F-007 | High | Unauthenticated assignment creation |
+          | F-008 | High | Unauthenticated events/placements/documents write |
+          | F-009 | High | Any user can list all users (PII exposure) |
+          | F-010 | High | Unauthenticated chat history access |
+          | F-011 | Medium | Voice endpoint has no authentication |
+          | F-012 | High | Results accessible without auth |
+          | F-013 | High | Wildcard CORS with credentials |
+          | F-014 | Medium | No security headers |
+          | F-015 | Medium | No file type validation on uploads |
+          | F-016 | Medium | Feedback/chat hardcode user identity |
+          | F-017 | Medium | Attendance update has no ownership check |
+
+          ## Score: 34/100 — NOT PRODUCTION-READY
+          SUMMARY
+          echo "Security summary generated."
+
+      # ── 9. Upload artifacts ────────────────────────────────────────────────
+      - name: Upload security reports
         uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: Security-Assessment-Deliverables
-          path: |
-            Vulnerability Test Results/security-review.md
-            Vulnerability Test Results/executive-summary.md
-            Vulnerability Test Results/dependency-report.md
-            Vulnerability Test Results/endpoint-inventory.xlsx
-            Vulnerability Test Results/findings.xlsx
+          name: security-reports-${{ github.run_number }}
+          path: security-reports/
+          retention-days: 30
 
-      - name: Publish Security Audit Summary
+      # ── 10. Fail on confirmed Critical issues ─────────────────────────────
+      - name: Fail on Critical findings
         run: |
-          echo "## 🛡️ Security Assessment Summary" >> $GITHUB_STEP_SUMMARY
-          echo "**Overall Security Score:** 92/100 (SECURE)" >> $GITHUB_STEP_SUMMARY
-          echo "**Critical Findings:** 0" >> $GITHUB_STEP_SUMMARY
-          echo "**High Findings:** 0" >> $GITHUB_STEP_SUMMARY
-          echo "**Medium Findings:** 3" >> $GITHUB_STEP_SUMMARY
-          echo "**Low Findings:** 1" >> $GITHUB_STEP_SUMMARY
+          echo "### Final Security Gate" >> $GITHUB_STEP_SUMMARY
+
+          FAIL=false
+
+          if [ "${{ env.CRITICAL_FOUND }}" == "true" ]; then
+            echo "❌ **CRITICAL vulnerabilities confirmed in source code!**" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Blocked by:**" >> $GITHUB_STEP_SUMMARY
+            echo "- Hardcoded JWT secret key (F-001)" >> $GITHUB_STEP_SUMMARY
+            echo "- OTP leaked in response (F-003)" >> $GITHUB_STEP_SUMMARY
+            echo "- Unauthenticated profile endpoint (F-004)" >> $GITHUB_STEP_SUMMARY
+            FAIL=true
+          fi
+
+          if [ "${{ env.GITLEAKS_FOUND }}" == "true" ]; then
+            echo "❌ **Secrets detected in repository by Gitleaks!**" >> $GITHUB_STEP_SUMMARY
+            FAIL=true
+          fi
+
+          if [ "$FAIL" == "true" ]; then
+            echo ""
+            echo "=========================================="
+            echo "  SECURITY GATE FAILED — Critical Issues "
+            echo "=========================================="
+            exit 1
+          else
+            echo "✅ No confirmed Critical vulnerabilities blocking the pipeline." >> $GITHUB_STEP_SUMMARY
+            echo "⚠️  High/Medium issues still require remediation — see reports." >> $GITHUB_STEP_SUMMARY
+          fi

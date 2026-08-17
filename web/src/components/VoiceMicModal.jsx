@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Mic, MicOff, X, Volume2, Sparkles, Send } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 import api from '../services/api';
 
 export default function VoiceMicModal({ isOpen, onClose }) {
@@ -11,6 +13,8 @@ export default function VoiceMicModal({ isOpen, onClose }) {
   const [speaking, setSpeaking] = useState(false);
 
   const navigate = useNavigate();
+  const { language, speechLangCode } = useLanguage();
+  const { toggleTheme } = useTheme();
 
   useEffect(() => {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
@@ -18,7 +22,7 @@ export default function VoiceMicModal({ isOpen, onClose }) {
       const rec = new SpeechRecognition();
       rec.continuous = false;
       rec.interimResults = true;
-      rec.lang = 'en-US';
+      rec.lang = speechLangCode;
 
       rec.onstart = () => setListening(true);
       rec.onresult = (event) => {
@@ -28,24 +32,19 @@ export default function VoiceMicModal({ isOpen, onClose }) {
         setTranscript(text);
       };
 
-      rec.onend = () => {
-        setListening(false);
-      };
-
-      rec.onerror = (e) => {
-        console.warn('Speech recognition error:', e.error);
-        setListening(false);
-      };
+      rec.onend = () => setListening(false);
+      rec.onerror = () => setListening(false);
 
       setRecognition(rec);
     }
-  }, []);
+  }, [speechLangCode]);
 
   const startListening = () => {
     setTranscript('');
     setResponseMessage('');
     if (recognition) {
       try {
+        recognition.lang = speechLangCode;
         recognition.start();
       } catch (e) {
         setListening(true);
@@ -62,59 +61,51 @@ export default function VoiceMicModal({ isOpen, onClose }) {
     setListening(false);
   };
 
-  const handleProcessCommand = async (cmdText) => {
-    const textToProcess = cmdText || transcript;
-    if (!textToProcess.trim()) return;
-
-    stopListening();
-    setResponseMessage('Processing voice command...');
-
-    try {
-      const res = await api.post('/voice/process', { command: textToProcess });
-      const { action, target, message } = res.data;
-      setResponseMessage(message || 'Command executed.');
-
-      // Text-to-speech audio feedback
-      speakText(message || 'Command executed.');
-
-      // Route navigation based on command intent
-      setTimeout(() => {
-        if (action === 'NAVIGATE' || target) {
-          const lowerTarget = (target || '').toLowerCase();
-          if (lowerTarget.includes('notice')) navigate('/notices');
-          else if (lowerTarget.includes('timetable') || lowerTarget.includes('class')) navigate('/timetable');
-          else if (lowerTarget.includes('attendance')) navigate('/attendance');
-          else if (lowerTarget.includes('assignment')) navigate('/assignments');
-          else if (lowerTarget.includes('placement')) navigate('/placements');
-          else if (lowerTarget.includes('result')) navigate('/results');
-          else if (lowerTarget.includes('event')) navigate('/events');
-          else if (lowerTarget.includes('chatbot') || lowerTarget.includes('ask')) navigate('/chatbot');
-          onClose();
-        }
-      }, 1200);
-    } catch (err) {
-      // Offline fallback processing
-      const lower = textToProcess.toLowerCase();
-      let msg = `Executed: "${textToProcess}"`;
-      if (lower.includes('notice')) { navigate('/notices'); msg = 'Navigating to Notices'; }
-      else if (lower.includes('timetable')) { navigate('/timetable'); msg = 'Opening Timetable'; }
-      else if (lower.includes('attendance')) { navigate('/attendance'); msg = 'Opening Attendance Tracker'; }
-      else if (lower.includes('assignment')) { navigate('/assignments'); msg = 'Opening Assignments'; }
-      else if (lower.includes('placement')) { navigate('/placements'); msg = 'Opening Placement Portal'; }
-
-      setResponseMessage(msg);
-      speakText(msg);
-      setTimeout(() => onClose(), 1500);
-    }
-  };
-
   const speakText = (text) => {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = speechLangCode;
       utterance.onstart = () => setSpeaking(true);
       utterance.onend = () => setSpeaking(false);
+      utterance.onerror = () => setSpeaking(false);
       window.speechSynthesis.speak(utterance);
+    }
+  };
+
+  const handleProcessCommand = async (cmdText) => {
+    const textToProcess = cmdText || transcript;
+    if (!textToProcess || !textToProcess.trim()) return;
+
+    stopListening();
+    setResponseMessage('Processing voice request with AI...');
+
+    try {
+      const res = await api.post('/assistant/voice-intent', {
+        message: textToProcess,
+        language: language,
+        platform: 'web'
+      });
+
+      const { response, navigation, intent } = res.data;
+      setResponseMessage(response);
+      speakText(response);
+
+      if (intent === 'CHANGE_THEME') {
+        toggleTheme();
+      }
+
+      setTimeout(() => {
+        if (navigation) {
+          navigate(navigation);
+          onClose();
+        }
+      }, 2000);
+    } catch (err) {
+      const fallbackMsg = `Executed: "${textToProcess}"`;
+      setResponseMessage(fallbackMsg);
+      speakText(fallbackMsg);
+      setTimeout(() => onClose(), 1500);
     }
   };
 
@@ -132,7 +123,7 @@ export default function VoiceMicModal({ isOpen, onClose }) {
 
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider mb-6">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>Voice Recognition AI</span>
+          <span>Real-World AI Voice Assistant</span>
         </div>
 
         {/* Pulsing Mic Circle */}
@@ -155,13 +146,13 @@ export default function VoiceMicModal({ isOpen, onClose }) {
         </div>
 
         <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">
-          {listening ? 'Listening... Speak your command now' : 'Click microphone to start speaking'}
+          {listening ? 'Listening... Speak naturally' : 'Click microphone to start speaking'}
         </p>
 
-        {/* Realtime Transcript or Input */}
+        {/* Realtime Transcript or Prompt */}
         <div className="min-h-[60px] p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 mb-4 flex items-center justify-center">
           <p className="text-sm font-medium text-slate-800 dark:text-slate-100 italic">
-            {transcript ? `"${transcript}"` : 'Try saying: "Read latest notice" or "Show my attendance"'}
+            {transcript ? `"${transcript}"` : 'Try: "Show my attendance" or "What classes do I have today?"'}
           </p>
         </div>
 
@@ -173,11 +164,11 @@ export default function VoiceMicModal({ isOpen, onClose }) {
           </div>
         )}
 
-        {/* Manual Submit or Sample Commands */}
+        {/* Input Bar */}
         <div className="flex gap-2">
           <input
             type="text"
-            placeholder="Type command if mic is unavailable..."
+            placeholder="Type voice query..."
             value={transcript}
             onChange={(e) => setTranscript(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleProcessCommand()}

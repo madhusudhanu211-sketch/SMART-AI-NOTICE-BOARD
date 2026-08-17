@@ -18,6 +18,7 @@ from app.api.events import router as events_router
 from app.api.placements import router as placements_router
 from app.api.ai_bot import router as ai_router
 from app.api.voice import router as voice_router
+from app.api.assistant import router as assistant_router
 from app.api.alerts import router as alerts_router
 from app.api.analytics import router as analytics_router
 from app.api.reports import router as reports_router
@@ -70,7 +71,7 @@ def root():
 routers = [
     auth_router, users_router, dept_router, notices_router, assignments_router,
     attendance_router, timetable_router, events_router, placements_router,
-    ai_router, voice_router, alerts_router, analytics_router, reports_router,
+    ai_router, voice_router, assistant_router, alerts_router, analytics_router, reports_router,
     files_router, feedback_router
 ]
 
