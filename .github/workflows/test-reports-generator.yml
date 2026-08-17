@@ -1,0 +1,56 @@
+name: Generate & Upload Appium, Selenium, and Live Test Excel Reports
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  generate-test-reports:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Report Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install openpyxl requests
+
+      - name: Run Appium 300 Test Cases Excel Report Generator
+        run: |
+          python appium-tests/generate_report.py
+
+      - name: Run Selenium 300 Test Cases Excel Report Generator
+        run: |
+          python selenium-tests/generate_report.py
+
+      - name: Run Live System 300 Test Cases Excel Report Generator
+        run: |
+          python live_test/run_live_tests.py
+
+      - name: Upload Test Reports as GitHub Actions Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Smart-Notice-Board-Test-Reports-Excel
+          path: |
+            appium-tests/reports/*.xlsx
+            selenium-tests/reports/*.xlsx
+            live_test/reports/*.xlsx
+            *.md
+          retention-days: 30
+
+      - name: Commit & Push Updated Excel Reports (if changed)
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add appium-tests/reports/ selenium-tests/reports/ live_test/reports/ *.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(ci): Auto-generate Appium, Selenium & Live Test Excel Reports [skip ci]" && git push)
