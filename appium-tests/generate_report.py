@@ -237,5 +237,12 @@ for col_letter, w in col_widths_details.items():
 
 wb.save(EXCEL_REPORT_PATH)
 
+# Also save to Test Results/Excel/Automation_Test_Report.xlsx as required by GitHub Actions / Pages pipeline
+TEST_RESULTS_EXCEL = os.path.join(os.path.dirname(BASE_DIR), "Test Results", "Excel")
+os.makedirs(TEST_RESULTS_EXCEL, exist_ok=True)
+AUTOMATION_TEST_REPORT_PATH = os.path.join(TEST_RESULTS_EXCEL, "Automation_Test_Report.xlsx")
+wb.save(AUTOMATION_TEST_REPORT_PATH)
+
 print(f"[OK] Appium Report Generation Complete!")
 print(f"[SUMMARY] Total 300 Appium Test Cases written to: {EXCEL_REPORT_PATH}")
+print(f"[SUMMARY] Published copy to: {AUTOMATION_TEST_REPORT_PATH}")

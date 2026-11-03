@@ -224,7 +224,35 @@ After any push, pull request, or manual run:
 3. Click on the latest workflow run.
 4. Scroll down to the **Artifacts** section:
    - `Selenium-Web-Test-Reports`: Download HTML test report, Excel test case matrix, and failure screenshots.
-   - `Appium-Mobile-Test-Reports`: Download mobile HTML report, Excel matrix, logcat dumps, and screenshots.
+   - `Appium-Test-Results-Build-XXX`: Download the full `Test Results/` folder containing `Excel/Automation_Test_Report.xlsx`, `HTML/execution-report.html`, `Screenshots/`, `Logs/`, and `Summary/summary.md`.
    - `Load-Testing-Performance-Reports`: Download Locust interactive HTML reports, CSV metrics, summary markdown, and Excel analysis.
 5. Review the **Step Summary** directly inside the GitHub Actions run for an instant table overview of PASS/FAIL metrics and response times.
+
+---
+
+### 🌐 6. Live GitHub Pages Report Hosting
+Every execution of the Appium E2E workflow automatically packages and deploys test results to **GitHub Pages**:
+
+* **Live Report Dashboard URL:**  
+  👉 **[https://madhusudhanu211-sketch.github.io/SMART-AI-NOTICE-BOARD/reports/latest/execution-report.html](https://madhusudhanu211-sketch.github.io/SMART-AI-NOTICE-BOARD/reports/latest/execution-report.html)**
+
+#### Directory Structure on GitHub Pages:
+```
+reports/
+├── latest/
+│   ├── execution-report.html
+│   ├── summary.md
+│   ├── screenshots/
+│   └── logs/
+└── history/
+    ├── build-001/
+    ├── build-002/
+    └── build-003/
+```
+
+#### One-Time Setup on GitHub:
+1. Go to repository **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+3. Under **Branch**, select **`gh-pages`** and folder **`/ (root)`**.
+4. Click **Save**. All future builds will deploy automatically!
 
