@@ -1,10 +1,10 @@
 name: Selenium Web Automation E2E Testing
 
-on:
+'on':
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
   workflow_dispatch:
 
 concurrency:
@@ -64,7 +64,7 @@ jobs:
       - name: Start FastAPI Backend Service
         run: |
           python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend &
-          echo "Waiting for FastAPI server to become healthy..."
+          echo "Waiting for FastAPI server to initialize on port 8000..."
           timeout 30 bash -c 'until curl -s http://127.0.0.1:8000/ > /dev/null; do sleep 1; done'
           echo "FastAPI backend is ready!"
 
@@ -72,7 +72,7 @@ jobs:
         run: |
           cd web
           npm run dev -- --host 127.0.0.1 --port 5173 &
-          echo "Waiting for Vite web server to respond on port 5173..."
+          echo "Waiting for Vite web server on port 5173..."
           timeout 30 bash -c 'until curl -s http://127.0.0.1:5173/ > /dev/null; do sleep 1; done'
           echo "Vite web frontend is ready!"
 
@@ -99,9 +99,9 @@ jobs:
           echo "### 🌐 Selenium Web E2E Test Execution Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.run_tests.outcome }}" == "success" ]; then
-            echo "Status: **PASSED (All test suites executed successfully)**" >> $GITHUB_STEP_SUMMARY
+            echo "Status: **✅ PASSED (All test suites executed successfully)**" >> $GITHUB_STEP_SUMMARY
           else
-            echo "Status: **FAILED (Inspect test report & screenshots below)**" >> $GITHUB_STEP_SUMMARY
+            echo "Status: **❌ FAILED (Inspect test report & screenshots below)**" >> $GITHUB_STEP_SUMMARY
           fi
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Feature Area | Automated Scope | Engine | Report |" >> $GITHUB_STEP_SUMMARY
@@ -110,7 +110,7 @@ jobs:
           echo "| **Dashboard & Navigation** | Student, Faculty & Admin consoles | Chrome Headless | HTML & Excel |" >> $GITHUB_STEP_SUMMARY
           echo "| **Campus Notices** | Create Notice Modal, Keyword Search, Pin & Delete | Chrome Headless | HTML & Excel |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Test artifacts have been attached below: \`selenium-test-report.html\` and \`Selenium_E2E_300_Test_Cases_Report.xlsx\`." >> $GITHUB_STEP_SUMMARY
+          echo "Test artifacts attached below: \`selenium-test-report.html\` and \`Selenium_E2E_300_Test_Cases_Report.xlsx\`." >> $GITHUB_STEP_SUMMARY
 
       # ── 8. Upload Artifacts ─────────────────────────────────────────────────
       - name: Upload Selenium Test Reports & Screenshots
@@ -123,4 +123,3 @@ jobs:
             selenium-tests/reports/Selenium_E2E_300_Test_Cases_Report.xlsx
             selenium-tests/reports/screenshots/*.png
           retention-days: 30
-

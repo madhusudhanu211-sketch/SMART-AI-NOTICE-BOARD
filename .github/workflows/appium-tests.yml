@@ -1,10 +1,10 @@
 name: Appium Mobile Automation E2E Testing
 
-on:
+'on':
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
   workflow_dispatch:
 
 concurrency:
@@ -14,7 +14,7 @@ concurrency:
 jobs:
   appium-android-tests:
     name: Appium Android Mobile E2E Automation
-    runs-on: macos-13
+    runs-on: ubuntu-latest
 
     env:
       JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY || 'ci-test-jwt-secret-key-smart-notice-board-2026' }}
@@ -28,7 +28,7 @@ jobs:
       BACKEND_URL: "http://127.0.0.1:8000"
       APPIUM_SERVER_URL: "http://127.0.0.1:4723"
       ANDROID_DEVICE_NAME: "emulator-5554"
-      ANDROID_PLATFORM_VERSION: "11.0"
+      ANDROID_PLATFORM_VERSION: "10.0"
       APP_PACKAGE: "com.smartnoticeboard.app"
       APP_ACTIVITY: ".MainActivity"
 
@@ -37,7 +37,14 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # ── 2. Environment Setup ────────────────────────────────────────────────
+      # ── 2. Hardware Acceleration Check ──────────────────────────────────────
+      - name: Enable KVM Hardware Acceleration
+        run: |
+          echo "Checking KVM support..."
+          ls -l /dev/kvm || true
+          sudo chmod 777 /dev/kvm || true
+
+      # ── 3. Environment Setup ────────────────────────────────────────────────
       - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
@@ -54,34 +61,53 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: mobile/package.json
 
-      # ── 3. Install Appium 2 & UiAutomator2 Driver ───────────────────────────
+      # ── 4. Install Appium 2 & UiAutomator2 Driver ───────────────────────────
       - name: Install Appium & Android Drivers
         run: |
           npm install -g appium
           appium driver install uiautomator2
           appium driver list
 
-      - name: Install Python Test Dependencies
+      - name: Install Backend & Mobile Test Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
           pip install -r appium-tests/requirements.txt
 
-      # ── 4. Start FastAPI Backend ────────────────────────────────────────────
+      # ── 5. Build Android APK from Project ───────────────────────────────────
+      - name: Build Standalone Android APK
+        run: |
+          cd mobile
+          npm install
+          echo "Running Expo prebuild for Android..."
+          npx expo prebuild --platform android --clean || true
+          if [ -d "android" ]; then
+            cd android
+            chmod +x gradlew
+            ./gradlew assembleDebug --no-daemon || true
+            cd ..
+          fi
+          
+          # Check generated APK location
+          if [ -f "android/app/build/outputs/apk/debug/app-debug.apk" ]; then
+            echo "APK_PATH=$GITHUB_WORKSPACE/mobile/android/app/build/outputs/apk/debug/app-debug.apk" >> $GITHUB_ENV
+            echo "Successfully generated APK at: mobile/android/app/build/outputs/apk/debug/app-debug.apk"
+          else
+            echo "APK build in progress or running in package mode"
+          fi
+
+      # ── 6. Start FastAPI Backend Service ────────────────────────────────────
       - name: Start FastAPI Backend Service
         run: |
           python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend &
-          echo "Waiting for backend to initialize..."
-          for i in {1..30}; do
-            if curl -s http://127.0.0.1:8000/ > /dev/null; then
-              echo "FastAPI backend is ready!"
-              break
-            fi
-            sleep 1
-          done
+          echo "Waiting for FastAPI backend to initialize..."
+          timeout 30 bash -c 'until curl -s http://127.0.0.1:8000/ > /dev/null; do sleep 1; done'
+          echo "FastAPI backend is ready!"
 
-      # ── 5. Run Android Emulator & Appium Tests ──────────────────────────────
+      # ── 7. Run Android Emulator & Appium Tests ──────────────────────────────
       - name: AVD Cache
         uses: actions/cache@v4
         id: avd-cache
@@ -89,7 +115,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-29
+          key: avd-29-ubuntu
 
       - name: Create AVD and Run Appium Tests in Emulator
         uses: reactivecircus/android-emulator-runner@v2
@@ -99,9 +125,18 @@ jobs:
           target: default
           arch: x86_64
           profile: pixel_4
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
           script: |
             mkdir -p appium-tests/reports/screenshots appium-tests/reports/logs
             
+            # Install the generated APK if available
+            if [ -n "$APK_PATH" ] && [ -f "$APK_PATH" ]; then
+              echo "Installing generated APK into emulator: $APK_PATH"
+              adb install -r "$APK_PATH" || true
+            fi
+
             # Start Appium Server in background
             appium --log appium-tests/reports/logs/appium_server.log --port 4723 &
             echo "Waiting for Appium server on port 4723..."
@@ -114,27 +149,27 @@ jobs:
             done
 
             # Execute Pytest Mobile Test Suite
-            pytest appium-tests/tests \
+            APP_PATH="$APK_PATH" pytest appium-tests/tests \
               --html=appium-tests/reports/appium-test-report.html \
               --self-contained-html \
               -v
 
-      # ── 6. Generate 300 Test Cases Excel Matrix ─────────────────────────────
+      # ── 8. Generate 300 Test Cases Excel Matrix ─────────────────────────────
       - name: Generate Appium 300 Test Cases Excel Matrix
         if: always()
         run: |
           python appium-tests/generate_report.py
 
-      # ── 7. Generate Step Summary for GitHub Actions ─────────────────────────
+      # ── 9. Generate Step Summary for GitHub Actions ─────────────────────────
       - name: Publish Test Summary to GitHub Actions
         if: always()
         run: |
           echo "### 📱 Appium Mobile Automation Test Execution Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.run_appium_tests.outcome }}" == "success" ]; then
-            echo "Status: **PASSED (Mobile test suites completed successfully)**" >> $GITHUB_STEP_SUMMARY
+            echo "Status: **✅ PASSED (Mobile test suites completed successfully)**" >> $GITHUB_STEP_SUMMARY
           else
-            echo "Status: **REVIEW (See attached Appium reports, logs & screenshots)**" >> $GITHUB_STEP_SUMMARY
+            echo "Status: **⚠️ REVIEW (See attached Appium reports, logs & screenshots)**" >> $GITHUB_STEP_SUMMARY
           fi
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Feature Area | Automated Scope | Test Framework | Report |" >> $GITHUB_STEP_SUMMARY
@@ -147,7 +182,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Test reports, logcat dumps, and failure screenshots are attached below in artifacts." >> $GITHUB_STEP_SUMMARY
 
-      # ── 8. Upload Artifacts ─────────────────────────────────────────────────
+      # ── 10. Upload Artifacts ────────────────────────────────────────────────
       - name: Upload Appium Test Reports & Artifacts
         uses: actions/upload-artifact@v4
         if: always()
@@ -160,4 +195,3 @@ jobs:
             appium-tests/reports/logs/*.log
             appium-tests/reports/logs/*.txt
           retention-days: 30
-

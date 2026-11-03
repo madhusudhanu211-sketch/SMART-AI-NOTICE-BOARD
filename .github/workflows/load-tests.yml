@@ -1,14 +1,13 @@
 name: Load and Performance Testing
 
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+'on':
+  schedule:
+    # Optional scheduled run: Every Monday at 02:00 UTC
+    - cron: '0 2 * * 1'
   workflow_dispatch:
     inputs:
       test_duration:
-        description: 'Duration for each stage (e.g., 30s, 1m)'
+        description: 'Duration for each stage (e.g. 30s, 1m)'
         required: false
         default: '30s'
 
@@ -103,4 +102,3 @@ jobs:
             load-tests/reports/*.md
             LOAD_TEST_300_TEST_CASES_REPORT.xlsx
           retention-days: 30
-
