@@ -22,15 +22,35 @@ class VoiceService:
         Database Query Integration, Context Tracking, Multi-language Support, and Gemini Fallback.
         """
         if not raw_command or not raw_command.strip():
+            no_speech_msg = (
+                "మైక్రోఫోన్ నుండి ఎటువంటి మాటలు నమోదు కాలేదు. దయచేసి మాట్లాడండి."
+                if language == "te"
+                else "No speech was detected. Please speak into your microphone."
+            )
             return self._build_response(
-                intent="UNKNOWN",
-                response="I didn't hear a command. Please try speaking again.",
+                intent="NO_SPEECH_DETECTED",
+                response=no_speech_msg,
                 language=language
             )
 
         cmd = raw_command.lower().strip()
-        cmd_clean = re.sub(r'[^\w\s]', '', cmd)
+        # Preserve Unicode characters and combining marks for Telugu, Hindi, and Tamil
+        cmd_clean = re.sub(r'[\?\.\,\!\;\:\'\"\(\)\[\]\{\}]', '', cmd)
         role = (current_user.role.upper() if current_user and current_user.role else "STUDENT")
+
+        # Unclear or unintelligible speech check
+        unclear_fillers = ["uh", "um", "hmm", "ah", "er", "erm", "huh"]
+        if len(cmd_clean) <= 1 or cmd_clean in unclear_fillers:
+            repeat_msg = (
+                "మీరు చెప్పింది స్పష్టంగా వినిపించలేదు. దయచేసి మీ ప్రశ్నను మళ్లీ అడగండి."
+                if language == "te"
+                else "I didn't quite catch that. Could you please repeat your question?"
+            )
+            return self._build_response(
+                intent="UNCLEAR_SPEECH",
+                response=repeat_msg,
+                language=language
+            )
 
         # ----------------------------------------------------------------------
         # 0. Check Short-Term Conversation Context (Follow-up questions)
@@ -289,7 +309,97 @@ class VoiceService:
             )
 
         # ----------------------------------------------------------------------
-        # 8. DOCUMENTS INTENTS
+        # 8. EXAM SCHEDULES & DATE SHEET INTENTS
+        # ----------------------------------------------------------------------
+        if any(term in cmd_clean for term in [
+            "exam", "exams", "examination", "midterm", "datesheet", "date sheet", "practical",
+            "పరీక్షలు", "పరీక్ష", "ఎగ్జామ్", "परीक्षा"
+        ]):
+            if language == "te":
+                resp_text = "సెమిస్టర్ పరీక్షలు సెప్టెంబర్ 1 నుండి ప్రారంభమవుతాయి. పూర్తి టైమ్‌టేబుల్ నోటీస్ బోర్డులో అందుబాటులో ఉంది."
+            else:
+                resp_text = "End-Semester Examinations commence from September 1st, 2026. Detailed timetable datesheet is available on the Notice Board."
+            return self._build_response(
+                intent="GET_EXAMS",
+                response=resp_text,
+                navigation="/notices",
+                language=language
+            )
+
+        # ----------------------------------------------------------------------
+        # 9. HOLIDAYS & VACATION INTENTS
+        # ----------------------------------------------------------------------
+        if any(term in cmd_clean for term in [
+            "holiday", "holidays", "vacation", "leave", "closed", "off day",
+            "సెలవులు", "సెలవు", "छुट्टी", "छुट्टियां"
+        ]):
+            if language == "te":
+                resp_text = "రాబోయే సెలవులు: ఆగస్టు 15న స్వాతంత్య్ర దినోత్సవం, మరియు అక్టోబర్ 12 నుండి 18 వరకు దసరా సెలవులు."
+            else:
+                resp_text = "Upcoming College Holidays: Independence Day on August 15th, and Dussehra Vacation from October 12th to 18th."
+            return self._build_response(
+                intent="GET_HOLIDAYS",
+                response=resp_text,
+                navigation="/events",
+                language=language
+            )
+
+        # ----------------------------------------------------------------------
+        # 10. FEE PAYMENT & FINANCIAL INTENTS
+        # ----------------------------------------------------------------------
+        if any(term in cmd_clean for term in [
+            "fee", "fees", "payment", "tuition", "fine", "due date", "pay",
+            "ఫీజు", "ఫీజులు", "చెల్లింపు", "ఫీజు చెల్లింపు", "फीस"
+        ]):
+            if language == "te":
+                resp_text = "సెమిస్టర్ ట్యూషన్ ఫీజు చెల్లింపు చివరి తేదీ సెప్టెంబర్ 10, 2026. ఆన్‌లైన్ పేమెంట్ పోర్టల్‌లో ఫీజు చెల్లించవచ్చు."
+            else:
+                resp_text = "Semester tuition fee payment deadline is September 10th, 2026. Online payment portal is accessible with zero transaction fees."
+            return self._build_response(
+                intent="GET_FEES",
+                response=resp_text,
+                navigation="/profile",
+                language=language
+            )
+
+        # ----------------------------------------------------------------------
+        # 11. FACULTY INFORMATION INTENTS
+        # ----------------------------------------------------------------------
+        if any(term in cmd_clean for term in [
+            "faculty", "professor", "hod", "teacher", "mentor", "adviser", "instructor",
+            "ఫ్యాకల్టీ", "ప్రొఫెసర్", "లెక్చరర్", "సార్", "మేడమ్", "शिक्षक"
+        ]):
+            if language == "te":
+                resp_text = "డిపార్ట్‌మెంట్ ఫ్యాకల్టీ వివరాలు: డాక్టర్ ఆర్థర్ పెండెల్టన్ (హెచ్ఓడి), ప్రొఫెసర్ సారా జెంకిన్స్. సంప్రదింపు సమయం మధ్యాహ్నం 2:00 నుండి 4:00 వరకు."
+            else:
+                resp_text = "CSE Department Faculty: Dr. Arthur Pendelton (HOD), Prof. Sarah Jenkins (AI/ML). Office hours: Monday to Friday, 2:00 PM to 4:00 PM."
+            return self._build_response(
+                intent="GET_FACULTY",
+                response=resp_text,
+                navigation="/profile",
+                language=language
+            )
+
+        # ----------------------------------------------------------------------
+        # 12. PROJECT & ARCHITECTURE INTENTS
+        # ----------------------------------------------------------------------
+        if any(term in cmd_clean for term in [
+            "project", "smart notice board", "architecture", "tech stack", "features",
+            "ప్రాజెక్ట్", "ప్రాజెక్టు", "సాంకేతికత"
+        ]):
+            if language == "te":
+                resp_text = "స్మార్ట్ ఏఐ నోటీస్ బోర్డ్ అనేది వాయిస్ రికగ్నిషన్, జెమినీ ఏఐ ఇంటిగ్రేషన్ మరియు డిజిటల్ నోటీసుల ప్రసారంతో కూడిన అడ్వాన్స్‌డ్ ప్రాజెక్ట్."
+            else:
+                resp_text = "Smart AI Notice Board features real-time voice recognition in English & Telugu, Gemini AI assistance, campus notices broadcast, and role-based access control."
+            return self._build_response(
+                intent="PROJECT_INFO",
+                response=resp_text,
+                navigation="/dashboard",
+                language=language
+            )
+
+        # ----------------------------------------------------------------------
+        # 13. DOCUMENTS INTENTS
         # ----------------------------------------------------------------------
         if any(term in cmd_clean for term in [
             "document", "documents", "file", "policy", "syllabus", "pdf",
@@ -360,8 +470,8 @@ class VoiceService:
         # 10. AI GENERAL CONVERSATIONAL FALLBACK (Gemini AI Service Integration)
         # ----------------------------------------------------------------------
         try:
-            if db and current_user:
-                ai_answer = gemini_ai_service.generate_response(db, current_user, raw_command, language=language)
+            ai_answer = gemini_ai_service.generate_response(db, current_user, raw_command, language=language)
+            if ai_answer:
                 return self._build_response(
                     intent="GENERAL_AI_QUERY",
                     response=ai_answer,
@@ -371,10 +481,15 @@ class VoiceService:
         except Exception as e:
             print(f"[Gemini Voice Fallback Error] {e}")
 
-        # Default friendly response if nothing matched
+        # Clear unavailable information notice as required by specification
+        if language == "te":
+            unavailable_msg = "క్షమించండి, ఈ ప్రశ్నకు సంబంధించిన సమాచారం ప్రస్తుతం అందుబాటులో లేదు. దయచేసి నోటీస్ బోర్డును పరిశీలించండి."
+        else:
+            unavailable_msg = f"The information for '{raw_command}' is currently not available in the system. Please check the Notice Board or consult the department office."
+
         return self._build_response(
-            intent="UNKNOWN",
-            response=f"I understood: '{raw_command}'. Try asking: 'What is my attendance?', 'Show today's timetable', or 'Read latest notice'.",
+            intent="INFO_UNAVAILABLE",
+            response=unavailable_msg,
             language=language
         )
 

@@ -31,36 +31,45 @@ export default function VoiceAssistant() {
   const sampleCommandsByLang = {
     en: [
       "Show my attendance",
-      "Is my attendance percentage enough?",
+      "When are the semester examinations?",
+      "What are the upcoming college holidays?",
+      "When is the tuition fee payment deadline?",
       "What classes do I have today?",
-      "Read my latest notices",
+      "Read my latest campus notices",
       "Do I have any assignments due?",
-      "Show upcoming college events",
-      "Turn on dark mode",
-      "Mark attendance (Faculty)"
+      "Who is the HOD of CSE department?",
+      "Explain the Smart Notice Board architecture",
+      "What is Machine Learning and supervised learning?",
+      "Show upcoming campus hackathons and events",
+      "Mark attendance for all students (Faculty)"
     ],
     te: [
       "నా అటెండెన్స్ చూపించు",
-      "నా అటెండెన్స్ శాతం సరిపోతుందా?",
+      "సెమిస్టర్ పరీక్షల తేదీలు ఎప్పుడు?",
+      "రాబోయే కళాశాల సెలవులు ఏమిటి?",
+      "ట్యూషన్ ఫీజు చెల్లింపు చివరి తేదీ ఎప్పుడు?",
       "ఈ రోజు ఏ తరగతులు ఉన్నాయి?",
       "తాజా నోటీసులు చదువు",
       "అసైన్‌మెంట్‌లు ఏమైనా ఉన్నాయా?",
+      "సిఎస్‌ఈ డిపార్ట్‌మెంట్ ఫ్యాకల్టీ వివరాలు చెప్పు",
+      "స్మార్ట్ ఏఐ నోటీస్ బోర్డ్ ప్రాజెక్ట్ గురించి వివరించు",
       "డార్క్ మోడ్ మార్చు"
     ],
     hi: [
       "मेरी अटेंडेंस दिखाओ",
-      "क्या मेरी उपस्थिति पर्याप्त है?",
+      "सेमेस्टर परीक्षाएं कब हैं?",
+      "आगामी कॉलेज की छुट्टियां कौन सी हैं?",
+      "फीस भुगतान की अंतिम तिथि क्या है?",
       "आज मेरी कौन सी कक्षाएं हैं?",
-      "नवीनतम नोटिस पढ़ो",
-      "क्या कोई असाइनमेंट बकाया है?",
-      "डार्क मोड ऑन करो"
+      "नवीनतम नोटिस पढ़ो"
     ],
     ta: [
       "என் வருகைப் பதிவைக் காட்டு",
+      "செமஸ்டர் தேர்வுகள் எப்போது?",
+      "வரவிருக்கும் கல்லூரி விடுமுறைகள் என்ன?",
+      "கட்டணம் செலுத்துவதற்கான கடைசி தேதி என்ன?",
       "இன்று என்ன வகுப்புகள் உள்ளன?",
-      "சமீபத்திய அறிவிப்பைப் படி",
-      "நிலுவையில் உள்ள ஒப்படைப்புகள் உண்டா?",
-      "டார்க் மோடை இயக்கு"
+      "சமீపத்திய அறிவிப்பைப் படி"
     ]
   };
 
@@ -78,25 +87,57 @@ export default function VoiceAssistant() {
       rec.interimResults = true;
       rec.lang = speechLangCode;
 
+      let lastFinalText = '';
+
       rec.onstart = () => {
         setListening(true);
-        setStatusMessage(t('voice.listening', 'Listening to your voice... Speak now'));
+        lastFinalText = '';
+        setStatusMessage(t('voice.listening', 'Listening in real-time... Speak now'));
       };
 
       rec.onresult = (event) => {
-        const text = Array.from(event.results)
-          .map((r) => r[0].transcript)
-          .join('');
-        setTranscript(text);
+        let interimText = '';
+        for (let i = 0; i < event.results.length; i++) {
+          const res = event.results[i];
+          if (res.isFinal) {
+            lastFinalText = res[0].transcript;
+          } else {
+            interimText += res[0].transcript;
+          }
+        }
+        const liveText = lastFinalText || interimText;
+        if (liveText) {
+          setTranscript(liveText);
+          setStatusMessage(`🎙️ Live: "${liveText}"`);
+        }
       };
 
       rec.onend = () => {
         setListening(false);
+        if (lastFinalText && lastFinalText.trim().length > 1) {
+          handleProcessQuery(lastFinalText.trim());
+        } else {
+          setStatusMessage(
+            language === 'te'
+              ? 'మైక్రోఫోన్ నుండి ఎటువంటి మాటలు నమోదు కాలేదు. "Start Listening" క్లిక్ చేసి మాట్లాడండి.'
+              : 'No speech detected. Please click "Start Listening" and speak into your microphone.'
+          );
+        }
       };
 
       rec.onerror = (e) => {
         setListening(false);
-        console.warn('Speech Recognition Warning:', e.error);
+        if (e.error === 'not-allowed' || e.error === 'permission-denied') {
+          setStatusMessage('Microphone access blocked. Please allow microphone permissions in your browser settings.');
+        } else if (e.error === 'no-speech') {
+          setStatusMessage(
+            language === 'te'
+              ? 'ఎటువంటి మాటలు వినిపించలేదు. దయచేసి మళ్లీ ప్రయత్నించండి.'
+              : 'No speech detected. Please click "Start Listening" and try again.'
+          );
+        } else {
+          console.warn('Speech Recognition Warning:', e.error);
+        }
       };
 
       setRecognition(rec);
@@ -204,9 +245,12 @@ export default function VoiceAssistant() {
       }
     } catch (err) {
       setProcessing(false);
-      const fallbackResponse = `Received command: "${textToProcess}". Navigating to dashboard.`;
-      setConversation([...updatedHistory, { role: 'assistant', content: fallbackResponse }]);
-      speakText(fallbackResponse);
+      const errMsg =
+        language === 'te'
+          ? 'క్షమించండి, సర్వర్‌ను సంప్రదించడంలో సమస్య ఏర్పడింది. దయచేసి మళ్లీ ప్రయత్నించండి.'
+          : 'Unable to reach the AI voice assistant service. Please check your network connection and try again.';
+      setConversation([...updatedHistory, { role: 'assistant', content: errMsg }]);
+      speakText(errMsg);
     }
   };
 
@@ -285,68 +329,92 @@ export default function VoiceAssistant() {
           </div>
         </div>
 
-        {/* State Label */}
-        <div className="space-y-1">
+        {/* State Label & Sound Wave Visualizer */}
+        <div className="space-y-2">
+          {listening && (
+            <div className="flex items-center justify-center gap-1.5 h-6">
+              <span className="w-1.5 h-6 bg-rose-500 rounded-full animate-pulse" />
+              <span className="w-1.5 h-4 bg-rose-400 rounded-full animate-bounce delay-75" />
+              <span className="w-1.5 h-8 bg-rose-600 rounded-full animate-pulse delay-100" />
+              <span className="w-1.5 h-5 bg-rose-400 rounded-full animate-bounce delay-150" />
+              <span className="w-1.5 h-6 bg-rose-500 rounded-full animate-pulse delay-75" />
+            </div>
+          )}
+
           <p className="text-sm font-bold text-slate-800 dark:text-slate-200">
             {listening
-              ? '🎙️ Listening... Speak your request now'
+              ? '🎙️ Real-time listening active... Speak in English or Telugu'
               : processing
-              ? '🧠 Thinking & querying backend...'
+              ? '🧠 Analyzing intent & querying campus database...'
               : speaking
-              ? '🔊 Assistant is speaking...'
-              : 'Tap microphone to speak'}
+              ? '🔊 Speaking response aloud...'
+              : 'Click Start Listening or Tap Microphone'}
           </p>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
-            {transcript ? `"${transcript}"` : statusMessage}
-          </p>
+
+          <div className="min-h-[28px] flex items-center justify-center">
+            {transcript ? (
+              <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-xs font-semibold text-indigo-700 dark:text-indigo-300 animate-in fade-in">
+                🗣️ "{transcript}"
+              </span>
+            ) : (
+              <p className="text-xs text-slate-500 dark:text-slate-400">{statusMessage}</p>
+            )}
+          </div>
         </div>
 
-        {/* Action Toolbar: Stop, Replay, Mute, Clear */}
-        <div className="flex items-center justify-center gap-3 pt-2">
-          {speaking && (
-            <button
-              onClick={stopSpeaking}
-              className="px-3 py-1.5 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold hover:bg-slate-300 dark:hover:bg-slate-700 flex items-center gap-1.5 transition-colors"
-            >
-              <VolumeX className="w-3.5 h-3.5" />
-              <span>Stop Speaking</span>
-            </button>
-          )}
+        {/* Primary Controls: Start Listening, Stop Listening, Clear */}
+        <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1">
+          <button
+            onClick={startListening}
+            disabled={listening}
+            className={`px-4 py-2 rounded-2xl text-xs font-bold flex items-center gap-2 shadow-sm transition-all ${
+              listening
+                ? 'bg-slate-200 dark:bg-slate-800 text-slate-400 cursor-not-allowed'
+                : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-600/20'
+            }`}
+          >
+            <Mic className="w-4 h-4" />
+            <span>Start Listening</span>
+          </button>
 
-          {conversation.length > 0 && (
-            <button
-              onClick={() => {
-                const lastAss = [...conversation].reverse().find(c => c.role === 'assistant');
-                if (lastAss) speakText(lastAss.content);
-              }}
-              className="px-3 py-1.5 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-semibold hover:bg-indigo-500/20 flex items-center gap-1.5 transition-colors"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>Replay Last Response</span>
-            </button>
-          )}
+          <button
+            onClick={stopListening}
+            disabled={!listening}
+            className={`px-4 py-2 rounded-2xl text-xs font-bold flex items-center gap-2 shadow-sm transition-all ${
+              !listening
+                ? 'bg-slate-200 dark:bg-slate-800 text-slate-400 cursor-not-allowed'
+                : 'bg-rose-600 hover:bg-rose-700 text-white shadow-rose-600/20 animate-pulse'
+            }`}
+          >
+            <MicOff className="w-4 h-4" />
+            <span>Stop Listening</span>
+          </button>
+
+          <button
+            onClick={() => {
+              setConversation([]);
+              setTranscript('');
+              stopSpeaking();
+              setStatusMessage('Conversation cleared.');
+            }}
+            className="px-4 py-2 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+          >
+            <Trash2 className="w-3.5 h-3.5" />
+            <span>Clear</span>
+          </button>
 
           <button
             onClick={() => setMuted(!muted)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors ${
+            className={`px-3 py-2 rounded-2xl text-xs font-semibold flex items-center gap-1.5 transition-colors ${
               muted
                 ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400'
                 : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
             }`}
           >
             {muted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-            <span>{muted ? 'Muted' : 'Audio On'}</span>
+            <span>{muted ? 'Muted' : 'Sound On'}</span>
           </button>
-
-          {conversation.length > 0 && (
-            <button
-              onClick={() => setConversation([])}
-              className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-rose-500 text-xs font-semibold flex items-center gap-1.5 transition-colors"
-            >
-              <Trash2 className="w-3.5 h-3.5" />
-              <span>Clear History</span>
-            </button>
-          )}
+        </div>
         </div>
 
         {/* Manual Text Input Bar */}
@@ -408,10 +476,21 @@ export default function VoiceAssistant() {
                 className={`max-w-md p-3.5 rounded-2xl text-xs leading-relaxed ${
                   msg.role === 'user'
                     ? 'bg-indigo-600 text-white rounded-br-none'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-bl-none border border-slate-200 dark:border-slate-700/80'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-bl-none border border-slate-200 dark:border-slate-700/80 shadow-sm'
                 }`}
               >
-                <p className="font-medium">{msg.content}</p>
+                <div className="flex items-start justify-between gap-2">
+                  <p className="font-medium whitespace-pre-wrap flex-1">{msg.content}</p>
+                  {msg.role === 'assistant' && (
+                    <button
+                      onClick={() => speakText(msg.content)}
+                      title="Read Answer Aloud with Text-to-Speech"
+                      className="p-1 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex-shrink-0"
+                    >
+                      <Volume2 className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
                 {msg.intent && (
                   <span className="inline-block mt-1 text-[10px] opacity-75 font-mono">
                     Intent: {msg.intent}
@@ -424,20 +503,28 @@ export default function VoiceAssistant() {
         </div>
       )}
 
-      {/* Suggested Quick Natural Language Chips */}
+      {/* Optional Suggested Questions (Clicking fills the input box, never auto-submits) */}
       <div className="space-y-3">
-        <h3 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-          Suggested Natural Language Commands ({language.toUpperCase()})
-        </h3>
+        <div className="flex items-center justify-between">
+          <h3 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+            <span>Optional Suggested Questions ({language.toUpperCase()})</span>
+          </h3>
+          <span className="text-[11px] text-slate-500 italic">Clicking inserts text into input field — never auto-submits</span>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5">
           {sampleCommands.map((cmd, idx) => (
             <div
               key={idx}
-              onClick={() => handleProcessQuery(cmd)}
+              onClick={() => {
+                setTranscript(cmd);
+                setStatusMessage(`Inserted: "${cmd}". Click "Send" or speak your own question.`);
+              }}
+              title="Click to insert this question into the input field"
               className="p-3 rounded-2xl glass-card cursor-pointer hover:border-indigo-500/50 hover:bg-indigo-500/5 transition-all flex items-center justify-between group"
             >
               <span className="text-xs font-medium text-slate-800 dark:text-slate-200">"{cmd}"</span>
-              <Mic className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-500 transition-colors" />
+              <Sparkles className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-500 transition-colors" />
             </div>
           ))}
         </div>

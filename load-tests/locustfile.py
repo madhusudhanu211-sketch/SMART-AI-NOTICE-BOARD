@@ -66,6 +66,14 @@ VOICE_COMMANDS = [
     "what assignments are due",
     "show upcoming events",
     "open placements",
+    "when are semester examinations",
+    "upcoming college holidays",
+    "tuition fee payment deadline",
+    "who is the HOD of computer science",
+    "what is machine learning",
+    "explain the smart notice board architecture",
+    "నా అటెండెన్స్ చూపించు",
+    "పరీక్షల తేదీలు ఎప్పుడు",
 ]
 
 AI_QUERIES = [

@@ -27,7 +27,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
 # ─── Helper Functions ─────────────────────────────────────────────────────────
 
-def perform_login(driver, base_url, email, password, role="Student"):
+def perform_login(driver, base_url, email, password, role="Student", wait_for_redirect=True):
     """Navigates to login page, selects the role, enters credentials, and submits."""
     driver.get(f"{base_url}/login")
     wait = WebDriverWait(driver, 15)
@@ -49,6 +49,11 @@ def perform_login(driver, base_url, email, password, role="Student"):
     # 3. Click Submit Button
     submit_btn = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
     submit_btn.click()
+
+    # 4. Wait for redirection away from /login if expecting successful authentication
+    if wait_for_redirect:
+        wait.until(lambda d: "/login" not in d.current_url)
+        time.sleep(0.5)
 
 
 # ─── 1. Authentication & Form Validation Tests ─────────────────────────────────
@@ -81,7 +86,7 @@ def test_login_page_rendering(driver, base_url):
 @pytest.mark.auth
 def test_invalid_credentials_error_message(driver, base_url):
     """TC-WEB-002: Verify error alert appears when submitting invalid email/password."""
-    perform_login(driver, base_url, "invalid.user@smartnoticeboard.edu", "WrongPassword999!", role="Student")
+    perform_login(driver, base_url, "invalid.user@smartnoticeboard.edu", "WrongPassword999!", role="Student", wait_for_redirect=False)
     
     wait = WebDriverWait(driver, 10)
     # The error banner is rendered with text when login fails
@@ -302,4 +307,69 @@ def test_user_logout_workflow(driver, base_url, credentials):
     # Verify login form is visible again
     email_input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "input[type='email']")))
     assert email_input.is_displayed(), "Login email input not displayed after logout"
+
+
+# ─── 5. Real-Time Voice Recognition & AI QA Tests ─────────────────────────────
+
+@pytest.mark.auth
+def test_voice_assistant_realtime_recognition_and_instant_ai(driver, base_url, credentials):
+    """TC-WEB-012: Verify Real-Time Voice Recognition console, Start/Stop/Clear buttons, and Instant AI Q&A."""
+    student = credentials["student"]
+    perform_login(driver, base_url, student["email"], student["password"], role="Student")
+
+    # Navigate to Voice Assistant console
+    driver.get(f"{base_url}/voice")
+    wait = WebDriverWait(driver, 15)
+
+    # 1. Verify Page Title & Mode
+    voice_title = wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'AI Voice Assistant')]")))
+    assert voice_title.is_displayed(), "Voice Assistant title is not visible"
+
+    # 2. Verify Real-Time Action Buttons (Start, Stop, Clear)
+    start_btn = wait.until(EC.presence_of_element_located((By.XPATH, "//button[contains(., 'Start Listening')]")))
+    stop_btn = driver.find_element(By.XPATH, "//button[contains(., 'Stop Listening')]")
+    clear_btn = driver.find_element(By.XPATH, "//button[contains(., 'Clear')]")
+    assert start_btn.is_displayed(), "Start Listening button missing"
+    assert stop_btn.is_displayed(), "Stop Listening button missing"
+    assert clear_btn.is_displayed(), "Clear button missing"
+
+    # 3. Enter natural language question
+    input_box = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "input[placeholder*='Type your question']")))
+    input_box.clear()
+    input_box.send_keys("When are the semester examinations?")
+    send_btn = driver.find_element(By.XPATH, "//button[contains(., 'Send')]")
+    send_btn.click()
+
+    # 4. Verify Instant AI Answer generation
+    answer_bubble = wait.until(
+        EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'September') or contains(text(), 'Examination') or contains(text(), 'commence')]"))
+    )
+    assert answer_bubble.is_displayed(), "Instant AI response was not displayed for examination schedule question"
+
+    # 5. Clear conversation history
+    clear_btn.click()
+    time.sleep(0.5)
+
+
+@pytest.mark.auth
+def test_voice_assistant_telugu_language_support(driver, base_url, credentials):
+    """TC-WEB-013: Verify multilingual Telugu language toggle and question understanding."""
+    student = credentials["student"]
+    perform_login(driver, base_url, student["email"], student["password"], role="Student")
+
+    driver.get(f"{base_url}/voice")
+    wait = WebDriverWait(driver, 15)
+
+    # Switch language dropdown to Telugu (te)
+    lang_select = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "select")))
+    lang_select.click()
+    driver.find_element(By.CSS_SELECTOR, "option[value='te']").click()
+    time.sleep(0.5)
+
+    # Verify Telugu suggested command chips
+    telugu_chip = wait.until(
+        EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'నా అటెండెన్స్') or contains(text(), 'పరీక్షలు') or contains(text(), 'సెలవులు')]"))
+    )
+    assert telugu_chip.is_displayed(), "Telugu command chips not rendered after language switch"
+
 

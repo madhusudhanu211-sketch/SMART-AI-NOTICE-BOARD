@@ -41,18 +41,26 @@ export default function VoiceAssistantScreen({ navigation }) {
   const sampleCommandsByLang = {
     en: [
       'Show my attendance',
-      'What is my attendance percentage?',
+      'When are the semester exams?',
+      'What are the upcoming college holidays?',
+      'When is the tuition fee payment deadline?',
       'Which classes do I have today?',
       'Read my latest notices',
       'Do I have any assignments due?',
+      'Who is the HOD of CSE department?',
+      'Explain the Smart Notice Board architecture',
       'Show upcoming college events',
       'Mark attendance (Faculty)'
     ],
     te: [
       'నా అటెండెన్స్ చూపించు',
-      "ఈ రోజు ఏ తరగతులు ఉన్నాయి?",
+      'సెమిస్టర్ పరీక్షలు ఎప్పుడు ప్రారంభమవుతాయి?',
+      'రాబోయే కళాశాల సెలవులు ఏమిటి?',
+      'ట్యూషన్ ఫీజు చెల్లింపు చివరి తేదీ ఎప్పుడు?',
+      'ఈ రోజు ఏ తరగతులు ఉన్నాయి?',
       'తాజా నోటీసులు చదువు',
-      'అసైన్‌మెంట్‌లు ఏమైనా ఉన్నాయా?'
+      'అసైన్‌మెంట్‌లు ఏమైనా ఉన్నాయా?',
+      'సిఎస్‌ఈ ఫ్యాకల్టీ వివరాలు చెప్పు'
     ],
     hi: [
       'मेरी अटेंडेंस दिखाओ',
@@ -128,15 +136,51 @@ export default function VoiceAssistantScreen({ navigation }) {
 
   const stopVoiceCaptureAndProcess = async (customQuery) => {
     setListening(false);
+    let capturedUri = null;
     if (recording) {
       try {
         await recording.stopAndUnloadAsync();
+        capturedUri = recording.getURI();
         await Audio.setAudioModeAsync({ allowsRecordingIOS: false });
       } catch (e) {}
       setRecording(null);
     }
 
-    const textToProcess = customQuery || transcript;
+    if (customQuery) {
+      await executeVoiceIntent(customQuery);
+      return;
+    }
+
+    // Process real-time voice recording from microphone
+    if (capturedUri) {
+      setProcessing(true);
+      setStatusMessage('Transcribing speech in real-time...');
+      try {
+        const formData = new FormData();
+        formData.append('file', {
+          uri: capturedUri,
+          type: 'audio/m4a',
+          name: 'voice_command.m4a',
+        });
+        const res = await apiClient.post(`/voice/transcribe-audio?language=${selectedLang}`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        });
+        const { transcript: recognizedText, response, intent } = res.data;
+        setProcessing(false);
+        if (recognizedText) {
+          const userEntry = { role: 'user', content: recognizedText };
+          const assistantEntry = { role: 'assistant', content: response, intent };
+          setConversation(prev => [...prev, userEntry, assistantEntry]);
+          setStatusMessage(response);
+          speakText(response);
+          return;
+        }
+      } catch (err) {
+        console.warn('[Audio Transcribe Fallback]', err.message);
+      }
+    }
+
+    const textToProcess = transcript;
     if (!textToProcess || !textToProcess.trim()) {
       setStatusMessage('No speech detected. Please tap mic and speak again.');
       return;
@@ -290,6 +334,37 @@ export default function VoiceAssistantScreen({ navigation }) {
           </Text>
         </View>
 
+        {/* Primary Voice Action Buttons */}
+        <View style={styles.primaryActionRow}>
+          <TouchableOpacity
+            style={[styles.actionBtn, styles.startBtn, listening && styles.btnDisabled]}
+            disabled={listening}
+            onPress={startVoiceCapture}
+          >
+            <Text style={styles.actionBtnText}>▶️ Start Listening</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.actionBtn, styles.stopBtn, !listening && styles.btnDisabled]}
+            disabled={!listening}
+            onPress={() => stopVoiceCaptureAndProcess()}
+          >
+            <Text style={styles.actionBtnText}>⏹️ Stop Listening</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.actionBtn, styles.clearBtn]}
+            onPress={() => {
+              setConversation([]);
+              setTranscript('');
+              stopSpeaking();
+              setStatusMessage('Conversation cleared.');
+            }}
+          >
+            <Text style={styles.actionBtnText}>🗑️ Clear</Text>
+          </TouchableOpacity>
+        </View>
+
         {/* Audio Controls */}
         <View style={styles.controlsRow}>
           {speaking && (
@@ -316,21 +391,12 @@ export default function VoiceAssistantScreen({ navigation }) {
           >
             <Text style={styles.controlBtnText}>{muted ? '🔇 Muted' : '🔊 Sound On'}</Text>
           </TouchableOpacity>
-
-          {conversation.length > 0 && (
-            <TouchableOpacity
-              style={styles.controlBtn}
-              onPress={() => setConversation([])}
-            >
-              <Text style={styles.controlBtnText}>🗑️ Clear</Text>
-            </TouchableOpacity>
-          )}
         </View>
 
         {/* Conversation Feed */}
         {conversation.length > 0 && (
           <View style={styles.feedContainer}>
-            <Text style={styles.feedTitle}>Transcript Feed:</Text>
+            <Text style={styles.feedTitle}>Transcript History:</Text>
             {conversation.map((msg, idx) => (
               <View
                 key={idx}
@@ -340,6 +406,14 @@ export default function VoiceAssistantScreen({ navigation }) {
                 ]}
               >
                 <Text style={styles.msgText}>{msg.content}</Text>
+                {msg.role === 'assistant' && (
+                  <TouchableOpacity
+                    style={styles.speakBubbleBtn}
+                    onPress={() => speakText(msg.content)}
+                  >
+                    <Text style={styles.speakBubbleBtnText}>🔊 Read Aloud</Text>
+                  </TouchableOpacity>
+                )}
               </View>
             ))}
           </View>
@@ -363,15 +437,19 @@ export default function VoiceAssistantScreen({ navigation }) {
           </TouchableOpacity>
         </View>
 
-        {/* Quick Command Suggestions */}
-        <Text style={styles.quickTitle}>Natural Voice Examples ({selectedLang.toUpperCase()}):</Text>
+        {/* Optional Question Suggestions (Clicking fills the input, never auto-submits) */}
+        <Text style={styles.quickTitle}>Optional Suggested Questions ({selectedLang.toUpperCase()}):</Text>
+        <Text style={{ fontSize: 11, color: '#94a3b8', marginBottom: 8 }}>Tap to insert into question field (never auto-submits)</Text>
         {sampleCommands.map((cmd, idx) => (
           <TouchableOpacity
             key={idx}
             style={styles.chip}
-            onPress={() => stopVoiceCaptureAndProcess(cmd)}
+            onPress={() => {
+              setTranscript(cmd);
+              setStatusMessage(`Inserted: "${cmd}". Tap Send or speak your question.`);
+            }}
           >
-            <Text style={styles.chipText}>🗣️ "{cmd}"</Text>
+            <Text style={styles.chipText}>💡 "{cmd}"</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -468,6 +546,51 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 6,
     paddingHorizontal: 16,
+  },
+  primaryActionRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    justifyContent: 'center',
+    marginVertical: 10,
+  },
+  actionBtn: {
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 14,
+    elevation: 2,
+  },
+  startBtn: {
+    backgroundColor: '#059669',
+  },
+  stopBtn: {
+    backgroundColor: '#dc2626',
+  },
+  clearBtn: {
+    backgroundColor: '#334155',
+  },
+  btnDisabled: {
+    opacity: 0.4,
+  },
+  actionBtnText: {
+    color: '#ffffff',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  speakBubbleBtn: {
+    marginTop: 6,
+    alignSelf: 'flex-start',
+    backgroundColor: '#1e293b',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#475569',
+  },
+  speakBubbleBtnText: {
+    color: '#38bdf8',
+    fontSize: 11,
+    fontWeight: '600',
   },
   controlsRow: {
     flexDirection: 'row',

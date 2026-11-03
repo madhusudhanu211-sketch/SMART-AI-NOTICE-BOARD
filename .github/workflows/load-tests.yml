@@ -51,19 +51,22 @@ jobs:
           pip install -r backend/requirements.txt
           pip install -r load-tests/requirements.txt
 
-      # ── 4. Start FastAPI Backend Service ────────────────────────────────────
-      - name: Start FastAPI Backend Service
-        run: |
-          python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend &
-          echo "Waiting for FastAPI backend to initialize..."
-          timeout 30 bash -c 'until curl -s http://127.0.0.1:8000/ > /dev/null; do sleep 1; done'
-          echo "FastAPI backend is ready for load testing!"
-
-      # ── 5. Run Locust Load Tests across 100, 300, and 500 Users ────────────
-      - name: Execute Multi-Stage Load Tests (100, 300, 500 Users)
+      # ── 4. Launch Backend & Execute Locust Multi-Stage Load Tests ────────────
+      - name: Launch Backend & Execute Multi-Stage Load Tests (100, 300, 500 Users)
         id: run_load
         run: |
           mkdir -p load-tests/reports
+
+          # 1. Start FastAPI Backend Service
+          echo "Starting FastAPI backend service on port 8000..."
+          python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend &
+          BACKEND_PID=$!
+          echo "Waiting for FastAPI backend to initialize..."
+          timeout 30 bash -c 'until curl -s http://127.0.0.1:8000/ > /dev/null; do sleep 1; done'
+          echo "FastAPI backend is ready (PID: $BACKEND_PID)!"
+
+          # 2. Run Locust Multi-Stage Load Tests
+          echo "Executing Locust Load Tests across 100, 300, and 500 Virtual Users..."
           python load-tests/run_load_test.py --stages --host http://127.0.0.1:8000 --duration ${{ env.LOAD_TEST_DURATION }}
 
       # ── 6. Generate 300 Test Cases Comprehensive Load Excel Report ──────────

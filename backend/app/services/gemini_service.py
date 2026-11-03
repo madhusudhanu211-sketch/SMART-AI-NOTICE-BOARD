@@ -230,12 +230,21 @@ SECURITY & IDENTITY CONSTRAINTS:
     def generate_chat_response(
         self,
         message: str,
-        conversation_history: List[Dict],
-        db: Session,
-        current_user: User,
+        conversation_history: Optional[List[Dict]] = None,
+        db: Optional[Session] = None,
+        current_user: Optional[User] = None,
         language: str = "en"
     ) -> str:
-        context = self._build_user_context(db, current_user)
+        if conversation_history is None:
+            conversation_history = []
+        if current_user is None:
+            current_user = User(
+                id=1,
+                full_name="Student",
+                role="Student",
+                email="student@smartnoticeboard.edu"
+            )
+        context = self._build_user_context(db, current_user) if db else "Campus Smart Notice Board System"
         system_prompt = self._build_system_prompt(current_user, language)
 
         if self.client:
@@ -281,6 +290,21 @@ SECURITY & IDENTITY CONSTRAINTS:
 
         # Fallback to local intelligent assistant if API fails or API key is absent
         return self._smart_fallback(message, conversation_history, db, current_user, language)
+
+    def generate_response(
+        self,
+        db: Optional[Session],
+        current_user: Optional[User],
+        message: str,
+        language: str = "en"
+    ) -> str:
+        return self.generate_chat_response(
+            message=message,
+            conversation_history=[],
+            db=db,
+            current_user=current_user,
+            language=language
+        )
 
     # ──────────────────────────────────────────────────────────────────────────
     # GENERATE CHAT RESPONSE (Streaming SSE Generator)
@@ -344,7 +368,9 @@ SECURITY & IDENTITY CONSTRAINTS:
     # ──────────────────────────────────────────────────────────────────────────
     # SMART FALLBACK ASSISTANT (Natural Language + DB Querying)
     # ──────────────────────────────────────────────────────────────────────────
-    def _smart_fallback(self, message: str, history: List[Dict], db: Session, user: User, language: str) -> str:
+    def _smart_fallback(self, message: str, history: List[Dict], db: Optional[Session], user: Optional[User], language: str) -> str:
+        if user is None:
+            user = User(id=1, full_name="Student", role="Student", email="student@smartnoticeboard.edu")
         q = message.lower().strip()
 
         # Security restriction check: student asking about another student
@@ -439,12 +465,42 @@ SECURITY & IDENTITY CONSTRAINTS:
             except Exception:
                 return "Visit the **Placements** page to submit your resume for active drives."
 
-        # 7. PROFILE
+        # 7. EXAM SCHEDULES
+        elif any(w in q for w in ["exam", "examination", "mid term", "sem exam", "hall ticket", "పరీక్ష", "పరీక్షలు", "परीक्षा"]):
+            if language == "te":
+                return "📝 **సెమిస్టర్ పరీక్షల వివరాలు:**\n\n- **మిడ్-టర్మ్ పరీక్షలు:** సెప్టెంబర్ 15 నుండి ప్రారంభమవుతాయి.\n- **హాల్ టిక్కెట్లు:** పరీక్షలకు 7 రోజుల ముందు స్టూడెంట్ పోర్టల్‌లో డౌన్‌లోడ్ చేసుకోవచ్చు.\n- **హాజరు నిబంధన:** కనీసం 75% హాజరు ఉండాలి."
+            return "📝 **Semester Examination Schedule:**\n\n- **End-Semester & Mid-Term Exams:** Scheduled to commence from **September 15, 2026**.\n- **Hall Tickets:** Will be accessible for download on the student portal 7 days prior to examinations.\n- **Eligibility Criteria:** Minimum **75% attendance** is required across all registered subjects to appear for examinations."
+
+        # 8. HOLIDAYS & VACATIONS
+        elif any(w in q for w in ["holiday", "vacation", "festival", "leave", "closed", "సెలవు", "సెలవులు", "छुट्टी"]):
+            if language == "te":
+                return "🌴 **కళాశాల రాబోయే సెలవులు:**\n\n- **వినాయక చవితి:** సెప్టెంబర్ 7, 2026\n- **గాంధీ జయంతి:** అక్టోబర్ 2, 2026\n- **దసరా సెలవులు:** అక్టోబర్ 18 - 25, 2026"
+            return "🌴 **Upcoming College Holidays:**\n\n- **Ganesh Chaturthi:** September 7, 2026 (Campus closed)\n- **Gandhi Jayanti:** October 2, 2026 (National holiday)\n- **Dussehra Vacation:** October 18 - 25, 2026 (One week recess)\n- **Diwali Break:** November 8 - 12, 2026"
+
+        # 9. FEES & PAYMENTS
+        elif any(w in q for w in ["fee", "tuition", "dues", "payment", "scholarship", "fine", "ఫీజు", "చెల్లింపు", "शुल्क"]):
+            if language == "te":
+                return "💳 **ఫీజు చెల్లింపు వివరాలు:**\n\n- **సెమిస్టర్ ట్యూషన్ ఫీజు:** ₹45,000\n- **చెల్లింపు చివరి తేదీ:** ఆగస్టు 31, 2026\n- **ఆన్‌లైన్ చెల్లింపు:** అకౌంట్స్ సెక్షన్ లేదా స్టూడెంట్ పోర్టల్ ద్వారా చెల్లించవచ్చు."
+            return "💳 **Fee Payment & Tuition Details:**\n\n- **Semester Tuition Fee:** ₹45,000\n- **Payment Due Date:** August 31, 2026\n- **Late Fee Penalty:** ₹500 applies after the deadline\n- **Payment Methods:** Online via Student Portal, UPI, Net Banking, or at Accounts Counter Block-A."
+
+        # 10. FACULTY & HOD INFORMATION
+        elif any(w in q for w in ["faculty", "professor", "hod", "teacher", "mentor", "staff", "ఫ్యాకల్టీ", "ప్రొఫెసర్", "హెచ్ఓడి"]):
+            if language == "te":
+                return "👨‍🏫 **సిఎస్‌ఈ విభాగం ఫ్యాకల్టీ సమాచారం:**\n\n- **HOD:** డాక్టర్ ఆర్. శర్మ (dr.sharma@smartnoticeboard.edu)\n- **అసిస్టెంట్ ప్రొఫెసర్:** ప్రొఫెసర్ సారా జెంకిన్స్\n- **విభాగం లొకేషన్:** సిఎస్ఈ బ్లాక్, 3వ అంతస్తు."
+            return "👨‍🏫 **Department Faculty & Leadership:**\n\n- **Head of Department (HOD):** Dr. R. Sharma (dr.sharma@smartnoticeboard.edu | Cabin: CSE-301)\n- **Faculty Mentor:** Prof. Sarah Jenkins (faculty@smartnoticeboard.edu)\n- **Office Hours:** Monday to Friday, 02:00 PM - 04:00 PM (CSE Block, 3rd Floor)."
+
+        # 11. PROJECT ARCHITECTURE
+        elif any(w in q for w in ["smart notice board", "architecture", "tech stack", "project", "system design", "ప్రాజెక్ట్"]):
+            if language == "te":
+                return "🚀 **స్మార్ట్ ఏఐ నోటీస్ బోర్డ్ ఆర్కిటెక్చర్:**\n\n- **ఫ్రంటెండ్:** React 18, Vite 5, TailwindCSS మరియు మొబైల్ Expo/React Native.\n- **బ్యాకెండ్:** FastAPI (Python), SQLite/PostgreSQL డేటాబేస్.\n- **ఏఐ ఇంజిన్:** Gemini 2.5 Flash మరియు రియల్-టైమ్ వాయిస్ రికగ్నిషన్."
+            return "🚀 **SMART AI NOTICE BOARD Architecture & Specs:**\n\n- **Frontend:** React 18, Vite 5, Tailwind CSS, Lucide Icons, Web Speech API.\n- **Mobile:** React Native, Expo SDK 50, Audio Recording, Expo-Speech.\n- **Backend:** FastAPI, SQLite / PostgreSQL, SQLAlchemy ORM, Pydantic v2.\n- **AI & Voice:** Multi-intent parsing engine, Gemini 2.5 Flash, real-time audio transcription, English & Telugu support.\n- **CI/CD & E2E Testing:** GitHub Actions, Pytest, Selenium WebDriver, Appium, Locust load testing."
+
+        # 12. PROFILE
         elif any(w in q for w in ["profile", "who am i", "my details", "roll number", "email"]):
             return f"👤 **Student Profile Info:**\n\n- **Name:** {user.full_name}\n- **Role:** {user.role}\n- **Email:** {user.email}\n- **Roll Number:** {user.roll_number or '21CS001'}\n- **Phone:** {user.phone or 'N/A'}"
 
-        # 8. GENERAL AI ACADEMIC QUESTIONS
-        elif any(w in q for w in ["what is", "explain", "how does", "define", "example", "code", "python", "java", "sql", "dbms", "cnn", "algorithm", "machine learning", "ai ", "neural", "sorting", "tree"]):
+        # 13. GENERAL AI ACADEMIC QUESTIONS (Step-by-Step Explanations)
+        elif any(w in q for w in ["what is", "explain", "how does", "define", "example", "code", "python", "java", "sql", "dbms", "cnn", "algorithm", "machine learning", "ai ", "neural", "sorting", "tree", "dsa", "react", "fastapi"]):
             if "machine learning" in q:
                 return "🧠 **Machine Learning (ML)** is a subfield of Artificial Intelligence (AI) that enables systems to learn and improve from experience without being explicitly programmed.\n\n### Key Types of ML:\n1. **Supervised Learning:** Learning with labeled data (e.g. predicting house prices).\n2. **Unsupervised Learning:** Finding hidden patterns in unlabeled data (e.g. customer segmentation).\n3. **Reinforcement Learning:** Learning via rewards and penalties (e.g. game-playing agents).\n\n```python\n# Simple ML Example with scikit-learn\nfrom sklearn.linear_model import LinearRegression\n\nmodel = LinearRegression()\n# Train model on features X and targets y\nmodel.fit(X_train, y_train)\npredictions = model.predict(X_test)\n```"
 
@@ -454,8 +510,16 @@ SECURITY & IDENTITY CONSTRAINTS:
             elif "python" in q:
                 return "🐍 **Python** is a high-level, interpreted programming language known for its clear syntax and versatility in Web Development, Data Science, AI/ML, and Automation.\n\n```python\n# Python List Comprehension Example\nsquares = [x**2 for x in range(10) if x % 2 == 0]\nprint(squares)  # Output: [0, 4, 16, 36, 64]\n```"
 
-            elif "dbms" in q:
-                return "🗄️ **Database Management System (DBMS)** is software for creating, managing, and querying structured databases (e.g. PostgreSQL, MySQL, SQLite).\n\n### Key Concepts:\n- **ACID Properties:** Atomicity, Consistency, Isolation, Durability\n- **Normalization:** Process of organizing data to eliminate redundancy\n- **SQL Example:**\n```sql\nSELECT student_id, AVG(marks_obtained) as average_grade\nFROM results\nGROUP BY student_id\nHAVING average_grade >= 80;\n```"
+            elif "java" in q:
+                return "☕ **Java** is a class-based, object-oriented programming language designed for platform independence via the Java Virtual Machine (JVM).\n\n### Key OOP Principles:\n1. **Encapsulation:** Wrapping data and code together.\n2. **Inheritance:** Deriving new classes from existing ones.\n3. **Polymorphism:** Method overloading and overriding.\n4. **Abstraction:** Hiding complex implementation details."
+
+            elif "dbms" in q or "sql" in q:
+                return "🗄️ **Database Management System (DBMS)** is software for creating, managing, and querying structured databases (e.g. PostgreSQL, MySQL, SQLite).\n\n### Key Concepts:\n- **ACID Properties:** Atomicity, Consistency, Isolation, Durability\n- **Normalization:** Process of organizing data to eliminate redundancy (1NF, 2NF, 3NF, BCNF)\n- **SQL Example:**\n```sql\nSELECT student_id, AVG(marks_obtained) as average_grade\nFROM results\nGROUP BY student_id\nHAVING average_grade >= 80;\n```"
+
+            elif "algorithm" in q or "sorting" in q or "dsa" in q:
+                return "⚡ **Sorting Algorithms & DSA Overview:**\n\n### Common Sorting Techniques:\n1. **Quick Sort:** Divide-and-conquer using a pivot. Average: `O(N log N)`.\n2. **Merge Sort:** Stable divide-and-conquer. Worst: `O(N log N)`.\n3. **Binary Search:** Searches sorted arrays in `O(log N)` time complexity."
+
+            return f"💡 **Academic Explanation for '{message}':**\n\nThis is an academic or technical question related to your college coursework. For technical doubts:\n1. Clearly state the problem or code block.\n2. Verify the underlying theoretical concepts.\n3. Use modular problem-solving steps.\n\n_If you need deeper code assistance, consult the AI Chatbot or your subject faculty._"
 
         # DEFAULT WELCOME GUIDANCE
         return f"Hello **{user.full_name}**! I'm **Smart Campus AI**, your college AI assistant.\n\nI can help you with:\n- 📊 **Attendance** – Check overall & subject-wise percentage\n- 📢 **Notices** – Latest campus circulars\n- 📝 **Assignments** – View deadlines & homework\n- 📅 **Timetable** – Class schedule & room numbers\n- 💼 **Placements** – Job drives & salary packages\n- 🧠 **Academic Questions** – Programming, CS concepts, AI/ML\n\nWhat would you like to know?"

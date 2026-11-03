@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Configurable API URL with fallback for local FastAPI server
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
+// Configurable API URL with fallback for local FastAPI server (prefer 127.0.0.1 to avoid IPv6 resolution issues)
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api/v1';
 
 const api = axios.create({
   baseURL: BASE_URL,

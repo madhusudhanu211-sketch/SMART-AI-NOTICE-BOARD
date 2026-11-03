@@ -60,27 +60,32 @@ jobs:
           cd web
           npm ci || npm install
 
-      # ── 4. Launch Services in Background ────────────────────────────────────
-      - name: Start FastAPI Backend Service
-        run: |
-          python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend &
-          echo "Waiting for FastAPI server to initialize on port 8000..."
-          timeout 30 bash -c 'until curl -s http://127.0.0.1:8000/ > /dev/null; do sleep 1; done'
-          echo "FastAPI backend is ready!"
-
-      - name: Start Vite Web Frontend Server
-        run: |
-          cd web
-          npm run dev -- --host 127.0.0.1 --port 5173 &
-          echo "Waiting for Vite web server on port 5173..."
-          timeout 30 bash -c 'until curl -s http://127.0.0.1:5173/ > /dev/null; do sleep 1; done'
-          echo "Vite web frontend is ready!"
-
-      # ── 5. Run Selenium WebDriver Test Suite ────────────────────────────────
-      - name: Execute Selenium E2E Web Tests
+      # ── 4. Launch Services & Execute Selenium E2E Web Tests ──────────────────
+      - name: Launch Services & Execute Selenium E2E Web Tests
         id: run_tests
         run: |
           mkdir -p selenium-tests/reports/screenshots
+
+          # 1. Start FastAPI Backend Service
+          echo "Starting FastAPI backend service on port 8000..."
+          python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend &
+          BACKEND_PID=$!
+          echo "Waiting for FastAPI server to initialize..."
+          timeout 30 bash -c 'until curl -s http://127.0.0.1:8000/ > /dev/null; do sleep 1; done'
+          echo "FastAPI backend is ready (PID: $BACKEND_PID)!"
+
+          # 2. Start Vite Web Frontend Server
+          echo "Starting Vite web frontend on port 5173..."
+          cd web
+          npm run dev -- --host 127.0.0.1 --port 5173 &
+          FRONTEND_PID=$!
+          cd ..
+          echo "Waiting for Vite web server to initialize..."
+          timeout 30 bash -c 'until curl -s http://127.0.0.1:5173/ > /dev/null; do sleep 1; done'
+          echo "Vite web frontend is ready (PID: $FRONTEND_PID)!"
+
+          # 3. Execute Selenium WebDriver Test Suite
+          echo "Executing Selenium E2E Web Tests..."
           pytest selenium-tests/tests \
             --html=selenium-tests/reports/selenium-test-report.html \
             --self-contained-html \

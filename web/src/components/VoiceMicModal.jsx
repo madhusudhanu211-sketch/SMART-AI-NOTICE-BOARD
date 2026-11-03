@@ -24,16 +24,46 @@ export default function VoiceMicModal({ isOpen, onClose }) {
       rec.interimResults = true;
       rec.lang = speechLangCode;
 
-      rec.onstart = () => setListening(true);
-      rec.onresult = (event) => {
-        const text = Array.from(event.results)
-          .map(r => r[0].transcript)
-          .join('');
-        setTranscript(text);
+      let lastFinalText = '';
+
+      rec.onstart = () => {
+        setListening(true);
+        lastFinalText = '';
       };
 
-      rec.onend = () => setListening(false);
-      rec.onerror = () => setListening(false);
+      rec.onresult = (event) => {
+        let interimText = '';
+        for (let i = 0; i < event.results.length; i++) {
+          const res = event.results[i];
+          if (res.isFinal) {
+            lastFinalText = res[0].transcript;
+          } else {
+            interimText += res[0].transcript;
+          }
+        }
+        const liveText = lastFinalText || interimText;
+        if (liveText) {
+          setTranscript(liveText);
+        }
+      };
+
+      rec.onend = () => {
+        setListening(false);
+        if (lastFinalText && lastFinalText.trim().length > 1) {
+          handleProcessCommand(lastFinalText.trim());
+        } else {
+          setResponseMessage('No speech detected. Click mic to speak your question.');
+        }
+      };
+
+      rec.onerror = (e) => {
+        setListening(false);
+        if (e.error === 'no-speech') {
+          setResponseMessage('No speech detected. Click mic to try again.');
+        } else if (e.error === 'not-allowed') {
+          setResponseMessage('Microphone access blocked. Please allow mic permissions.');
+        }
+      };
 
       setRecognition(rec);
     }
