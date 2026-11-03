@@ -415,7 +415,6 @@ export default function VoiceAssistant() {
             <span>{muted ? 'Muted' : 'Sound On'}</span>
           </button>
         </div>
-        </div>
 
         {/* Manual Text Input Bar */}
         <div className="max-w-lg mx-auto flex gap-2 pt-2">
