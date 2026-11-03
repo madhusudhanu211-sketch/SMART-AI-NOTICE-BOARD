@@ -186,3 +186,4 @@ jobs:
           publish_dir: ./gh-pages-publish
           keep_files: true
           commit_message: "docs(reports): Publish Appium E2E Report for Build #${{ github.run_number }} [skip ci]"
+

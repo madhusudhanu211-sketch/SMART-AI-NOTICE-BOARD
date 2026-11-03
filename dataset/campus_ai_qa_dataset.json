@@ -1,0 +1,200 @@
+[
+  {
+    "qa_id": "QA-001",
+    "category": "Attendance & Regulations",
+    "question": "What is the minimum attendance required to appear for semester exams?",
+    "context": "College Academic Regulation Clause 4.2 states that attendance calculation is conducted centrally.",
+    "answer": "Students must secure a minimum aggregate attendance of 75% across theory and lab subjects. Students with attendance between 65% and 74% can request medical condonation with valid documents and approval from the Head of Department. Students below 65% are detained and not permitted to write examinations.",
+    "keywords": [
+      "attendance",
+      "75%",
+      "condonation",
+      "detained",
+      "eligibility"
+    ]
+  },
+  {
+    "qa_id": "QA-002",
+    "category": "Examinations & Grading",
+    "question": "How is the CGPA and SGPA calculated in our institution?",
+    "context": "University Choice Based Credit System (CBCS) Evaluation Guidelines.",
+    "answer": "SGPA is calculated as the sum of (Course Credits \u00d7 Grade Points) divided by the Total Credits registered in that semester. CGPA is the cumulative weighted average of all semester grade points earned up to that point. Letter grades: O (10), A+ (9), A (8), B+ (7), B (6), C (5), F/Fail (0).",
+    "keywords": [
+      "cgpa",
+      "sgpa",
+      "grading",
+      "credits",
+      "cbcs"
+    ]
+  },
+  {
+    "qa_id": "QA-003",
+    "category": "Placements & Internships",
+    "question": "What are the eligibility criteria for Tier-1 on-campus recruitment drives?",
+    "context": "Campus Career Development and Placement Cell (CDPC) Policy Document.",
+    "answer": "Tier-1 companies (CTC >= 12 LPA, e.g., Google, Microsoft, Amazon) typically require a minimum CGPA of 7.5 or 8.0, zero active backlogs, a clean disciplinary record, and at least 80% attendance in pre-placement training modules.",
+    "keywords": [
+      "tier-1",
+      "placements",
+      "google",
+      "cgpa",
+      "backlogs",
+      "ctc"
+    ]
+  },
+  {
+    "qa_id": "QA-004",
+    "category": "Smart Notice Board Navigation",
+    "question": "How do I filter notices by department or emergency category?",
+    "context": "Smart Notice Board App Features Guide.",
+    "answer": "On the Web or Mobile application, use the Category Chips at the top of the Notice Board to select 'Emergency', 'Examination', or 'Academic'. You can also filter by department using the Department Dropdown, or simply use the Voice Assistant: say 'Show emergency notices' or 'Filter notices by CSE'.",
+    "keywords": [
+      "filter",
+      "notices",
+      "category",
+      "voice assistant",
+      "mobile app"
+    ]
+  },
+  {
+    "qa_id": "QA-005",
+    "category": "Smart Notice Board Voice Control",
+    "question": "What voice commands can I speak to the Campus Voice Assistant?",
+    "context": "Voice recognition features enabled in the Next-Gen Smart Notice Board.",
+    "answer": "You can speak natural voice queries such as: 1) 'Show my attendance', 2) 'Read aloud the latest notice', 3) 'When is my next exam?', 4) 'Show placement drives', 5) 'What is my timetable today?', 6) 'Switch to dark mode', and 7) 'Show pending assignments'.",
+    "keywords": [
+      "voice commands",
+      "speech",
+      "speech-to-text",
+      "tts",
+      "assistant"
+    ]
+  },
+  {
+    "qa_id": "QA-006",
+    "category": "Library & Facilities",
+    "question": "What are the Central Library working hours and book borrowing limits?",
+    "context": "Central Knowledge Resource Center rules.",
+    "answer": "The Central Library is open from 8:00 AM to 8:00 PM on weekdays and 9:00 AM to 4:00 PM on Saturdays. Undergraduates can borrow up to 4 books for a 14-day renewal period. Digital library workstations provide 24/7 access to IEEE Xplore, ScienceDirect, and ACM Digital Library.",
+    "keywords": [
+      "library",
+      "timings",
+      "books",
+      "ieee",
+      "borrowing"
+    ]
+  },
+  {
+    "qa_id": "QA-007",
+    "category": "Administrative Procedures",
+    "question": "How do I apply for a Bonafide Certificate or Railway Concession Pass?",
+    "context": "Student Administrative Services Manual.",
+    "answer": "Students can apply online through the Student Portal under 'Requests & Certificates' or submit a written requisition at the Student Welfare Office (Admin Block Ground Floor). Applications are processed and issued within 48 working hours.",
+    "keywords": [
+      "bonafide",
+      "railway concession",
+      "certificates",
+      "admin block"
+    ]
+  },
+  {
+    "qa_id": "QA-008",
+    "category": "Scholarships & Financial Aid",
+    "question": "Who is eligible for the Merit-Cum-Means Scholarship?",
+    "context": "Institutional Financial Aid Committee Guidelines.",
+    "answer": "Students with an annual family income below Rs. 5 Lakhs and an aggregate CGPA of 7.0 or above with no academic arrears are eligible. Submissions require income certificate, previous semester grade cards, and bank passbook verification.",
+    "keywords": [
+      "scholarship",
+      "financial aid",
+      "merit",
+      "income certificate"
+    ]
+  },
+  {
+    "qa_id": "QA-009",
+    "category": "Anti-Ragging & Campus Safety",
+    "question": "What is the emergency helpline number for anti-ragging or safety concerns?",
+    "context": "UGC Anti-Ragging Mandate and Campus Security Protocol.",
+    "answer": "The college operates a zero-tolerance Anti-Ragging Cell. Students can call the 24/7 Campus Emergency Helpline at 1800-180-5522 or dial the internal campus security control room at ext. 911 / +91-98765-00911. All reports are strictly confidential.",
+    "keywords": [
+      "anti-ragging",
+      "emergency helpline",
+      "safety",
+      "security"
+    ]
+  },
+  {
+    "qa_id": "QA-010",
+    "category": "Hostel & Campus Living",
+    "question": "What is the hostel curfew time and night out pass procedure?",
+    "context": "Chief Warden Rules & Regulations.",
+    "answer": "Hostel campus entry curfew is 8:30 PM for all residential students. For weekend night-outs, students must apply at least 24 hours in advance through the resident e-portal and obtain SMS/email parental consent before warden sign-off.",
+    "keywords": [
+      "hostel",
+      "curfew",
+      "night out",
+      "warden",
+      "rules"
+    ]
+  },
+  {
+    "qa_id": "QA-011",
+    "category": "Examinations",
+    "question": "What is the procedure for semester exam revaluation?",
+    "context": "Campus Knowledge Base Documentation 2026.",
+    "answer": "Students can apply for paper re-totaling or photostat copies within 10 days of result publication via the exam portal with a nominal fee of Rs. 400 per theory subject.",
+    "keywords": [
+      "examinations",
+      "smart-notice-board",
+      "student-guide"
+    ]
+  },
+  {
+    "qa_id": "QA-012",
+    "category": "Academics",
+    "question": "How do I register for NPTEL / SWAYAM MOOC credits transfer?",
+    "context": "Campus Knowledge Base Documentation 2026.",
+    "answer": "Submit your course completion certificate to your Department Academic Coordinator within the first two weeks of semester registration for credit mapping.",
+    "keywords": [
+      "academics",
+      "smart-notice-board",
+      "student-guide"
+    ]
+  },
+  {
+    "qa_id": "QA-013",
+    "category": "Placements",
+    "question": "Does the college offer off-campus placement assistance?",
+    "context": "Campus Knowledge Base Documentation 2026.",
+    "answer": "Yes, the Training & Placement Cell provides verified job links, resume screening, and alumni referral networks through the campus portal.",
+    "keywords": [
+      "placements",
+      "smart-notice-board",
+      "student-guide"
+    ]
+  },
+  {
+    "qa_id": "QA-014",
+    "category": "Laboratory",
+    "question": "What is the dress code and safety policy for workshops and chemistry labs?",
+    "context": "Campus Knowledge Base Documentation 2026.",
+    "answer": "Students must wear prescribed lab coats, closed-toe leather shoes, and safety goggles. Loose clothing and open hair are strictly prohibited.",
+    "keywords": [
+      "laboratory",
+      "smart-notice-board",
+      "student-guide"
+    ]
+  },
+  {
+    "qa_id": "QA-015",
+    "category": "IT Support",
+    "question": "How do I reset my Wi-Fi credentials or Student Portal password?",
+    "context": "Campus Knowledge Base Documentation 2026.",
+    "answer": "Visit the Systems Support Helpdesk in IT Block Room 204 or submit an OTP password reset request on the web login page.",
+    "keywords": [
+      "it support",
+      "smart-notice-board",
+      "student-guide"
+    ]
+  }
+]

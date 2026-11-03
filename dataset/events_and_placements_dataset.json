@@ -1,0 +1,106 @@
+{
+  "placements": [
+    {
+      "company": "Google",
+      "role": "Software Engineer (SDE 1)",
+      "package": "28 LPA",
+      "eligibility": "CGPA >= 8.0, No backlogs",
+      "deadline": "2026-11-20",
+      "open_for": [
+        "CSE",
+        "IT",
+        "ECE"
+      ]
+    },
+    {
+      "company": "Microsoft",
+      "role": "Cloud Support Associate",
+      "package": "21 LPA",
+      "eligibility": "CGPA >= 7.8, Max 1 backlog",
+      "deadline": "2026-11-25",
+      "open_for": [
+        "CSE",
+        "IT",
+        "ECE",
+        "MECH"
+      ]
+    },
+    {
+      "company": "Amazon AWS",
+      "role": "DevOps & Systems Engineer",
+      "package": "24 LPA",
+      "eligibility": "CGPA >= 7.5, No active backlogs",
+      "deadline": "2026-11-28",
+      "open_for": [
+        "CSE",
+        "IT"
+      ]
+    },
+    {
+      "company": "Tata Consultancy Services (TCS)",
+      "role": "Digital & Prime Cadre",
+      "package": "9 - 11 LPA",
+      "eligibility": "CGPA >= 6.5, All streams eligible",
+      "deadline": "2026-12-05",
+      "open_for": [
+        "All"
+      ]
+    },
+    {
+      "company": "Qualcomm",
+      "role": "Embedded Systems Engineer",
+      "package": "19 LPA",
+      "eligibility": "CGPA >= 7.5, Hardware / VLSI focus",
+      "deadline": "2026-11-18",
+      "open_for": [
+        "ECE",
+        "CSE"
+      ]
+    },
+    {
+      "company": "L&T Engineering",
+      "role": "Graduate Engineer Trainee (GET)",
+      "package": "8.5 LPA",
+      "eligibility": "CGPA >= 7.0, Core Engineering",
+      "deadline": "2026-12-10",
+      "open_for": [
+        "MECH",
+        "CIVIL"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "title": "Inter-Collegiate Hackathon: AI & Quantum CodeFest 2026",
+      "type": "Hackathon",
+      "date": "2026-11-14",
+      "location": "Main Auditorium & Innovation Labs",
+      "organizer": "Department of CSE",
+      "prize_pool": "2,50,000 INR"
+    },
+    {
+      "title": "Industrial Robotics and Automation Expo",
+      "type": "Seminar",
+      "date": "2026-11-18",
+      "location": "Mechanical Seminar Hall",
+      "organizer": "Department of Mechanical",
+      "prize_pool": "None"
+    },
+    {
+      "title": "National Technical Symposium: CyberVortex 2026",
+      "type": "Symposium",
+      "date": "2026-11-22",
+      "location": "Campus Convention Center",
+      "organizer": "Department of IT",
+      "prize_pool": "1,00,000 INR"
+    },
+    {
+      "title": "Campus Cultural Fest: 'Vibrance 2026'",
+      "type": "Cultural",
+      "date": "2026-12-02",
+      "location": "Open Air Amphitheatre",
+      "organizer": "Student Council",
+      "prize_pool": "Trophies & Citations"
+    }
+  ]
+}

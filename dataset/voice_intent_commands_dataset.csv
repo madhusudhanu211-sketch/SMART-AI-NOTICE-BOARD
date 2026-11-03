@@ -1,0 +1,214 @@
+transcript,intent,category_filter,department_filter,action
+Show me latest notices,SEARCH_NOTICES,,,NAVIGATE_NOTICES_FEED
+Show me notices for computer science,SEARCH_NOTICES,,CSE,FILTER_BY_DEPARTMENT
+Are there any notices for mechanical engineering,SEARCH_NOTICES,,MECH,FILTER_BY_DEPARTMENT
+Find announcements about fee payment,SEARCH_NOTICES,Circulars,,SEARCH_KEYWORD
+Filter notices by emergency alerts,SEARCH_NOTICES,Emergency,,FILTER_BY_CATEGORY
+Display all pinned circulars,SEARCH_NOTICES,,,SHOW_PINNED_NOTICES
+Search for scholarship notices,SEARCH_NOTICES,Scholarships,,FILTER_BY_CATEGORY
+What are the latest updates today,SEARCH_NOTICES,,,SHOW_TODAY_NOTICES
+When is my next examination,GET_EXAM_SCHEDULE,Examination,,OPEN_EXAM_SCHEDULE
+Show me the end semester exam timetable,GET_EXAM_SCHEDULE,Examination,,OPEN_EXAM_TIMETABLE
+What is the schedule for mid term exams,GET_EXAM_SCHEDULE,Examination,,OPEN_EXAM_TIMETABLE
+Where can I download my hall ticket,GET_EXAM_SCHEDULE,Examination,,SHOW_HALL_TICKET_PORTAL
+Show exam dates for 3rd year CSE,GET_EXAM_SCHEDULE,Examination,CSE,FILTER_EXAM_BY_CLASS
+What is my current attendance percentage,CHECK_ATTENDANCE,,,FETCH_ATTENDANCE_SUMMARY
+Show my attendance record,CHECK_ATTENDANCE,,,OPEN_ATTENDANCE_PAGE
+Am I eligible for exams based on attendance,CHECK_ATTENDANCE,,,CHECK_ATTENDANCE_ELIGIBILITY
+Show subject wise attendance,CHECK_ATTENDANCE,,,EXPAND_SUBJECT_ATTENDANCE
+How many classes have I missed this month,CHECK_ATTENDANCE,,,CALCULATE_ABSENT_COUNT
+Read aloud the latest notice,READ_LATEST_NOTICE,,,TRIGGER_TTS_READOUT
+Read the top announcement,READ_LATEST_NOTICE,,,TRIGGER_TTS_READOUT
+Speak out today's emergency notification,READ_LATEST_NOTICE,Emergency,,TRIGGER_TTS_READOUT
+Summarize the latest notice using AI,SUMMARIZE_NOTICE,,,INVOKE_GEMINI_SUMMARIZER
+Show me placement drives,CHECK_PLACEMENTS,Placements,,OPEN_PLACEMENTS_PORTAL
+What companies are visiting this week,CHECK_PLACEMENTS,Placements,,FETCH_UPCOMING_COMPANIES
+Show eligibility criteria for Google drive,CHECK_PLACEMENTS,Placements,,SHOW_PLACEMENT_CRITERIA
+Check status of my job application,CHECK_PLACEMENTS,Placements,,VIEW_JOB_APPLICATION_STATUS
+What is my timetable today,OPEN_TIMETABLE,,,FETCH_TODAY_TIMETABLE
+Show tomorrow's class schedule,OPEN_TIMETABLE,,,FETCH_TOMORROW_TIMETABLE
+Which room is my next class in,OPEN_TIMETABLE,,,FIND_CURRENT_ROOM_NUMBER
+Who is teaching Operating Systems,OPEN_TIMETABLE,,,LOOKUP_FACULTY_SUBJECT
+Show my pending assignments,CHECK_ASSIGNMENTS,,,VIEW_PENDING_ASSIGNMENTS
+When is the machine learning assignment due,CHECK_ASSIGNMENTS,,,FETCH_ASSIGNMENT_DUE_DATE
+Open assignment submission page,CHECK_ASSIGNMENTS,,,OPEN_SUBMISSION_PORTAL
+Switch to dark mode,TOGGLE_THEME,,,SET_THEME_DARK
+Switch to light mode,TOGGLE_THEME,,,SET_THEME_LIGHT
+Change language to Hindi,CHANGE_LANGUAGE,,,SET_LOCALE_HI
+Change language to English,CHANGE_LANGUAGE,,,SET_LOCALE_EN
+Log out from my account,AUTH_ACTION,,,EXECUTE_LOGOUT
+Can you display the notices,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+"Hey assistant, can you display the notices",SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+can you display the notices quickly,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Could you can you display the notices,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Can you display the notices,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Look up notices for CSE,SEARCH_NOTICES,,CSE,EXECUTE_SEARCH_NOTICES
+"Hey assistant, look up notices for ece",SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+look up notices for mechanical quickly,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Could you look up notices for mechanical,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Look up notices for ECE,SEARCH_NOTICES,,ECE,EXECUTE_SEARCH_NOTICES
+Browse latest campus circulars,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+"Hey assistant, browse latest campus circulars",SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+browse latest campus circulars quickly,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Could you browse latest campus circulars,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Browse latest campus circulars,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+List all new notices,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+"Hey assistant, list all new notices",SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+list all new notices quickly,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Could you list all new notices,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+List all new notices,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Show notices tagged placement,SEARCH_NOTICES,Placements,,EXECUTE_SEARCH_NOTICES
+"Hey assistant, show notices tagged scholarship",SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+show notices tagged internship quickly,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Could you show notices tagged hackathon,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Show notices tagged scholarship,SEARCH_NOTICES,,,EXECUTE_SEARCH_NOTICES
+Exam timetable please,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+"Hey assistant, exam timetable please",GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+exam timetable please quickly,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+Could you exam timetable please,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+Exam timetable please,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+When are the odd semester finals,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+"Hey assistant, when are the odd semester finals",GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+when are the odd semester finals quickly,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+Could you when are the odd semester finals,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+When are the odd semester finals,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+Check datesheet for exams,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+"Hey assistant, check datesheet for exams",GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+check datesheet for exams quickly,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+Could you check datesheet for exams,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+Check datesheet for exams,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+Any notification on internal tests,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+"Hey assistant, any notification on internal tests",GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+any notification on internal tests quickly,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+Could you any notification on internal tests,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+Any notification on internal tests,GET_EXAM_SCHEDULE,,,EXECUTE_GET_EXAM_SCHEDULE
+Get exam hall ticket information,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+"Hey assistant, get exam hall ticket information",GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+get exam hall ticket information quickly,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+Could you get exam hall ticket information,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+Get exam hall ticket information,GET_EXAM_SCHEDULE,Academic,,EXECUTE_GET_EXAM_SCHEDULE
+Did my attendance drop below seventy five,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+"Hey assistant, did my attendance drop below seventy five",CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+did my attendance drop below seventy five quickly,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Could you did my attendance drop below seventy five,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Did my attendance drop below seventy five,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Check my attendance records for CSE,CHECK_ATTENDANCE,,CSE,EXECUTE_CHECK_ATTENDANCE
+"Hey assistant, check my attendance records for cse",CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+check my attendance records for mechanical quickly,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Could you check my attendance records for mechanical,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Check my attendance records for Civil,CHECK_ATTENDANCE,,Civil,EXECUTE_CHECK_ATTENDANCE
+Am I marked present today,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+"Hey assistant, am i marked present today",CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+am i marked present today quickly,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Could you am i marked present today,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Am I marked present today,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Show monthly attendance percentage,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+"Hey assistant, show monthly attendance percentage",CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+show monthly attendance percentage quickly,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Could you show monthly attendance percentage,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Show monthly attendance percentage,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Report attendance shortage,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+"Hey assistant, report attendance shortage",CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+report attendance shortage quickly,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Could you report attendance shortage,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+Report attendance shortage,CHECK_ATTENDANCE,,,EXECUTE_CHECK_ATTENDANCE
+List companies offering internships,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+"Hey assistant, list companies offering internships",CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+list companies offering internships quickly,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+Could you list companies offering internships,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+List companies offering internships,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+What is the CTC for Microsoft placement,CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+"Hey assistant, what is the ctc for microsoft placement",CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+what is the ctc for microsoft placement quickly,CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+Could you what is the ctc for microsoft placement,CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+What is the CTC for Microsoft placement,CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+Open placement drive notifications,CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+"Hey assistant, open placement drive notifications",CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+open placement drive notifications quickly,CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+Could you open placement drive notifications,CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+Open placement drive notifications,CHECK_PLACEMENTS,Placements,,EXECUTE_CHECK_PLACEMENTS
+View companies hiring computer science students,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+"Hey assistant, view companies hiring computer science students",CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+view companies hiring computer science students quickly,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+Could you view companies hiring computer science students,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+View companies hiring computer science students,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+Show campus recruitment announcements,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+"Hey assistant, show campus recruitment announcements",CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+show campus recruitment announcements quickly,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+Could you show campus recruitment announcements,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+Show campus recruitment announcements,CHECK_PLACEMENTS,,,EXECUTE_CHECK_PLACEMENTS
+What period do I have at 10 AM,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+"Hey assistant, what period do i have at 10 am",OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+what period do i have at 10 am quickly,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Could you what period do i have at 10 am,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+What period do I have at 10 AM,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Show my lecture schedule for today,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+"Hey assistant, show my lecture schedule for today",OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+show my lecture schedule for today quickly,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Could you show my lecture schedule for today,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Show my lecture schedule for today,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Who is handling practical session today,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+"Hey assistant, who is handling practical session today",OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+who is handling practical session today quickly,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Could you who is handling practical session today,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Who is handling practical session today,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Display weekly timetable,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+"Hey assistant, display weekly timetable",OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+display weekly timetable quickly,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Could you display weekly timetable,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Display weekly timetable,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Check classroom location for next lecture,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+"Hey assistant, check classroom location for next lecture",OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+check classroom location for next lecture quickly,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Could you check classroom location for next lecture,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Check classroom location for next lecture,OPEN_TIMETABLE,,,EXECUTE_OPEN_TIMETABLE
+Are any homework deadlines approaching,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+"Hey assistant, are any homework deadlines approaching",CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+are any homework deadlines approaching quickly,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Could you are any homework deadlines approaching,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Are any homework deadlines approaching,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+List lab reports due this week,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+"Hey assistant, list lab reports due this week",CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+list lab reports due this week quickly,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Could you list lab reports due this week,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+List lab reports due this week,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Check assignment marks and teacher feedback,CHECK_ASSIGNMENTS,Academic,,EXECUTE_CHECK_ASSIGNMENTS
+"Hey assistant, check assignment marks and teacher feedback",CHECK_ASSIGNMENTS,Academic,,EXECUTE_CHECK_ASSIGNMENTS
+check assignment marks and teacher feedback quickly,CHECK_ASSIGNMENTS,Academic,,EXECUTE_CHECK_ASSIGNMENTS
+Could you check assignment marks and teacher feedback,CHECK_ASSIGNMENTS,Academic,,EXECUTE_CHECK_ASSIGNMENTS
+Check assignment marks and teacher feedback,CHECK_ASSIGNMENTS,Academic,,EXECUTE_CHECK_ASSIGNMENTS
+Submit project documentation,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+"Hey assistant, submit project documentation",CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+submit project documentation quickly,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Could you submit project documentation,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Submit project documentation,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Show homework due dates,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+"Hey assistant, show homework due dates",CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+show homework due dates quickly,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Could you show homework due dates,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Show homework due dates,CHECK_ASSIGNMENTS,,,EXECUTE_CHECK_ASSIGNMENTS
+Ask campus bot about admission criteria,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+"Hey assistant, ask campus bot about admission criteria",CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+ask campus bot about admission criteria quickly,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Could you ask campus bot about admission criteria,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Ask campus bot about admission criteria,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+What is the library closing time,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+"Hey assistant, what is the library closing time",CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+what is the library closing time quickly,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Could you what is the library closing time,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+What is the library closing time,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+How do I apply for bonafide certificate,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+"Hey assistant, how do i apply for bonafide certificate",CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+how do i apply for bonafide certificate quickly,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Could you how do i apply for bonafide certificate,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+How do I apply for bonafide certificate,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Where is the dean's office located,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+"Hey assistant, where is the dean's office located",CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+where is the dean's office located quickly,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Could you where is the dean's office located,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Where is the dean's office located,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Explain grading and GPA calculation,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+"Hey assistant, explain grading and gpa calculation",CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+explain grading and gpa calculation quickly,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Could you explain grading and gpa calculation,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY
+Explain grading and GPA calculation,CAMPUS_AI_QUERY,,,EXECUTE_CAMPUS_AI_QUERY

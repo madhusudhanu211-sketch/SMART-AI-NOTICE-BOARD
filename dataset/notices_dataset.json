@@ -1,0 +1,2017 @@
+[
+  {
+    "notice_id": "NOT-2026-001",
+    "title": "End-Semester Theory & Practical Examination Timetable Released",
+    "description": "The final timetable for Odd Semester 2026 regular and arrear examinations has been published. Hall tickets will be downloadable via the student portal from next Monday. Students must verify subject codes and report discrepancies to the Exam Cell.",
+    "category": "Examination",
+    "priority": "Urgent",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": true,
+    "views_count": 1420,
+    "urgency_score": 9.5,
+    "tags": [
+      "exam",
+      "timetable",
+      "hall-ticket",
+      "odd-semester"
+    ],
+    "publish_date": "2026-10-15",
+    "expiry_date": "2026-11-30"
+  },
+  {
+    "notice_id": "NOT-2026-002",
+    "title": "Google & Microsoft Cloud Campus Recruitment Drive 2026",
+    "description": "On-campus recruitment drive for 2026 graduating batch (CSE, IT, ECE). Job roles include Software Development Engineer (SDE) and Cloud Solutions Architect. Minimum CGPA required: 7.8 with no active backlogs. CTC: 18 - 28 LPA.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": true,
+    "views_count": 2840,
+    "urgency_score": 9.0,
+    "tags": [
+      "placement",
+      "google",
+      "microsoft",
+      "sde",
+      "careers"
+    ],
+    "publish_date": "2026-10-18",
+    "expiry_date": "2026-11-20"
+  },
+  {
+    "notice_id": "NOT-2026-003",
+    "title": "\ud83d\udea8 Emergency Campus Power Grid Overhaul & Maintenance",
+    "description": "Essential high-voltage transformer maintenance scheduled for Saturday. Central server rooms, main library, and academic Blocks A, B, and C will have power shutdown from 08:00 AM to 04:00 PM. All offline laboratories will remain closed.",
+    "category": "Emergency",
+    "priority": "Urgent",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Faculty & Students",
+    "is_pinned": true,
+    "views_count": 3150,
+    "urgency_score": 9.8,
+    "tags": [
+      "emergency",
+      "maintenance",
+      "power-shutdown",
+      "campus-alert"
+    ],
+    "publish_date": "2026-10-28",
+    "expiry_date": "2026-11-05"
+  },
+  {
+    "notice_id": "NOT-2026-004",
+    "title": "National Hackathon 2026: AI for Smart Cities (48-Hour Sprint)",
+    "description": "Department of CSE invites student teams (3-4 members) to participate in the National Smart Cities Hackathon with cash prizes worth 2.5 Lakhs INR. Mentorship provided by industry leaders. Registration deadline is November 10th.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "All Engineering Students",
+    "is_pinned": false,
+    "views_count": 1890,
+    "urgency_score": 6.5,
+    "tags": [
+      "hackathon",
+      "ai",
+      "smart-city",
+      "innovation",
+      "coding"
+    ],
+    "publish_date": "2026-10-20",
+    "expiry_date": "2026-11-12"
+  },
+  {
+    "notice_id": "NOT-2026-005",
+    "title": "Mandatory 75% Attendance Requirement for Semester End Eligibility",
+    "description": "As per Academic Regulations, students must maintain a minimum of 75% aggregate attendance in each registered theory and laboratory course to be permitted for semester examinations. Students in the 65%-74% band must submit medical condonation forms immediately.",
+    "category": "Academic",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": true,
+    "views_count": 4200,
+    "urgency_score": 8.8,
+    "tags": [
+      "attendance",
+      "eligibility",
+      "regulations",
+      "condonation"
+    ],
+    "publish_date": "2026-10-10",
+    "expiry_date": "2026-11-25"
+  },
+  {
+    "notice_id": "NOT-2026-006",
+    "title": "Post-Matric & Merit-Cum-Means Scholarship Portal Window Extended",
+    "description": "Government and institutional scholarship applications portal has been extended till November 25, 2026. Eligible SC/ST, OBC, and economically weaker section students should upload verified income and caste certificates at the Dean Office counter.",
+    "category": "Scholarships",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Eligible Students",
+    "is_pinned": false,
+    "views_count": 1340,
+    "urgency_score": 6.0,
+    "tags": [
+      "scholarship",
+      "financial-aid",
+      "fee-concession",
+      "merit"
+    ],
+    "publish_date": "2026-10-22",
+    "expiry_date": "2026-11-26"
+  },
+  {
+    "notice_id": "NOT-2026-007",
+    "title": "Hands-on Workshop: Generative AI and Edge Computing on Raspberry Pi 5",
+    "description": "Two-day technical workshop organized by ECE and CSE departments exploring tinyML, edge inference, and Gemini API integration. Registration fee of Rs. 300 includes hardware kit access and certificate.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Electronics & Communication",
+    "author_role": "Faculty",
+    "target_audience": "2nd, 3rd, and 4th Year Students",
+    "is_pinned": false,
+    "views_count": 920,
+    "urgency_score": 5.5,
+    "tags": [
+      "workshop",
+      "edge-ai",
+      "raspberry-pi",
+      "iot",
+      "hands-on"
+    ],
+    "publish_date": "2026-10-25",
+    "expiry_date": "2026-11-15"
+  },
+  {
+    "notice_id": "NOT-2026-008",
+    "title": "Inter-Collegiate Sports Tournament Selections (Cricket, Football, Badminton)",
+    "description": "Physical Education Department announces university trials for Men and Women athletic squads. Interested sports candidates should report in sports attire to the University Stadium with student ID card.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Sports Candidates",
+    "is_pinned": false,
+    "views_count": 780,
+    "urgency_score": 4.0,
+    "tags": [
+      "sports",
+      "cricket",
+      "football",
+      "athletics",
+      "trials"
+    ],
+    "publish_date": "2026-10-26",
+    "expiry_date": "2026-11-08"
+  },
+  {
+    "notice_id": "NOT-2026-009",
+    "title": "Diwali & Mid-Term Festival Break Announcement",
+    "description": "The institution will observe holiday for Diwali from November 01 to November 04, 2026. Academic sessions, library services, and administrative offices will resume normal operation on Wednesday, November 05.",
+    "category": "Holidays",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "All Staff & Students",
+    "is_pinned": false,
+    "views_count": 3400,
+    "urgency_score": 5.0,
+    "tags": [
+      "holiday",
+      "diwali",
+      "vacation",
+      "campus-closure"
+    ],
+    "publish_date": "2026-10-27",
+    "expiry_date": "2026-11-06"
+  },
+  {
+    "notice_id": "NOT-2026-010",
+    "title": "Smart Campus Notice Board Voice Recognition Feedback & Beta Testing",
+    "description": "IT & R&D division has deployed the AI Voice Assistant on the central campus kiosks. Students are encouraged to test voice queries (e.g., 'What is today's schedule?', 'Show exam alerts') and submit feedback through the mobile app.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Faculty",
+    "target_audience": "All Campus Members",
+    "is_pinned": false,
+    "views_count": 1150,
+    "urgency_score": 6.2,
+    "tags": [
+      "smart-board",
+      "voice-assistant",
+      "beta",
+      "feedback",
+      "ai"
+    ],
+    "publish_date": "2026-10-29",
+    "expiry_date": "2026-11-20"
+  },
+  {
+    "notice_id": "NOT-2026-011",
+    "title": "#11: Robotics Club Autonomous Drone Racing Challenge",
+    "description": "Robotics club invites participants for autonomous obstacle navigation. Reference Circular ref/11/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Mechanical Engineering",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 2342,
+    "urgency_score": 8.3,
+    "tags": [
+      "workshops",
+      "mechanical",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-27",
+    "expiry_date": "2026-12-16"
+  },
+  {
+    "notice_id": "NOT-2026-012",
+    "title": "#12: TCS Ninja & Digital National Qualifier Test (NQT) Registration",
+    "description": "Final year registration open for nationwide engineering assessment. Reference Circular ref/12/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 4507,
+    "urgency_score": 5.2,
+    "tags": [
+      "placements",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-15",
+    "expiry_date": "2026-12-02"
+  },
+  {
+    "notice_id": "NOT-2026-013",
+    "title": "#13: Guest Lecture: Quantum Cryptography and Post-Quantum Security",
+    "description": "Keynote address by Dr. Ramanathan from National Institute of Standards. Reference Circular ref/13/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 2384,
+    "urgency_score": 6.7,
+    "tags": [
+      "academic",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-05",
+    "expiry_date": "2026-11-12"
+  },
+  {
+    "notice_id": "NOT-2026-014",
+    "title": "#14: Hostel Mess Committee Monthly Menu Revision Meeting",
+    "description": "Elected student representatives meet at Dean Office to review dietary schedule. Reference Circular ref/14/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 723,
+    "urgency_score": 6.0,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-27",
+    "expiry_date": "2026-12-11"
+  },
+  {
+    "notice_id": "NOT-2026-015",
+    "title": "#15: Blood Donation & Health Checkup Camp 2026",
+    "description": "Youth Red Cross and NSS wing organize annual voluntary blood camp. Reference Circular ref/15/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": true,
+    "views_count": 2700,
+    "urgency_score": 5.6,
+    "tags": [
+      "events",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-24",
+    "expiry_date": "2026-11-22"
+  },
+  {
+    "notice_id": "NOT-2026-016",
+    "title": "#16: Laboratory Component Re-evaluation & Internal Marks Verification",
+    "description": "Students can verify lab internal mark calculations before final submission. Reference Circular ref/16/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Examination",
+    "priority": "High",
+    "department": "Electronics & Communication",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 4739,
+    "urgency_score": 8.1,
+    "tags": [
+      "examination",
+      "electronics",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-23",
+    "expiry_date": "2026-11-22"
+  },
+  {
+    "notice_id": "NOT-2026-017",
+    "title": "#17: Amazon AWS Cloud Practitioner Certification Voucher Discount",
+    "description": "Department of IT provides 50% discount voucher for AWS foundational badge. Reference Circular ref/17/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 2707,
+    "urgency_score": 6.8,
+    "tags": [
+      "academic",
+      "information",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-12",
+    "expiry_date": "2026-11-25"
+  },
+  {
+    "notice_id": "NOT-2026-018",
+    "title": "#18: Inter-Department Basketball Championship Finals & Award Ceremony",
+    "description": "Final match between CSE and Mechanical department at Main Indoor Court. Reference Circular ref/18/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 1472,
+    "urgency_score": 5.2,
+    "tags": [
+      "sports",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-29",
+    "expiry_date": "2026-11-19"
+  },
+  {
+    "notice_id": "NOT-2026-019",
+    "title": "#19: Winter Internship Drive by Top Startups & Tech Incubators",
+    "description": "Stipend up to 45,000 INR per month for 3rd year frontend and backend roles. Reference Circular ref/19/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 319,
+    "urgency_score": 8.8,
+    "tags": [
+      "placements",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-10",
+    "expiry_date": "2026-11-17"
+  },
+  {
+    "notice_id": "NOT-2026-020",
+    "title": "#20: Library Digital Archives Upgrade: IEEE Xplore & ACM Portal Access",
+    "description": "Off-campus proxy access enabled for all enrolled university students. Reference Circular ref/20/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 1878,
+    "urgency_score": 4.7,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-04",
+    "expiry_date": "2026-11-24"
+  },
+  {
+    "notice_id": "NOT-2026-021",
+    "title": "#21: Robotics Club Autonomous Drone Racing Challenge",
+    "description": "Robotics club invites participants for autonomous obstacle navigation. Reference Circular ref/21/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Mechanical Engineering",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 1583,
+    "urgency_score": 5.8,
+    "tags": [
+      "workshops",
+      "mechanical",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-25",
+    "expiry_date": "2026-12-17"
+  },
+  {
+    "notice_id": "NOT-2026-022",
+    "title": "#22: TCS Ninja & Digital National Qualifier Test (NQT) Registration",
+    "description": "Final year registration open for nationwide engineering assessment. Reference Circular ref/22/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 4162,
+    "urgency_score": 6.7,
+    "tags": [
+      "placements",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-25",
+    "expiry_date": "2026-12-06"
+  },
+  {
+    "notice_id": "NOT-2026-023",
+    "title": "#23: Guest Lecture: Quantum Cryptography and Post-Quantum Security",
+    "description": "Keynote address by Dr. Ramanathan from National Institute of Standards. Reference Circular ref/23/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 2800,
+    "urgency_score": 8.4,
+    "tags": [
+      "academic",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-16",
+    "expiry_date": "2026-12-11"
+  },
+  {
+    "notice_id": "NOT-2026-024",
+    "title": "#24: Hostel Mess Committee Monthly Menu Revision Meeting",
+    "description": "Elected student representatives meet at Dean Office to review dietary schedule. Reference Circular ref/24/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 4284,
+    "urgency_score": 8.1,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-27",
+    "expiry_date": "2026-12-17"
+  },
+  {
+    "notice_id": "NOT-2026-025",
+    "title": "#25: Blood Donation & Health Checkup Camp 2026",
+    "description": "Youth Red Cross and NSS wing organize annual voluntary blood camp. Reference Circular ref/25/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 1859,
+    "urgency_score": 7.3,
+    "tags": [
+      "events",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-30",
+    "expiry_date": "2026-11-24"
+  },
+  {
+    "notice_id": "NOT-2026-026",
+    "title": "#26: Laboratory Component Re-evaluation & Internal Marks Verification",
+    "description": "Students can verify lab internal mark calculations before final submission. Reference Circular ref/26/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Examination",
+    "priority": "High",
+    "department": "Electronics & Communication",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 2544,
+    "urgency_score": 4.9,
+    "tags": [
+      "examination",
+      "electronics",
+      "academic-2026"
+    ],
+    "publish_date": "2026-11-01",
+    "expiry_date": "2026-12-15"
+  },
+  {
+    "notice_id": "NOT-2026-027",
+    "title": "#27: Amazon AWS Cloud Practitioner Certification Voucher Discount",
+    "description": "Department of IT provides 50% discount voucher for AWS foundational badge. Reference Circular ref/27/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 2073,
+    "urgency_score": 8.6,
+    "tags": [
+      "academic",
+      "information",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-08",
+    "expiry_date": "2026-11-25"
+  },
+  {
+    "notice_id": "NOT-2026-028",
+    "title": "#28: Inter-Department Basketball Championship Finals & Award Ceremony",
+    "description": "Final match between CSE and Mechanical department at Main Indoor Court. Reference Circular ref/28/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 1226,
+    "urgency_score": 8.3,
+    "tags": [
+      "sports",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-27",
+    "expiry_date": "2026-11-27"
+  },
+  {
+    "notice_id": "NOT-2026-029",
+    "title": "#29: Winter Internship Drive by Top Startups & Tech Incubators",
+    "description": "Stipend up to 45,000 INR per month for 3rd year frontend and backend roles. Reference Circular ref/29/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 4799,
+    "urgency_score": 4.1,
+    "tags": [
+      "placements",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-21",
+    "expiry_date": "2026-12-15"
+  },
+  {
+    "notice_id": "NOT-2026-030",
+    "title": "#30: Library Digital Archives Upgrade: IEEE Xplore & ACM Portal Access",
+    "description": "Off-campus proxy access enabled for all enrolled university students. Reference Circular ref/30/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": true,
+    "views_count": 4151,
+    "urgency_score": 9.4,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-17",
+    "expiry_date": "2026-11-30"
+  },
+  {
+    "notice_id": "NOT-2026-031",
+    "title": "#31: Robotics Club Autonomous Drone Racing Challenge",
+    "description": "Robotics club invites participants for autonomous obstacle navigation. Reference Circular ref/31/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Mechanical Engineering",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 2042,
+    "urgency_score": 8.9,
+    "tags": [
+      "workshops",
+      "mechanical",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-25",
+    "expiry_date": "2026-12-05"
+  },
+  {
+    "notice_id": "NOT-2026-032",
+    "title": "#32: TCS Ninja & Digital National Qualifier Test (NQT) Registration",
+    "description": "Final year registration open for nationwide engineering assessment. Reference Circular ref/32/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 2593,
+    "urgency_score": 8.4,
+    "tags": [
+      "placements",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-25",
+    "expiry_date": "2026-12-10"
+  },
+  {
+    "notice_id": "NOT-2026-033",
+    "title": "#33: Guest Lecture: Quantum Cryptography and Post-Quantum Security",
+    "description": "Keynote address by Dr. Ramanathan from National Institute of Standards. Reference Circular ref/33/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 4326,
+    "urgency_score": 5.4,
+    "tags": [
+      "academic",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-07",
+    "expiry_date": "2026-11-21"
+  },
+  {
+    "notice_id": "NOT-2026-034",
+    "title": "#34: Hostel Mess Committee Monthly Menu Revision Meeting",
+    "description": "Elected student representatives meet at Dean Office to review dietary schedule. Reference Circular ref/34/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 3717,
+    "urgency_score": 7.5,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-22",
+    "expiry_date": "2026-12-02"
+  },
+  {
+    "notice_id": "NOT-2026-035",
+    "title": "#35: Blood Donation & Health Checkup Camp 2026",
+    "description": "Youth Red Cross and NSS wing organize annual voluntary blood camp. Reference Circular ref/35/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 1939,
+    "urgency_score": 9.5,
+    "tags": [
+      "events",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-21",
+    "expiry_date": "2026-12-13"
+  },
+  {
+    "notice_id": "NOT-2026-036",
+    "title": "#36: Laboratory Component Re-evaluation & Internal Marks Verification",
+    "description": "Students can verify lab internal mark calculations before final submission. Reference Circular ref/36/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Examination",
+    "priority": "High",
+    "department": "Electronics & Communication",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 4277,
+    "urgency_score": 6.1,
+    "tags": [
+      "examination",
+      "electronics",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-16",
+    "expiry_date": "2026-11-18"
+  },
+  {
+    "notice_id": "NOT-2026-037",
+    "title": "#37: Amazon AWS Cloud Practitioner Certification Voucher Discount",
+    "description": "Department of IT provides 50% discount voucher for AWS foundational badge. Reference Circular ref/37/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 1308,
+    "urgency_score": 6.9,
+    "tags": [
+      "academic",
+      "information",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-22",
+    "expiry_date": "2026-11-25"
+  },
+  {
+    "notice_id": "NOT-2026-038",
+    "title": "#38: Inter-Department Basketball Championship Finals & Award Ceremony",
+    "description": "Final match between CSE and Mechanical department at Main Indoor Court. Reference Circular ref/38/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 952,
+    "urgency_score": 7.3,
+    "tags": [
+      "sports",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-24",
+    "expiry_date": "2026-11-10"
+  },
+  {
+    "notice_id": "NOT-2026-039",
+    "title": "#39: Winter Internship Drive by Top Startups & Tech Incubators",
+    "description": "Stipend up to 45,000 INR per month for 3rd year frontend and backend roles. Reference Circular ref/39/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 892,
+    "urgency_score": 5.1,
+    "tags": [
+      "placements",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-24",
+    "expiry_date": "2026-11-29"
+  },
+  {
+    "notice_id": "NOT-2026-040",
+    "title": "#40: Library Digital Archives Upgrade: IEEE Xplore & ACM Portal Access",
+    "description": "Off-campus proxy access enabled for all enrolled university students. Reference Circular ref/40/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 3478,
+    "urgency_score": 4.9,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-14",
+    "expiry_date": "2026-11-14"
+  },
+  {
+    "notice_id": "NOT-2026-041",
+    "title": "#41: Robotics Club Autonomous Drone Racing Challenge",
+    "description": "Robotics club invites participants for autonomous obstacle navigation. Reference Circular ref/41/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Mechanical Engineering",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 3741,
+    "urgency_score": 5.7,
+    "tags": [
+      "workshops",
+      "mechanical",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-05",
+    "expiry_date": "2026-11-12"
+  },
+  {
+    "notice_id": "NOT-2026-042",
+    "title": "#42: TCS Ninja & Digital National Qualifier Test (NQT) Registration",
+    "description": "Final year registration open for nationwide engineering assessment. Reference Circular ref/42/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 1646,
+    "urgency_score": 5.2,
+    "tags": [
+      "placements",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-28",
+    "expiry_date": "2026-12-12"
+  },
+  {
+    "notice_id": "NOT-2026-043",
+    "title": "#43: Guest Lecture: Quantum Cryptography and Post-Quantum Security",
+    "description": "Keynote address by Dr. Ramanathan from National Institute of Standards. Reference Circular ref/43/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 1822,
+    "urgency_score": 8.0,
+    "tags": [
+      "academic",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-16",
+    "expiry_date": "2026-11-23"
+  },
+  {
+    "notice_id": "NOT-2026-044",
+    "title": "#44: Hostel Mess Committee Monthly Menu Revision Meeting",
+    "description": "Elected student representatives meet at Dean Office to review dietary schedule. Reference Circular ref/44/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 2610,
+    "urgency_score": 8.9,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-12",
+    "expiry_date": "2026-11-19"
+  },
+  {
+    "notice_id": "NOT-2026-045",
+    "title": "#45: Blood Donation & Health Checkup Camp 2026",
+    "description": "Youth Red Cross and NSS wing organize annual voluntary blood camp. Reference Circular ref/45/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": true,
+    "views_count": 349,
+    "urgency_score": 8.8,
+    "tags": [
+      "events",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-07",
+    "expiry_date": "2026-11-28"
+  },
+  {
+    "notice_id": "NOT-2026-046",
+    "title": "#46: Laboratory Component Re-evaluation & Internal Marks Verification",
+    "description": "Students can verify lab internal mark calculations before final submission. Reference Circular ref/46/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Examination",
+    "priority": "High",
+    "department": "Electronics & Communication",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 1452,
+    "urgency_score": 8.8,
+    "tags": [
+      "examination",
+      "electronics",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-29",
+    "expiry_date": "2026-12-04"
+  },
+  {
+    "notice_id": "NOT-2026-047",
+    "title": "#47: Amazon AWS Cloud Practitioner Certification Voucher Discount",
+    "description": "Department of IT provides 50% discount voucher for AWS foundational badge. Reference Circular ref/47/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 1907,
+    "urgency_score": 5.2,
+    "tags": [
+      "academic",
+      "information",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-16",
+    "expiry_date": "2026-11-21"
+  },
+  {
+    "notice_id": "NOT-2026-048",
+    "title": "#48: Inter-Department Basketball Championship Finals & Award Ceremony",
+    "description": "Final match between CSE and Mechanical department at Main Indoor Court. Reference Circular ref/48/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 3418,
+    "urgency_score": 4.1,
+    "tags": [
+      "sports",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-02",
+    "expiry_date": "2026-11-18"
+  },
+  {
+    "notice_id": "NOT-2026-049",
+    "title": "#49: Winter Internship Drive by Top Startups & Tech Incubators",
+    "description": "Stipend up to 45,000 INR per month for 3rd year frontend and backend roles. Reference Circular ref/49/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 2648,
+    "urgency_score": 6.4,
+    "tags": [
+      "placements",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-29",
+    "expiry_date": "2026-12-10"
+  },
+  {
+    "notice_id": "NOT-2026-050",
+    "title": "#50: Library Digital Archives Upgrade: IEEE Xplore & ACM Portal Access",
+    "description": "Off-campus proxy access enabled for all enrolled university students. Reference Circular ref/50/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 1099,
+    "urgency_score": 7.1,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-08",
+    "expiry_date": "2026-12-12"
+  },
+  {
+    "notice_id": "NOT-2026-051",
+    "title": "#51: Robotics Club Autonomous Drone Racing Challenge",
+    "description": "Robotics club invites participants for autonomous obstacle navigation. Reference Circular ref/51/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Mechanical Engineering",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 740,
+    "urgency_score": 5.3,
+    "tags": [
+      "workshops",
+      "mechanical",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-08",
+    "expiry_date": "2026-11-09"
+  },
+  {
+    "notice_id": "NOT-2026-052",
+    "title": "#52: TCS Ninja & Digital National Qualifier Test (NQT) Registration",
+    "description": "Final year registration open for nationwide engineering assessment. Reference Circular ref/52/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 1811,
+    "urgency_score": 8.0,
+    "tags": [
+      "placements",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-13",
+    "expiry_date": "2026-12-11"
+  },
+  {
+    "notice_id": "NOT-2026-053",
+    "title": "#53: Guest Lecture: Quantum Cryptography and Post-Quantum Security",
+    "description": "Keynote address by Dr. Ramanathan from National Institute of Standards. Reference Circular ref/53/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 3719,
+    "urgency_score": 8.8,
+    "tags": [
+      "academic",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-09",
+    "expiry_date": "2026-11-10"
+  },
+  {
+    "notice_id": "NOT-2026-054",
+    "title": "#54: Hostel Mess Committee Monthly Menu Revision Meeting",
+    "description": "Elected student representatives meet at Dean Office to review dietary schedule. Reference Circular ref/54/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 3019,
+    "urgency_score": 8.2,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-29",
+    "expiry_date": "2026-11-23"
+  },
+  {
+    "notice_id": "NOT-2026-055",
+    "title": "#55: Blood Donation & Health Checkup Camp 2026",
+    "description": "Youth Red Cross and NSS wing organize annual voluntary blood camp. Reference Circular ref/55/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 2553,
+    "urgency_score": 6.7,
+    "tags": [
+      "events",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-15",
+    "expiry_date": "2026-11-27"
+  },
+  {
+    "notice_id": "NOT-2026-056",
+    "title": "#56: Laboratory Component Re-evaluation & Internal Marks Verification",
+    "description": "Students can verify lab internal mark calculations before final submission. Reference Circular ref/56/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Examination",
+    "priority": "High",
+    "department": "Electronics & Communication",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 1458,
+    "urgency_score": 7.3,
+    "tags": [
+      "examination",
+      "electronics",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-06",
+    "expiry_date": "2026-11-26"
+  },
+  {
+    "notice_id": "NOT-2026-057",
+    "title": "#57: Amazon AWS Cloud Practitioner Certification Voucher Discount",
+    "description": "Department of IT provides 50% discount voucher for AWS foundational badge. Reference Circular ref/57/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 501,
+    "urgency_score": 6.3,
+    "tags": [
+      "academic",
+      "information",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-21",
+    "expiry_date": "2026-11-14"
+  },
+  {
+    "notice_id": "NOT-2026-058",
+    "title": "#58: Inter-Department Basketball Championship Finals & Award Ceremony",
+    "description": "Final match between CSE and Mechanical department at Main Indoor Court. Reference Circular ref/58/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 1851,
+    "urgency_score": 7.4,
+    "tags": [
+      "sports",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-30",
+    "expiry_date": "2026-11-24"
+  },
+  {
+    "notice_id": "NOT-2026-059",
+    "title": "#59: Winter Internship Drive by Top Startups & Tech Incubators",
+    "description": "Stipend up to 45,000 INR per month for 3rd year frontend and backend roles. Reference Circular ref/59/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 4110,
+    "urgency_score": 4.8,
+    "tags": [
+      "placements",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-26",
+    "expiry_date": "2026-12-12"
+  },
+  {
+    "notice_id": "NOT-2026-060",
+    "title": "#60: Library Digital Archives Upgrade: IEEE Xplore & ACM Portal Access",
+    "description": "Off-campus proxy access enabled for all enrolled university students. Reference Circular ref/60/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": true,
+    "views_count": 3577,
+    "urgency_score": 4.5,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-05",
+    "expiry_date": "2026-11-28"
+  },
+  {
+    "notice_id": "NOT-2026-061",
+    "title": "#61: Robotics Club Autonomous Drone Racing Challenge",
+    "description": "Robotics club invites participants for autonomous obstacle navigation. Reference Circular ref/61/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Mechanical Engineering",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 3033,
+    "urgency_score": 9.6,
+    "tags": [
+      "workshops",
+      "mechanical",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-13",
+    "expiry_date": "2026-11-27"
+  },
+  {
+    "notice_id": "NOT-2026-062",
+    "title": "#62: TCS Ninja & Digital National Qualifier Test (NQT) Registration",
+    "description": "Final year registration open for nationwide engineering assessment. Reference Circular ref/62/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 2710,
+    "urgency_score": 4.9,
+    "tags": [
+      "placements",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-26",
+    "expiry_date": "2026-11-11"
+  },
+  {
+    "notice_id": "NOT-2026-063",
+    "title": "#63: Guest Lecture: Quantum Cryptography and Post-Quantum Security",
+    "description": "Keynote address by Dr. Ramanathan from National Institute of Standards. Reference Circular ref/63/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 3413,
+    "urgency_score": 9.0,
+    "tags": [
+      "academic",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-24",
+    "expiry_date": "2026-12-15"
+  },
+  {
+    "notice_id": "NOT-2026-064",
+    "title": "#64: Hostel Mess Committee Monthly Menu Revision Meeting",
+    "description": "Elected student representatives meet at Dean Office to review dietary schedule. Reference Circular ref/64/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 463,
+    "urgency_score": 9.4,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-14",
+    "expiry_date": "2026-12-01"
+  },
+  {
+    "notice_id": "NOT-2026-065",
+    "title": "#65: Blood Donation & Health Checkup Camp 2026",
+    "description": "Youth Red Cross and NSS wing organize annual voluntary blood camp. Reference Circular ref/65/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 2053,
+    "urgency_score": 6.9,
+    "tags": [
+      "events",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-11",
+    "expiry_date": "2026-11-11"
+  },
+  {
+    "notice_id": "NOT-2026-066",
+    "title": "#66: Laboratory Component Re-evaluation & Internal Marks Verification",
+    "description": "Students can verify lab internal mark calculations before final submission. Reference Circular ref/66/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Examination",
+    "priority": "High",
+    "department": "Electronics & Communication",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 3072,
+    "urgency_score": 9.5,
+    "tags": [
+      "examination",
+      "electronics",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-01",
+    "expiry_date": "2026-11-09"
+  },
+  {
+    "notice_id": "NOT-2026-067",
+    "title": "#67: Amazon AWS Cloud Practitioner Certification Voucher Discount",
+    "description": "Department of IT provides 50% discount voucher for AWS foundational badge. Reference Circular ref/67/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 561,
+    "urgency_score": 8.5,
+    "tags": [
+      "academic",
+      "information",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-31",
+    "expiry_date": "2026-12-17"
+  },
+  {
+    "notice_id": "NOT-2026-068",
+    "title": "#68: Inter-Department Basketball Championship Finals & Award Ceremony",
+    "description": "Final match between CSE and Mechanical department at Main Indoor Court. Reference Circular ref/68/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 4379,
+    "urgency_score": 6.5,
+    "tags": [
+      "sports",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-19",
+    "expiry_date": "2026-11-09"
+  },
+  {
+    "notice_id": "NOT-2026-069",
+    "title": "#69: Winter Internship Drive by Top Startups & Tech Incubators",
+    "description": "Stipend up to 45,000 INR per month for 3rd year frontend and backend roles. Reference Circular ref/69/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 3835,
+    "urgency_score": 9.1,
+    "tags": [
+      "placements",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-23",
+    "expiry_date": "2026-12-09"
+  },
+  {
+    "notice_id": "NOT-2026-070",
+    "title": "#70: Library Digital Archives Upgrade: IEEE Xplore & ACM Portal Access",
+    "description": "Off-campus proxy access enabled for all enrolled university students. Reference Circular ref/70/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 1793,
+    "urgency_score": 6.3,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-04",
+    "expiry_date": "2026-12-14"
+  },
+  {
+    "notice_id": "NOT-2026-071",
+    "title": "#71: Robotics Club Autonomous Drone Racing Challenge",
+    "description": "Robotics club invites participants for autonomous obstacle navigation. Reference Circular ref/71/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Mechanical Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 1194,
+    "urgency_score": 5.8,
+    "tags": [
+      "workshops",
+      "mechanical",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-30",
+    "expiry_date": "2026-11-29"
+  },
+  {
+    "notice_id": "NOT-2026-072",
+    "title": "#72: TCS Ninja & Digital National Qualifier Test (NQT) Registration",
+    "description": "Final year registration open for nationwide engineering assessment. Reference Circular ref/72/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 483,
+    "urgency_score": 4.8,
+    "tags": [
+      "placements",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-14",
+    "expiry_date": "2026-11-29"
+  },
+  {
+    "notice_id": "NOT-2026-073",
+    "title": "#73: Guest Lecture: Quantum Cryptography and Post-Quantum Security",
+    "description": "Keynote address by Dr. Ramanathan from National Institute of Standards. Reference Circular ref/73/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 995,
+    "urgency_score": 9.6,
+    "tags": [
+      "academic",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-08",
+    "expiry_date": "2026-11-09"
+  },
+  {
+    "notice_id": "NOT-2026-074",
+    "title": "#74: Hostel Mess Committee Monthly Menu Revision Meeting",
+    "description": "Elected student representatives meet at Dean Office to review dietary schedule. Reference Circular ref/74/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 253,
+    "urgency_score": 7.9,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-06",
+    "expiry_date": "2026-11-13"
+  },
+  {
+    "notice_id": "NOT-2026-075",
+    "title": "#75: Blood Donation & Health Checkup Camp 2026",
+    "description": "Youth Red Cross and NSS wing organize annual voluntary blood camp. Reference Circular ref/75/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": true,
+    "views_count": 2366,
+    "urgency_score": 5.7,
+    "tags": [
+      "events",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-17",
+    "expiry_date": "2026-12-13"
+  },
+  {
+    "notice_id": "NOT-2026-076",
+    "title": "#76: Laboratory Component Re-evaluation & Internal Marks Verification",
+    "description": "Students can verify lab internal mark calculations before final submission. Reference Circular ref/76/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Examination",
+    "priority": "High",
+    "department": "Electronics & Communication",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 3206,
+    "urgency_score": 4.8,
+    "tags": [
+      "examination",
+      "electronics",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-29",
+    "expiry_date": "2026-12-09"
+  },
+  {
+    "notice_id": "NOT-2026-077",
+    "title": "#77: Amazon AWS Cloud Practitioner Certification Voucher Discount",
+    "description": "Department of IT provides 50% discount voucher for AWS foundational badge. Reference Circular ref/77/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 3216,
+    "urgency_score": 7.9,
+    "tags": [
+      "academic",
+      "information",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-02",
+    "expiry_date": "2026-11-08"
+  },
+  {
+    "notice_id": "NOT-2026-078",
+    "title": "#78: Inter-Department Basketball Championship Finals & Award Ceremony",
+    "description": "Final match between CSE and Mechanical department at Main Indoor Court. Reference Circular ref/78/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 3989,
+    "urgency_score": 7.1,
+    "tags": [
+      "sports",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-26",
+    "expiry_date": "2026-12-13"
+  },
+  {
+    "notice_id": "NOT-2026-079",
+    "title": "#79: Winter Internship Drive by Top Startups & Tech Incubators",
+    "description": "Stipend up to 45,000 INR per month for 3rd year frontend and backend roles. Reference Circular ref/79/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 2376,
+    "urgency_score": 6.4,
+    "tags": [
+      "placements",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-20",
+    "expiry_date": "2026-12-14"
+  },
+  {
+    "notice_id": "NOT-2026-080",
+    "title": "#80: Library Digital Archives Upgrade: IEEE Xplore & ACM Portal Access",
+    "description": "Off-campus proxy access enabled for all enrolled university students. Reference Circular ref/80/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 2009,
+    "urgency_score": 8.2,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-30",
+    "expiry_date": "2026-11-28"
+  },
+  {
+    "notice_id": "NOT-2026-081",
+    "title": "#81: Robotics Club Autonomous Drone Racing Challenge",
+    "description": "Robotics club invites participants for autonomous obstacle navigation. Reference Circular ref/81/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Mechanical Engineering",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 568,
+    "urgency_score": 4.9,
+    "tags": [
+      "workshops",
+      "mechanical",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-16",
+    "expiry_date": "2026-11-19"
+  },
+  {
+    "notice_id": "NOT-2026-082",
+    "title": "#82: TCS Ninja & Digital National Qualifier Test (NQT) Registration",
+    "description": "Final year registration open for nationwide engineering assessment. Reference Circular ref/82/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 446,
+    "urgency_score": 9.7,
+    "tags": [
+      "placements",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-14",
+    "expiry_date": "2026-12-05"
+  },
+  {
+    "notice_id": "NOT-2026-083",
+    "title": "#83: Guest Lecture: Quantum Cryptography and Post-Quantum Security",
+    "description": "Keynote address by Dr. Ramanathan from National Institute of Standards. Reference Circular ref/83/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 4627,
+    "urgency_score": 5.3,
+    "tags": [
+      "academic",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-30",
+    "expiry_date": "2026-12-16"
+  },
+  {
+    "notice_id": "NOT-2026-084",
+    "title": "#84: Hostel Mess Committee Monthly Menu Revision Meeting",
+    "description": "Elected student representatives meet at Dean Office to review dietary schedule. Reference Circular ref/84/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 1570,
+    "urgency_score": 5.4,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-11-01",
+    "expiry_date": "2026-11-17"
+  },
+  {
+    "notice_id": "NOT-2026-085",
+    "title": "#85: Blood Donation & Health Checkup Camp 2026",
+    "description": "Youth Red Cross and NSS wing organize annual voluntary blood camp. Reference Circular ref/85/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 1099,
+    "urgency_score": 9.3,
+    "tags": [
+      "events",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-04",
+    "expiry_date": "2026-12-12"
+  },
+  {
+    "notice_id": "NOT-2026-086",
+    "title": "#86: Laboratory Component Re-evaluation & Internal Marks Verification",
+    "description": "Students can verify lab internal mark calculations before final submission. Reference Circular ref/86/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Examination",
+    "priority": "High",
+    "department": "Electronics & Communication",
+    "author_role": "Admin",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 1483,
+    "urgency_score": 6.0,
+    "tags": [
+      "examination",
+      "electronics",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-29",
+    "expiry_date": "2026-12-18"
+  },
+  {
+    "notice_id": "NOT-2026-087",
+    "title": "#87: Amazon AWS Cloud Practitioner Certification Voucher Discount",
+    "description": "Department of IT provides 50% discount voucher for AWS foundational badge. Reference Circular ref/87/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 1538,
+    "urgency_score": 4.9,
+    "tags": [
+      "academic",
+      "information",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-09",
+    "expiry_date": "2026-11-10"
+  },
+  {
+    "notice_id": "NOT-2026-088",
+    "title": "#88: Inter-Department Basketball Championship Finals & Award Ceremony",
+    "description": "Final match between CSE and Mechanical department at Main Indoor Court. Reference Circular ref/88/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 1599,
+    "urgency_score": 8.8,
+    "tags": [
+      "sports",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-11-01",
+    "expiry_date": "2026-11-20"
+  },
+  {
+    "notice_id": "NOT-2026-089",
+    "title": "#89: Winter Internship Drive by Top Startups & Tech Incubators",
+    "description": "Stipend up to 45,000 INR per month for 3rd year frontend and backend roles. Reference Circular ref/89/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Admin",
+    "target_audience": "Campus Community",
+    "is_pinned": false,
+    "views_count": 1602,
+    "urgency_score": 9.6,
+    "tags": [
+      "placements",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-26",
+    "expiry_date": "2026-12-13"
+  },
+  {
+    "notice_id": "NOT-2026-090",
+    "title": "#90: Library Digital Archives Upgrade: IEEE Xplore & ACM Portal Access",
+    "description": "Off-campus proxy access enabled for all enrolled university students. Reference Circular ref/90/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "Final Year Students",
+    "is_pinned": true,
+    "views_count": 3664,
+    "urgency_score": 9.3,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-30",
+    "expiry_date": "2026-12-16"
+  },
+  {
+    "notice_id": "NOT-2026-091",
+    "title": "#91: Robotics Club Autonomous Drone Racing Challenge",
+    "description": "Robotics club invites participants for autonomous obstacle navigation. Reference Circular ref/91/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Workshops",
+    "priority": "Normal",
+    "department": "Mechanical Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 2902,
+    "urgency_score": 5.9,
+    "tags": [
+      "workshops",
+      "mechanical",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-18",
+    "expiry_date": "2026-12-03"
+  },
+  {
+    "notice_id": "NOT-2026-092",
+    "title": "#92: TCS Ninja & Digital National Qualifier Test (NQT) Registration",
+    "description": "Final year registration open for nationwide engineering assessment. Reference Circular ref/92/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 2555,
+    "urgency_score": 4.3,
+    "tags": [
+      "placements",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-26",
+    "expiry_date": "2026-11-24"
+  },
+  {
+    "notice_id": "NOT-2026-093",
+    "title": "#93: Guest Lecture: Quantum Cryptography and Post-Quantum Security",
+    "description": "Keynote address by Dr. Ramanathan from National Institute of Standards. Reference Circular ref/93/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 4703,
+    "urgency_score": 5.7,
+    "tags": [
+      "academic",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-15",
+    "expiry_date": "2026-12-04"
+  },
+  {
+    "notice_id": "NOT-2026-094",
+    "title": "#94: Hostel Mess Committee Monthly Menu Revision Meeting",
+    "description": "Elected student representatives meet at Dean Office to review dietary schedule. Reference Circular ref/94/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 1939,
+    "urgency_score": 6.0,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-16",
+    "expiry_date": "2026-12-17"
+  },
+  {
+    "notice_id": "NOT-2026-095",
+    "title": "#95: Blood Donation & Health Checkup Camp 2026",
+    "description": "Youth Red Cross and NSS wing organize annual voluntary blood camp. Reference Circular ref/95/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Events",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 1405,
+    "urgency_score": 4.6,
+    "tags": [
+      "events",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-09",
+    "expiry_date": "2026-12-18"
+  },
+  {
+    "notice_id": "NOT-2026-096",
+    "title": "#96: Laboratory Component Re-evaluation & Internal Marks Verification",
+    "description": "Students can verify lab internal mark calculations before final submission. Reference Circular ref/96/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Examination",
+    "priority": "High",
+    "department": "Electronics & Communication",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 4300,
+    "urgency_score": 9.7,
+    "tags": [
+      "examination",
+      "electronics",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-03",
+    "expiry_date": "2026-12-14"
+  },
+  {
+    "notice_id": "NOT-2026-097",
+    "title": "#97: Amazon AWS Cloud Practitioner Certification Voucher Discount",
+    "description": "Department of IT provides 50% discount voucher for AWS foundational badge. Reference Circular ref/97/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Academic",
+    "priority": "Normal",
+    "department": "Information Technology",
+    "author_role": "Faculty",
+    "target_audience": "Engineering Faculty",
+    "is_pinned": false,
+    "views_count": 749,
+    "urgency_score": 5.0,
+    "tags": [
+      "academic",
+      "information",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-15",
+    "expiry_date": "2026-11-08"
+  },
+  {
+    "notice_id": "NOT-2026-098",
+    "title": "#98: Inter-Department Basketball Championship Finals & Award Ceremony",
+    "description": "Final match between CSE and Mechanical department at Main Indoor Court. Reference Circular ref/98/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Sports",
+    "priority": "Low",
+    "department": "General / All Departments",
+    "author_role": "Faculty",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 4548,
+    "urgency_score": 8.2,
+    "tags": [
+      "sports",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-09-18",
+    "expiry_date": "2026-12-01"
+  },
+  {
+    "notice_id": "NOT-2026-099",
+    "title": "#99: Winter Internship Drive by Top Startups & Tech Incubators",
+    "description": "Stipend up to 45,000 INR per month for 3rd year frontend and backend roles. Reference Circular ref/99/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Placements",
+    "priority": "High",
+    "department": "Computer Science & Engineering",
+    "author_role": "Faculty",
+    "target_audience": "Final Year Students",
+    "is_pinned": false,
+    "views_count": 3125,
+    "urgency_score": 5.7,
+    "tags": [
+      "placements",
+      "computer",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-06",
+    "expiry_date": "2026-11-26"
+  },
+  {
+    "notice_id": "NOT-2026-100",
+    "title": "#100: Library Digital Archives Upgrade: IEEE Xplore & ACM Portal Access",
+    "description": "Off-campus proxy access enabled for all enrolled university students. Reference Circular ref/100/SNB-2026. For inquiries contact departmental coordinator.",
+    "category": "Circulars",
+    "priority": "Normal",
+    "department": "General / All Departments",
+    "author_role": "Admin",
+    "target_audience": "All Students",
+    "is_pinned": false,
+    "views_count": 2829,
+    "urgency_score": 6.3,
+    "tags": [
+      "circulars",
+      "general",
+      "academic-2026"
+    ],
+    "publish_date": "2026-10-01",
+    "expiry_date": "2026-12-04"
+  }
+]

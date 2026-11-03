@@ -103,6 +103,15 @@ export default function LoginScreen({ navigation }) {
               <Text style={styles.buttonText}>Sign In as {selectedRole}</Text>
             )}
           </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.registerLink}
+            onPress={() => navigation.navigate('Register')}
+          >
+            <Text style={styles.registerLinkText}>
+              Don't have an account? <Text style={{ color: '#38bdf8' }}>Register Now</Text>
+            </Text>
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -212,5 +221,13 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 15,
     fontWeight: 'bold',
+  },
+  registerLink: {
+    alignItems: 'center',
+    marginTop: 16,
+  },
+  registerLinkText: {
+    color: '#94a3b8',
+    fontSize: 13,
   },
 });

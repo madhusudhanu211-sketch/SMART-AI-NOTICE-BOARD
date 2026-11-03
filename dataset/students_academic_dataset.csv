@@ -1,0 +1,151 @@
+student_id,roll_number,full_name,email,department,department_code,semester,cgpa,attendance_percentage,exam_eligibility_status,active_backlogs,assignments_submitted_ratio
+1,22IT001,Aarav Sharma,aarav.sharma1@campus.edu,Information Technology,IT,7th,7.8,74.2,Condonation Required,0,0.91
+2,22ECE002,Priya Patel,priya.patel2@campus.edu,Electronics & Communication,ECE,7th,7.39,65.7,Condonation Required,0,0.96
+3,22MECH003,Ananya Reddy,ananya.reddy3@campus.edu,Mechanical Engineering,MECH,7th,7.18,91.3,Eligible,1,0.76
+4,22CIVIL004,Rohan Verma,rohan.verma4@campus.edu,Civil Engineering,CIVIL,5th,9.34,75.8,Eligible,0,0.86
+5,22CSE005,Sneha Iyer,sneha.iyer5@campus.edu,Computer Science & Engineering,CSE,3rd,7.14,72.4,Condonation Required,2,0.89
+6,22IT006,Karan Nair,karan.nair6@campus.edu,Information Technology,IT,3rd,6.63,90.2,Eligible,2,0.93
+7,22ECE007,Divya Gupta,divya.gupta7@campus.edu,Electronics & Communication,ECE,3rd,7.51,74.3,Condonation Required,0,0.91
+8,22MECH008,Rahul Rao,rahul.rao8@campus.edu,Mechanical Engineering,MECH,5th,6.95,73.6,Condonation Required,1,0.75
+9,22CIVIL009,Meera Kapoor,meera.kapoor9@campus.edu,Civil Engineering,CIVIL,7th,9.76,63.0,Detained,0,0.86
+10,22CSE010,Vikram Chatterjee,vikram.chatterjee10@campus.edu,Computer Science & Engineering,CSE,5th,8.4,69.7,Condonation Required,0,0.97
+11,22IT011,Neha Mishra,neha.mishra11@campus.edu,Information Technology,IT,3rd,7.43,94.8,Eligible,0,0.78
+12,22ECE012,Aditya Joshi,aditya.joshi12@campus.edu,Electronics & Communication,ECE,3rd,7.63,97.6,Eligible,0,0.8
+13,22MECH013,Tanvi Menon,tanvi.menon13@campus.edu,Mechanical Engineering,MECH,3rd,9.62,68.8,Condonation Required,0,0.78
+14,22CIVIL014,Siddharth Mercer,siddharth.mercer14@campus.edu,Civil Engineering,CIVIL,5th,7.79,89.9,Eligible,0,0.93
+15,22CSE015,Pooja Sharma,pooja.sharma15@campus.edu,Computer Science & Engineering,CSE,7th,6.53,84.2,Eligible,1,0.99
+16,22IT016,Alex Patel,alex.patel16@campus.edu,Information Technology,IT,7th,7.55,66.7,Condonation Required,0,0.96
+17,22ECE017,Aarav Reddy,aarav.reddy17@campus.edu,Electronics & Communication,ECE,3rd,6.52,93.1,Eligible,2,0.83
+18,22MECH018,Priya Verma,priya.verma18@campus.edu,Mechanical Engineering,MECH,7th,8.58,64.9,Detained,0,0.89
+19,22CIVIL019,Ananya Iyer,ananya.iyer19@campus.edu,Civil Engineering,CIVIL,5th,7.03,86.2,Eligible,0,0.93
+20,22CSE020,Rohan Nair,rohan.nair20@campus.edu,Computer Science & Engineering,CSE,5th,7.92,70.7,Condonation Required,0,0.85
+21,22IT021,Sneha Gupta,sneha.gupta21@campus.edu,Information Technology,IT,3rd,8.05,85.7,Eligible,0,0.97
+22,22ECE022,Karan Rao,karan.rao22@campus.edu,Electronics & Communication,ECE,3rd,6.57,62.6,Detained,1,0.92
+23,22MECH023,Divya Kapoor,divya.kapoor23@campus.edu,Mechanical Engineering,MECH,3rd,8.12,65.8,Condonation Required,0,0.86
+24,22CIVIL024,Rahul Chatterjee,rahul.chatterjee24@campus.edu,Civil Engineering,CIVIL,3rd,7.89,81.3,Eligible,0,0.8
+25,22CSE025,Meera Mishra,meera.mishra25@campus.edu,Computer Science & Engineering,CSE,7th,7.01,85.0,Eligible,2,0.75
+26,22IT026,Vikram Joshi,vikram.joshi26@campus.edu,Information Technology,IT,7th,6.98,96.0,Eligible,2,0.76
+27,22ECE027,Neha Menon,neha.menon27@campus.edu,Electronics & Communication,ECE,7th,9.04,96.2,Eligible,0,0.92
+28,22MECH028,Aditya Mercer,aditya.mercer28@campus.edu,Mechanical Engineering,MECH,7th,7.31,64.4,Detained,2,0.98
+29,22CIVIL029,Tanvi Sharma,tanvi.sharma29@campus.edu,Civil Engineering,CIVIL,7th,7.64,63.0,Detained,0,0.78
+30,22CSE030,Siddharth Patel,siddharth.patel30@campus.edu,Computer Science & Engineering,CSE,7th,7.79,85.6,Eligible,0,0.9
+31,22IT031,Pooja Reddy,pooja.reddy31@campus.edu,Information Technology,IT,5th,9.46,90.1,Eligible,0,0.81
+32,22ECE032,Alex Verma,alex.verma32@campus.edu,Electronics & Communication,ECE,5th,7.2,78.4,Eligible,0,0.98
+33,22MECH033,Aarav Iyer,aarav.iyer33@campus.edu,Mechanical Engineering,MECH,3rd,8.34,69.4,Condonation Required,0,0.99
+34,22CIVIL034,Priya Nair,priya.nair34@campus.edu,Civil Engineering,CIVIL,3rd,7.22,74.8,Condonation Required,2,0.93
+35,22CSE035,Ananya Gupta,ananya.gupta35@campus.edu,Computer Science & Engineering,CSE,3rd,9.2,65.5,Condonation Required,0,0.95
+36,22IT036,Rohan Rao,rohan.rao36@campus.edu,Information Technology,IT,5th,9.67,76.0,Eligible,0,0.85
+37,22ECE037,Sneha Kapoor,sneha.kapoor37@campus.edu,Electronics & Communication,ECE,3rd,8.86,62.6,Detained,0,0.98
+38,22MECH038,Karan Chatterjee,karan.chatterjee38@campus.edu,Mechanical Engineering,MECH,7th,8.62,83.1,Eligible,0,0.79
+39,22CIVIL039,Divya Mishra,divya.mishra39@campus.edu,Civil Engineering,CIVIL,7th,9.14,89.4,Eligible,0,0.95
+40,22CSE040,Rahul Joshi,rahul.joshi40@campus.edu,Computer Science & Engineering,CSE,5th,7.71,89.6,Eligible,0,0.81
+41,22IT041,Meera Menon,meera.menon41@campus.edu,Information Technology,IT,7th,8.32,95.1,Eligible,0,1.0
+42,22ECE042,Vikram Mercer,vikram.mercer42@campus.edu,Electronics & Communication,ECE,7th,7.23,72.2,Condonation Required,0,0.83
+43,22MECH043,Neha Sharma,neha.sharma43@campus.edu,Mechanical Engineering,MECH,7th,9.74,87.7,Eligible,0,1.0
+44,22CIVIL044,Aditya Patel,aditya.patel44@campus.edu,Civil Engineering,CIVIL,3rd,7.94,72.3,Condonation Required,0,0.95
+45,22CSE045,Tanvi Reddy,tanvi.reddy45@campus.edu,Computer Science & Engineering,CSE,3rd,9.68,62.6,Detained,0,0.96
+46,22IT046,Siddharth Verma,siddharth.verma46@campus.edu,Information Technology,IT,5th,8.69,74.8,Condonation Required,0,0.76
+47,22ECE047,Pooja Iyer,pooja.iyer47@campus.edu,Electronics & Communication,ECE,7th,6.92,82.9,Eligible,2,0.83
+48,22MECH048,Alex Nair,alex.nair48@campus.edu,Mechanical Engineering,MECH,3rd,8.48,88.1,Eligible,0,0.92
+49,22CIVIL049,Aarav Gupta,aarav.gupta49@campus.edu,Civil Engineering,CIVIL,7th,9.26,68.5,Condonation Required,0,0.92
+50,22CSE050,Priya Rao,priya.rao50@campus.edu,Computer Science & Engineering,CSE,5th,8.34,83.3,Eligible,0,0.76
+51,22IT051,Ananya Kapoor,ananya.kapoor51@campus.edu,Information Technology,IT,5th,8.61,68.3,Condonation Required,0,0.87
+52,22ECE052,Rohan Chatterjee,rohan.chatterjee52@campus.edu,Electronics & Communication,ECE,3rd,8.7,67.5,Condonation Required,0,0.83
+53,22MECH053,Sneha Mishra,sneha.mishra53@campus.edu,Mechanical Engineering,MECH,5th,6.7,97.2,Eligible,1,0.86
+54,22CIVIL054,Karan Joshi,karan.joshi54@campus.edu,Civil Engineering,CIVIL,5th,7.05,78.0,Eligible,0,0.75
+55,22CSE055,Divya Menon,divya.menon55@campus.edu,Computer Science & Engineering,CSE,3rd,8.4,63.6,Detained,0,0.77
+56,22IT056,Rahul Mercer,rahul.mercer56@campus.edu,Information Technology,IT,5th,9.69,97.0,Eligible,0,0.94
+57,22ECE057,Meera Sharma,meera.sharma57@campus.edu,Electronics & Communication,ECE,5th,8.92,75.8,Eligible,0,0.9
+58,22MECH058,Vikram Patel,vikram.patel58@campus.edu,Mechanical Engineering,MECH,3rd,7.12,86.8,Eligible,0,0.8
+59,22CIVIL059,Neha Reddy,neha.reddy59@campus.edu,Civil Engineering,CIVIL,7th,9.46,92.9,Eligible,0,0.95
+60,22CSE060,Aditya Verma,aditya.verma60@campus.edu,Computer Science & Engineering,CSE,7th,6.84,96.3,Eligible,1,0.91
+61,22IT061,Tanvi Iyer,tanvi.iyer61@campus.edu,Information Technology,IT,7th,8.93,64.9,Detained,0,0.83
+62,22ECE062,Siddharth Nair,siddharth.nair62@campus.edu,Electronics & Communication,ECE,3rd,8.34,74.3,Condonation Required,0,0.91
+63,22MECH063,Pooja Gupta,pooja.gupta63@campus.edu,Mechanical Engineering,MECH,5th,8.71,86.4,Eligible,0,0.8
+64,22CIVIL064,Alex Rao,alex.rao64@campus.edu,Civil Engineering,CIVIL,7th,6.93,78.9,Eligible,0,0.76
+65,22CSE065,Aarav Kapoor,aarav.kapoor65@campus.edu,Computer Science & Engineering,CSE,5th,8.16,71.1,Condonation Required,0,0.98
+66,22IT066,Priya Chatterjee,priya.chatterjee66@campus.edu,Information Technology,IT,3rd,8.86,62.2,Detained,0,0.94
+67,22ECE067,Ananya Mishra,ananya.mishra67@campus.edu,Electronics & Communication,ECE,3rd,7.85,64.7,Detained,0,0.99
+68,22MECH068,Rohan Joshi,rohan.joshi68@campus.edu,Mechanical Engineering,MECH,5th,7.1,70.6,Condonation Required,2,0.75
+69,22CIVIL069,Sneha Menon,sneha.menon69@campus.edu,Civil Engineering,CIVIL,3rd,9.22,71.9,Condonation Required,0,0.81
+70,22CSE070,Karan Mercer,karan.mercer70@campus.edu,Computer Science & Engineering,CSE,5th,8.0,64.8,Detained,0,0.99
+71,22IT071,Divya Sharma,divya.sharma71@campus.edu,Information Technology,IT,3rd,7.55,82.4,Eligible,0,0.9
+72,22ECE072,Rahul Patel,rahul.patel72@campus.edu,Electronics & Communication,ECE,7th,8.3,72.8,Condonation Required,0,0.81
+73,22MECH073,Meera Reddy,meera.reddy73@campus.edu,Mechanical Engineering,MECH,7th,7.63,78.5,Eligible,0,0.82
+74,22CIVIL074,Vikram Verma,vikram.verma74@campus.edu,Civil Engineering,CIVIL,5th,8.58,91.2,Eligible,0,0.92
+75,22CSE075,Neha Iyer,neha.iyer75@campus.edu,Computer Science & Engineering,CSE,5th,8.19,83.8,Eligible,0,0.99
+76,22IT076,Aditya Nair,aditya.nair76@campus.edu,Information Technology,IT,3rd,9.57,88.6,Eligible,0,0.83
+77,22ECE077,Tanvi Gupta,tanvi.gupta77@campus.edu,Electronics & Communication,ECE,5th,7.08,73.4,Condonation Required,0,0.92
+78,22MECH078,Siddharth Rao,siddharth.rao78@campus.edu,Mechanical Engineering,MECH,3rd,8.6,76.5,Eligible,0,0.83
+79,22CIVIL079,Pooja Kapoor,pooja.kapoor79@campus.edu,Civil Engineering,CIVIL,3rd,9.52,88.5,Eligible,0,0.81
+80,22CSE080,Alex Chatterjee,alex.chatterjee80@campus.edu,Computer Science & Engineering,CSE,5th,9.26,75.0,Eligible,0,0.95
+81,22IT081,Aarav Mishra,aarav.mishra81@campus.edu,Information Technology,IT,5th,8.84,75.3,Eligible,0,0.75
+82,22ECE082,Priya Joshi,priya.joshi82@campus.edu,Electronics & Communication,ECE,3rd,8.21,93.2,Eligible,0,0.81
+83,22MECH083,Ananya Menon,ananya.menon83@campus.edu,Mechanical Engineering,MECH,7th,7.01,94.6,Eligible,1,0.95
+84,22CIVIL084,Rohan Mercer,rohan.mercer84@campus.edu,Civil Engineering,CIVIL,3rd,8.63,83.6,Eligible,0,0.82
+85,22CSE085,Sneha Sharma,sneha.sharma85@campus.edu,Computer Science & Engineering,CSE,7th,8.3,70.4,Condonation Required,0,0.79
+86,22IT086,Karan Patel,karan.patel86@campus.edu,Information Technology,IT,5th,8.83,92.6,Eligible,0,0.77
+87,22ECE087,Divya Reddy,divya.reddy87@campus.edu,Electronics & Communication,ECE,3rd,9.64,79.6,Eligible,0,0.81
+88,22MECH088,Rahul Verma,rahul.verma88@campus.edu,Mechanical Engineering,MECH,3rd,8.79,81.6,Eligible,0,0.93
+89,22CIVIL089,Meera Iyer,meera.iyer89@campus.edu,Civil Engineering,CIVIL,5th,8.09,97.0,Eligible,0,0.95
+90,22CSE090,Vikram Nair,vikram.nair90@campus.edu,Computer Science & Engineering,CSE,7th,7.91,85.4,Eligible,0,0.8
+91,22IT091,Neha Gupta,neha.gupta91@campus.edu,Information Technology,IT,3rd,6.97,83.2,Eligible,1,0.94
+92,22ECE092,Aditya Rao,aditya.rao92@campus.edu,Electronics & Communication,ECE,5th,7.87,85.9,Eligible,0,0.93
+93,22MECH093,Tanvi Kapoor,tanvi.kapoor93@campus.edu,Mechanical Engineering,MECH,3rd,8.13,79.3,Eligible,0,0.91
+94,22CIVIL094,Siddharth Chatterjee,siddharth.chatterjee94@campus.edu,Civil Engineering,CIVIL,3rd,9.32,90.0,Eligible,0,0.96
+95,22CSE095,Pooja Mishra,pooja.mishra95@campus.edu,Computer Science & Engineering,CSE,5th,7.47,67.8,Condonation Required,0,0.89
+96,22IT096,Alex Joshi,alex.joshi96@campus.edu,Information Technology,IT,3rd,9.69,76.4,Eligible,0,0.9
+97,22ECE097,Aarav Menon,aarav.menon97@campus.edu,Electronics & Communication,ECE,3rd,7.82,73.0,Condonation Required,0,0.81
+98,22MECH098,Priya Mercer,priya.mercer98@campus.edu,Mechanical Engineering,MECH,5th,8.51,92.8,Eligible,0,0.85
+99,22CIVIL099,Ananya Sharma,ananya.sharma99@campus.edu,Civil Engineering,CIVIL,7th,7.33,95.2,Eligible,1,0.92
+100,22CSE100,Rohan Patel,rohan.patel100@campus.edu,Computer Science & Engineering,CSE,5th,9.01,71.9,Condonation Required,0,0.89
+101,22IT101,Sneha Reddy,sneha.reddy101@campus.edu,Information Technology,IT,5th,8.63,73.0,Condonation Required,0,0.95
+102,22ECE102,Karan Verma,karan.verma102@campus.edu,Electronics & Communication,ECE,7th,7.51,86.0,Eligible,0,0.8
+103,22MECH103,Divya Iyer,divya.iyer103@campus.edu,Mechanical Engineering,MECH,3rd,8.07,74.9,Condonation Required,0,0.79
+104,22CIVIL104,Rahul Nair,rahul.nair104@campus.edu,Civil Engineering,CIVIL,3rd,7.44,91.1,Eligible,1,0.85
+105,22CSE105,Meera Gupta,meera.gupta105@campus.edu,Computer Science & Engineering,CSE,7th,9.75,73.6,Condonation Required,0,0.96
+106,22IT106,Vikram Rao,vikram.rao106@campus.edu,Information Technology,IT,3rd,7.97,83.9,Eligible,0,0.89
+107,22ECE107,Neha Kapoor,neha.kapoor107@campus.edu,Electronics & Communication,ECE,5th,7.07,80.4,Eligible,2,0.91
+108,22MECH108,Aditya Chatterjee,aditya.chatterjee108@campus.edu,Mechanical Engineering,MECH,7th,7.66,91.7,Eligible,0,0.83
+109,22CIVIL109,Tanvi Mishra,tanvi.mishra109@campus.edu,Civil Engineering,CIVIL,3rd,9.61,71.5,Condonation Required,0,0.93
+110,22CSE110,Siddharth Joshi,siddharth.joshi110@campus.edu,Computer Science & Engineering,CSE,7th,9.56,72.0,Condonation Required,0,0.76
+111,22IT111,Pooja Menon,pooja.menon111@campus.edu,Information Technology,IT,3rd,7.07,69.4,Condonation Required,1,0.78
+112,22ECE112,Alex Mercer,alex.mercer112@campus.edu,Electronics & Communication,ECE,3rd,9.55,74.5,Condonation Required,0,0.91
+113,22MECH113,Aarav Sharma,aarav.sharma113@campus.edu,Mechanical Engineering,MECH,5th,9.49,87.7,Eligible,0,0.97
+114,22CIVIL114,Priya Patel,priya.patel114@campus.edu,Civil Engineering,CIVIL,3rd,8.04,93.9,Eligible,0,0.88
+115,22CSE115,Ananya Reddy,ananya.reddy115@campus.edu,Computer Science & Engineering,CSE,7th,9.02,90.9,Eligible,0,0.94
+116,22IT116,Rohan Verma,rohan.verma116@campus.edu,Information Technology,IT,7th,8.01,77.3,Eligible,0,1.0
+117,22ECE117,Sneha Iyer,sneha.iyer117@campus.edu,Electronics & Communication,ECE,3rd,9.2,91.1,Eligible,0,0.83
+118,22MECH118,Karan Nair,karan.nair118@campus.edu,Mechanical Engineering,MECH,7th,8.18,79.5,Eligible,0,0.8
+119,22CIVIL119,Divya Gupta,divya.gupta119@campus.edu,Civil Engineering,CIVIL,7th,7.22,87.8,Eligible,2,0.77
+120,22CSE120,Rahul Rao,rahul.rao120@campus.edu,Computer Science & Engineering,CSE,3rd,9.54,62.0,Detained,0,1.0
+121,22IT121,Meera Kapoor,meera.kapoor121@campus.edu,Information Technology,IT,7th,6.88,84.5,Eligible,1,1.0
+122,22ECE122,Vikram Chatterjee,vikram.chatterjee122@campus.edu,Electronics & Communication,ECE,3rd,6.94,68.6,Condonation Required,0,0.98
+123,22MECH123,Neha Mishra,neha.mishra123@campus.edu,Mechanical Engineering,MECH,5th,7.96,87.4,Eligible,0,0.99
+124,22CIVIL124,Aditya Joshi,aditya.joshi124@campus.edu,Civil Engineering,CIVIL,3rd,7.12,92.0,Eligible,2,0.92
+125,22CSE125,Tanvi Menon,tanvi.menon125@campus.edu,Computer Science & Engineering,CSE,7th,7.26,72.6,Condonation Required,1,0.77
+126,22IT126,Siddharth Mercer,siddharth.mercer126@campus.edu,Information Technology,IT,7th,7.29,81.1,Eligible,2,0.79
+127,22ECE127,Pooja Sharma,pooja.sharma127@campus.edu,Electronics & Communication,ECE,7th,6.75,96.8,Eligible,0,0.77
+128,22MECH128,Alex Patel,alex.patel128@campus.edu,Mechanical Engineering,MECH,5th,7.93,72.8,Condonation Required,0,0.79
+129,22CIVIL129,Aarav Reddy,aarav.reddy129@campus.edu,Civil Engineering,CIVIL,3rd,7.24,72.4,Condonation Required,1,0.97
+130,22CSE130,Priya Verma,priya.verma130@campus.edu,Computer Science & Engineering,CSE,7th,7.5,80.3,Eligible,0,0.9
+131,22IT131,Ananya Iyer,ananya.iyer131@campus.edu,Information Technology,IT,5th,8.69,89.2,Eligible,0,0.79
+132,22ECE132,Rohan Nair,rohan.nair132@campus.edu,Electronics & Communication,ECE,5th,9.45,88.6,Eligible,0,0.76
+133,22MECH133,Sneha Gupta,sneha.gupta133@campus.edu,Mechanical Engineering,MECH,5th,8.93,84.9,Eligible,0,0.84
+134,22CIVIL134,Karan Rao,karan.rao134@campus.edu,Civil Engineering,CIVIL,5th,7.83,82.4,Eligible,0,0.77
+135,22CSE135,Divya Kapoor,divya.kapoor135@campus.edu,Computer Science & Engineering,CSE,7th,8.02,69.6,Condonation Required,0,0.88
+136,22IT136,Rahul Chatterjee,rahul.chatterjee136@campus.edu,Information Technology,IT,5th,7.45,66.1,Condonation Required,1,0.98
+137,22ECE137,Meera Mishra,meera.mishra137@campus.edu,Electronics & Communication,ECE,3rd,7.12,82.8,Eligible,2,0.88
+138,22MECH138,Vikram Joshi,vikram.joshi138@campus.edu,Mechanical Engineering,MECH,5th,7.23,89.3,Eligible,2,0.77
+139,22CIVIL139,Neha Menon,neha.menon139@campus.edu,Civil Engineering,CIVIL,5th,8.53,97.0,Eligible,0,0.92
+140,22CSE140,Aditya Mercer,aditya.mercer140@campus.edu,Computer Science & Engineering,CSE,3rd,8.61,80.4,Eligible,0,0.75
+141,22IT141,Tanvi Sharma,tanvi.sharma141@campus.edu,Information Technology,IT,7th,8.64,85.7,Eligible,0,0.82
+142,22ECE142,Siddharth Patel,siddharth.patel142@campus.edu,Electronics & Communication,ECE,5th,9.03,75.0,Eligible,0,0.92
+143,22MECH143,Pooja Reddy,pooja.reddy143@campus.edu,Mechanical Engineering,MECH,5th,7.41,88.6,Eligible,2,0.99
+144,22CIVIL144,Alex Verma,alex.verma144@campus.edu,Civil Engineering,CIVIL,3rd,7.43,80.4,Eligible,2,0.93
+145,22CSE145,Aarav Iyer,aarav.iyer145@campus.edu,Computer Science & Engineering,CSE,5th,7.5,68.9,Condonation Required,0,0.93
+146,22IT146,Priya Nair,priya.nair146@campus.edu,Information Technology,IT,7th,9.35,92.3,Eligible,0,0.95
+147,22ECE147,Ananya Gupta,ananya.gupta147@campus.edu,Electronics & Communication,ECE,5th,7.21,76.6,Eligible,1,0.88
+148,22MECH148,Rohan Rao,rohan.rao148@campus.edu,Mechanical Engineering,MECH,3rd,8.94,83.1,Eligible,0,0.99
+149,22CIVIL149,Sneha Kapoor,sneha.kapoor149@campus.edu,Civil Engineering,CIVIL,3rd,6.63,79.8,Eligible,1,0.81
+150,22CSE150,Karan Chatterjee,karan.chatterjee150@campus.edu,Computer Science & Engineering,CSE,3rd,6.92,77.8,Eligible,2,0.91

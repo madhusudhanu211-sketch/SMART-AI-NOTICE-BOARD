@@ -14,10 +14,14 @@
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^6.22.3",
-    "recharts": "^2.12.3"
+    "react-syntax-highlighter": "^16.1.1",
+    "recharts": "^2.12.3",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
+    "@rollup/rollup-win32-arm64-msvc": "^4.67.4",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",

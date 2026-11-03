@@ -1,0 +1,1493 @@
+[
+  {
+    "transcript": "Show me latest notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "NAVIGATE_NOTICES_FEED"
+  },
+  {
+    "transcript": "Show me notices for computer science",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": "CSE",
+    "action": "FILTER_BY_DEPARTMENT"
+  },
+  {
+    "transcript": "Are there any notices for mechanical engineering",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": "MECH",
+    "action": "FILTER_BY_DEPARTMENT"
+  },
+  {
+    "transcript": "Find announcements about fee payment",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": "Circulars",
+    "department_filter": null,
+    "action": "SEARCH_KEYWORD"
+  },
+  {
+    "transcript": "Filter notices by emergency alerts",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": "Emergency",
+    "department_filter": null,
+    "action": "FILTER_BY_CATEGORY"
+  },
+  {
+    "transcript": "Display all pinned circulars",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "SHOW_PINNED_NOTICES"
+  },
+  {
+    "transcript": "Search for scholarship notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": "Scholarships",
+    "department_filter": null,
+    "action": "FILTER_BY_CATEGORY"
+  },
+  {
+    "transcript": "What are the latest updates today",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "SHOW_TODAY_NOTICES"
+  },
+  {
+    "transcript": "When is my next examination",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Examination",
+    "department_filter": null,
+    "action": "OPEN_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Show me the end semester exam timetable",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Examination",
+    "department_filter": null,
+    "action": "OPEN_EXAM_TIMETABLE"
+  },
+  {
+    "transcript": "What is the schedule for mid term exams",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Examination",
+    "department_filter": null,
+    "action": "OPEN_EXAM_TIMETABLE"
+  },
+  {
+    "transcript": "Where can I download my hall ticket",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Examination",
+    "department_filter": null,
+    "action": "SHOW_HALL_TICKET_PORTAL"
+  },
+  {
+    "transcript": "Show exam dates for 3rd year CSE",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Examination",
+    "department_filter": "CSE",
+    "action": "FILTER_EXAM_BY_CLASS"
+  },
+  {
+    "transcript": "What is my current attendance percentage",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "FETCH_ATTENDANCE_SUMMARY"
+  },
+  {
+    "transcript": "Show my attendance record",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "OPEN_ATTENDANCE_PAGE"
+  },
+  {
+    "transcript": "Am I eligible for exams based on attendance",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "CHECK_ATTENDANCE_ELIGIBILITY"
+  },
+  {
+    "transcript": "Show subject wise attendance",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXPAND_SUBJECT_ATTENDANCE"
+  },
+  {
+    "transcript": "How many classes have I missed this month",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "CALCULATE_ABSENT_COUNT"
+  },
+  {
+    "transcript": "Read aloud the latest notice",
+    "intent": "READ_LATEST_NOTICE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "TRIGGER_TTS_READOUT"
+  },
+  {
+    "transcript": "Read the top announcement",
+    "intent": "READ_LATEST_NOTICE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "TRIGGER_TTS_READOUT"
+  },
+  {
+    "transcript": "Speak out today's emergency notification",
+    "intent": "READ_LATEST_NOTICE",
+    "category_filter": "Emergency",
+    "department_filter": null,
+    "action": "TRIGGER_TTS_READOUT"
+  },
+  {
+    "transcript": "Summarize the latest notice using AI",
+    "intent": "SUMMARIZE_NOTICE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "INVOKE_GEMINI_SUMMARIZER"
+  },
+  {
+    "transcript": "Show me placement drives",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "OPEN_PLACEMENTS_PORTAL"
+  },
+  {
+    "transcript": "What companies are visiting this week",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "FETCH_UPCOMING_COMPANIES"
+  },
+  {
+    "transcript": "Show eligibility criteria for Google drive",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "SHOW_PLACEMENT_CRITERIA"
+  },
+  {
+    "transcript": "Check status of my job application",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "VIEW_JOB_APPLICATION_STATUS"
+  },
+  {
+    "transcript": "What is my timetable today",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "FETCH_TODAY_TIMETABLE"
+  },
+  {
+    "transcript": "Show tomorrow's class schedule",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "FETCH_TOMORROW_TIMETABLE"
+  },
+  {
+    "transcript": "Which room is my next class in",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "FIND_CURRENT_ROOM_NUMBER"
+  },
+  {
+    "transcript": "Who is teaching Operating Systems",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "LOOKUP_FACULTY_SUBJECT"
+  },
+  {
+    "transcript": "Show my pending assignments",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "VIEW_PENDING_ASSIGNMENTS"
+  },
+  {
+    "transcript": "When is the machine learning assignment due",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "FETCH_ASSIGNMENT_DUE_DATE"
+  },
+  {
+    "transcript": "Open assignment submission page",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "OPEN_SUBMISSION_PORTAL"
+  },
+  {
+    "transcript": "Switch to dark mode",
+    "intent": "TOGGLE_THEME",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "SET_THEME_DARK"
+  },
+  {
+    "transcript": "Switch to light mode",
+    "intent": "TOGGLE_THEME",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "SET_THEME_LIGHT"
+  },
+  {
+    "transcript": "Change language to Hindi",
+    "intent": "CHANGE_LANGUAGE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "SET_LOCALE_HI"
+  },
+  {
+    "transcript": "Change language to English",
+    "intent": "CHANGE_LANGUAGE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "SET_LOCALE_EN"
+  },
+  {
+    "transcript": "Log out from my account",
+    "intent": "AUTH_ACTION",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_LOGOUT"
+  },
+  {
+    "transcript": "Can you display the notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Hey assistant, can you display the notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "can you display the notices quickly",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Could you can you display the notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Can you display the notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Look up notices for CSE",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": "CSE",
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Hey assistant, look up notices for ece",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "look up notices for mechanical quickly",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Could you look up notices for mechanical",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Look up notices for ECE",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": "ECE",
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Browse latest campus circulars",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Hey assistant, browse latest campus circulars",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "browse latest campus circulars quickly",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Could you browse latest campus circulars",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Browse latest campus circulars",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "List all new notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Hey assistant, list all new notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "list all new notices quickly",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Could you list all new notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "List all new notices",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Show notices tagged placement",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Hey assistant, show notices tagged scholarship",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "show notices tagged internship quickly",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Could you show notices tagged hackathon",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Show notices tagged scholarship",
+    "intent": "SEARCH_NOTICES",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_SEARCH_NOTICES"
+  },
+  {
+    "transcript": "Exam timetable please",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Hey assistant, exam timetable please",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "exam timetable please quickly",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Could you exam timetable please",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Exam timetable please",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "When are the odd semester finals",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Hey assistant, when are the odd semester finals",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "when are the odd semester finals quickly",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Could you when are the odd semester finals",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "When are the odd semester finals",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Check datesheet for exams",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Hey assistant, check datesheet for exams",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "check datesheet for exams quickly",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Could you check datesheet for exams",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Check datesheet for exams",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Any notification on internal tests",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Hey assistant, any notification on internal tests",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "any notification on internal tests quickly",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Could you any notification on internal tests",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Any notification on internal tests",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Get exam hall ticket information",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Hey assistant, get exam hall ticket information",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "get exam hall ticket information quickly",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Could you get exam hall ticket information",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Get exam hall ticket information",
+    "intent": "GET_EXAM_SCHEDULE",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_GET_EXAM_SCHEDULE"
+  },
+  {
+    "transcript": "Did my attendance drop below seventy five",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Hey assistant, did my attendance drop below seventy five",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "did my attendance drop below seventy five quickly",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Could you did my attendance drop below seventy five",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Did my attendance drop below seventy five",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Check my attendance records for CSE",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": "CSE",
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Hey assistant, check my attendance records for cse",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "check my attendance records for mechanical quickly",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Could you check my attendance records for mechanical",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Check my attendance records for Civil",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": "Civil",
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Am I marked present today",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Hey assistant, am i marked present today",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "am i marked present today quickly",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Could you am i marked present today",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Am I marked present today",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Show monthly attendance percentage",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Hey assistant, show monthly attendance percentage",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "show monthly attendance percentage quickly",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Could you show monthly attendance percentage",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Show monthly attendance percentage",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Report attendance shortage",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Hey assistant, report attendance shortage",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "report attendance shortage quickly",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Could you report attendance shortage",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "Report attendance shortage",
+    "intent": "CHECK_ATTENDANCE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ATTENDANCE"
+  },
+  {
+    "transcript": "List companies offering internships",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Hey assistant, list companies offering internships",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "list companies offering internships quickly",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Could you list companies offering internships",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "List companies offering internships",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "What is the CTC for Microsoft placement",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Hey assistant, what is the ctc for microsoft placement",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "what is the ctc for microsoft placement quickly",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Could you what is the ctc for microsoft placement",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "What is the CTC for Microsoft placement",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Open placement drive notifications",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Hey assistant, open placement drive notifications",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "open placement drive notifications quickly",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Could you open placement drive notifications",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Open placement drive notifications",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": "Placements",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "View companies hiring computer science students",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Hey assistant, view companies hiring computer science students",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "view companies hiring computer science students quickly",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Could you view companies hiring computer science students",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "View companies hiring computer science students",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Show campus recruitment announcements",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Hey assistant, show campus recruitment announcements",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "show campus recruitment announcements quickly",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Could you show campus recruitment announcements",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "Show campus recruitment announcements",
+    "intent": "CHECK_PLACEMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_PLACEMENTS"
+  },
+  {
+    "transcript": "What period do I have at 10 AM",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Hey assistant, what period do i have at 10 am",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "what period do i have at 10 am quickly",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Could you what period do i have at 10 am",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "What period do I have at 10 AM",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Show my lecture schedule for today",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Hey assistant, show my lecture schedule for today",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "show my lecture schedule for today quickly",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Could you show my lecture schedule for today",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Show my lecture schedule for today",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Who is handling practical session today",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Hey assistant, who is handling practical session today",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "who is handling practical session today quickly",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Could you who is handling practical session today",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Who is handling practical session today",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Display weekly timetable",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Hey assistant, display weekly timetable",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "display weekly timetable quickly",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Could you display weekly timetable",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Display weekly timetable",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Check classroom location for next lecture",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Hey assistant, check classroom location for next lecture",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "check classroom location for next lecture quickly",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Could you check classroom location for next lecture",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Check classroom location for next lecture",
+    "intent": "OPEN_TIMETABLE",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_OPEN_TIMETABLE"
+  },
+  {
+    "transcript": "Are any homework deadlines approaching",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Hey assistant, are any homework deadlines approaching",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "are any homework deadlines approaching quickly",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Could you are any homework deadlines approaching",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Are any homework deadlines approaching",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "List lab reports due this week",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Hey assistant, list lab reports due this week",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "list lab reports due this week quickly",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Could you list lab reports due this week",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "List lab reports due this week",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Check assignment marks and teacher feedback",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Hey assistant, check assignment marks and teacher feedback",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "check assignment marks and teacher feedback quickly",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Could you check assignment marks and teacher feedback",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Check assignment marks and teacher feedback",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": "Academic",
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Submit project documentation",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Hey assistant, submit project documentation",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "submit project documentation quickly",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Could you submit project documentation",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Submit project documentation",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Show homework due dates",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Hey assistant, show homework due dates",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "show homework due dates quickly",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Could you show homework due dates",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Show homework due dates",
+    "intent": "CHECK_ASSIGNMENTS",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CHECK_ASSIGNMENTS"
+  },
+  {
+    "transcript": "Ask campus bot about admission criteria",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Hey assistant, ask campus bot about admission criteria",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "ask campus bot about admission criteria quickly",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Could you ask campus bot about admission criteria",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Ask campus bot about admission criteria",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "What is the library closing time",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Hey assistant, what is the library closing time",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "what is the library closing time quickly",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Could you what is the library closing time",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "What is the library closing time",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "How do I apply for bonafide certificate",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Hey assistant, how do i apply for bonafide certificate",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "how do i apply for bonafide certificate quickly",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Could you how do i apply for bonafide certificate",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "How do I apply for bonafide certificate",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Where is the dean's office located",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Hey assistant, where is the dean's office located",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "where is the dean's office located quickly",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Could you where is the dean's office located",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Where is the dean's office located",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Explain grading and GPA calculation",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Hey assistant, explain grading and gpa calculation",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "explain grading and gpa calculation quickly",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Could you explain grading and gpa calculation",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  },
+  {
+    "transcript": "Explain grading and GPA calculation",
+    "intent": "CAMPUS_AI_QUERY",
+    "category_filter": null,
+    "department_filter": null,
+    "action": "EXECUTE_CAMPUS_AI_QUERY"
+  }
+]

@@ -1,0 +1,17 @@
+# Node modules & build outputs
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+.expo/
+**/.expo/
+
+# Python virtualenvs & cache
+__pycache__/
+**/__pycache__/
+*.pyc
+venv/
+**/venv/
+.env
