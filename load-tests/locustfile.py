@@ -37,10 +37,21 @@ import json
 from locust import HttpUser, task, between, events
 from locust.runners import MasterRunner
 
-# ─── Seed Credentials (matches init_db.py) ────────────────────────────────────
-STUDENT_CREDS  = {"email": "student@smartnoticeboard.edu", "password": "Password123!"}
-FACULTY_CREDS  = {"email": "faculty@smartnoticeboard.edu", "password": "Password123!"}
-ADMIN_CREDS    = {"email": "admin@smartnoticeboard.edu",   "password": "Password123!"}
+import os
+
+# ─── Configurable Credentials from Environment or Defaults ───────────────────
+STUDENT_CREDS = {
+    "email": os.getenv("STUDENT_EMAIL", "student@smartnoticeboard.edu"),
+    "password": os.getenv("STUDENT_PASSWORD", "Password123!")
+}
+FACULTY_CREDS = {
+    "email": os.getenv("FACULTY_EMAIL", "faculty@smartnoticeboard.edu"),
+    "password": os.getenv("FACULTY_PASSWORD", "Password123!")
+}
+ADMIN_CREDS = {
+    "email": os.getenv("ADMIN_EMAIL", "admin@smartnoticeboard.edu"),
+    "password": os.getenv("ADMIN_PASSWORD", "Password123!")
+}
 
 # Fallback credentials
 STUDENT_CREDS2 = {"email": "student@campus.edu", "password": "password123"}

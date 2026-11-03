@@ -1,0 +1,106 @@
+name: Load and Performance Testing
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      test_duration:
+        description: 'Duration for each stage (e.g., 30s, 1m)'
+        required: false
+        default: '30s'
+
+concurrency:
+  group: load-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  locust-load-tests:
+    name: Locust Multi-Stage API Load Testing (100, 300, 500 Users)
+    runs-on: ubuntu-latest
+
+    env:
+      JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY || 'ci-test-jwt-secret-key-smart-notice-board-2026' }}
+      SECRET_KEY: ${{ secrets.JWT_SECRET_KEY || 'ci-test-jwt-secret-key-smart-notice-board-2026' }}
+      ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL || 'admin@smartnoticeboard.edu' }}
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD || 'Password123!' }}
+      FACULTY_EMAIL: ${{ secrets.FACULTY_EMAIL || 'faculty@smartnoticeboard.edu' }}
+      FACULTY_PASSWORD: ${{ secrets.FACULTY_PASSWORD || 'Password123!' }}
+      STUDENT_EMAIL: ${{ secrets.STUDENT_EMAIL || 'student@smartnoticeboard.edu' }}
+      STUDENT_PASSWORD: ${{ secrets.STUDENT_PASSWORD || 'Password123!' }}
+      BACKEND_URL: "http://127.0.0.1:8000"
+      LOAD_TEST_DURATION: ${{ github.event.inputs.test_duration || '30s' }}
+
+    steps:
+      # ── 1. Checkout Repository ──────────────────────────────────────────────
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # ── 2. Set up Python Environment ────────────────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # ── 3. Install Dependencies ─────────────────────────────────────────────
+      - name: Install Backend & Locust Load Test Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install -r load-tests/requirements.txt
+
+      # ── 4. Start FastAPI Backend Service ────────────────────────────────────
+      - name: Start FastAPI Backend Service
+        run: |
+          python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend &
+          echo "Waiting for FastAPI backend to initialize..."
+          timeout 30 bash -c 'until curl -s http://127.0.0.1:8000/ > /dev/null; do sleep 1; done'
+          echo "FastAPI backend is ready for load testing!"
+
+      # ── 5. Run Locust Load Tests across 100, 300, and 500 Users ────────────
+      - name: Execute Multi-Stage Load Tests (100, 300, 500 Users)
+        id: run_load
+        run: |
+          mkdir -p load-tests/reports
+          python load-tests/run_load_test.py --stages --host http://127.0.0.1:8000 --duration ${{ env.LOAD_TEST_DURATION }}
+
+      # ── 6. Generate 300 Test Cases Comprehensive Load Excel Report ──────────
+      - name: Generate 300 Test Cases Excel Matrix
+        if: always()
+        run: |
+          python load-tests/generate_300_load_test_excel.py
+
+      # ── 7. Publish Summary to GitHub Actions Tab ────────────────────────────
+      - name: Publish Load Metrics to Step Summary
+        if: always()
+        run: |
+          if [ -f load-tests/reports/load_test_summary.md ]; then
+            cat load-tests/reports/load_test_summary.md >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### 🚀 Load Testing Execution Report" >> $GITHUB_STEP_SUMMARY
+            echo "Performance tests completed across 100, 300, and 500 concurrent virtual users." >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "#### Generated Artifacts Available for Download:" >> $GITHUB_STEP_SUMMARY
+          echo "- **HTML Performance Reports:** Interactive request latency charts & distributions" >> $GITHUB_STEP_SUMMARY
+          echo "- **CSV Data Metrics:** Raw per-endpoint requests, response times, and failure stats" >> $GITHUB_STEP_SUMMARY
+          echo "- **Excel Reports:** \`LOAD_TEST_300_TEST_CASES_REPORT.xlsx\` with full threshold audits" >> $GITHUB_STEP_SUMMARY
+
+      # ── 8. Upload Artifacts ─────────────────────────────────────────────────
+      - name: Upload Load Testing Reports & Performance Metrics
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Load-Testing-Performance-Reports
+          path: |
+            load-tests/reports/*.html
+            load-tests/reports/*.csv
+            load-tests/reports/*.xlsx
+            load-tests/reports/*.txt
+            load-tests/reports/*.md
+            LOAD_TEST_300_TEST_CASES_REPORT.xlsx
+          retention-days: 30
+

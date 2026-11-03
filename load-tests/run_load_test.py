@@ -36,11 +36,13 @@ import requests
 from datetime import datetime
 from pathlib import Path
 
+import argparse
+
 # ─── Configuration ─────────────────────────────────────────────────────────────
-BASE_URL       = "http://localhost:8000"
-USERS          = 100       # Virtual users
-SPAWN_RATE     = 10        # Users spawned per second (ramp-up: 10s to reach 100)
-DURATION       = "1m"      # Run duration
+BASE_URL       = os.getenv("BACKEND_URL", "http://localhost:8000")
+USERS          = int(os.getenv("LOAD_TEST_USERS", "100"))
+SPAWN_RATE     = int(os.getenv("LOAD_TEST_SPAWN_RATE", "20"))
+DURATION       = os.getenv("LOAD_TEST_DURATION", "30s")
 LOCUSTFILE     = Path(__file__).parent / "locustfile.py"
 REPORT_DIR     = Path(__file__).parent / "reports"
 REPORT_DIR.mkdir(exist_ok=True)
@@ -77,29 +79,36 @@ def check_backend():
     return False
 
 # ─── Step 2: Run Locust headless ─────────────────────────────────────────────
-def run_locust():
+def run_locust(target_users=None, target_spawn=None, target_duration=None):
+    users = target_users or USERS
+    spawn = target_spawn or SPAWN_RATE
+    duration = target_duration or DURATION
+    
     print(f"\n[2/4] Starting Load Test...")
-    print(f"      Users:      {USERS} virtual users")
-    print(f"      Spawn rate: {SPAWN_RATE} users/second (ramp-up ~{USERS//SPAWN_RATE}s)")
-    print(f"      Duration:   {DURATION}")
+    print(f"      Users:      {users} virtual users")
+    print(f"      Spawn rate: {spawn} users/second (ramp-up ~{max(1, users//spawn)}s)")
+    print(f"      Duration:   {duration}")
     print(f"      Target:     {BASE_URL}")
     print(f"      Profile:    65% Students | 25% Faculty | 10% Admins")
     print()
     print("      Running... (press Ctrl+C to stop early)")
     print()
 
+    html_report = str(REPORT_DIR / f"load_test_report_{users}_users_{TIMESTAMP}.html")
+
     cmd = [
         sys.executable, "-m", "locust",
         "-f", str(LOCUSTFILE),
         "--host", BASE_URL,
-        "--users", str(USERS),
-        "--spawn-rate", str(SPAWN_RATE),
-        "--run-time", DURATION,
+        "--users", str(users),
+        "--spawn-rate", str(spawn),
+        "--run-time", duration,
         "--headless",
         "--csv", CSV_PREFIX,
         "--csv-full-history",
+        "--html", html_report,
         "--only-summary",
-        "--logfile", str(REPORT_DIR / f"locust_{TIMESTAMP}.log"),
+        "--logfile", str(REPORT_DIR / f"locust_{users}_users_{TIMESTAMP}.log"),
     ]
 
     start_time = time.time()
@@ -115,6 +124,7 @@ def run_locust():
     
     elapsed = round(time.time() - start_time, 1)
     print(f"\n      Test completed in {elapsed}s")
+    print(f"      HTML report saved to: {html_report}")
     return elapsed
 
 # ─── Step 3: Parse CSV results ─────────────────────────────────────────────
@@ -427,26 +437,65 @@ def generate_excel(rows, agg, metrics):
     wb.save(excel_path)
     print(f"  Excel report:      load_test_report_{TIMESTAMP}.xlsx")
 
+def write_markdown_summary(stage_metrics_list):
+    """Writes a GitHub Actions step summary markdown file."""
+    md_file = REPORT_DIR / "load_test_summary.md"
+    with open(md_file, "w", encoding="utf-8") as f:
+        f.write("### 🚀 Backend REST API Load & Performance Test Results\n\n")
+        f.write("| Virtual Users | Total Requests | RPS | Avg Latency (ms) | 95th Percentile (ms) | Failure Rate | Status |\n")
+        f.write("| :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n")
+        for m in stage_metrics_list:
+            status = "✅ PASS" if m.get("failure_pct", 0) < 5.0 and m.get("p95", 0) < 1500 else "⚠️ REVIEW"
+            f.write(
+                f"| **{m.get('users')} Users** | {m.get('total')} | "
+                f"{m.get('rps'):.1f} req/s | {m.get('avg'):.0f} ms | "
+                f"{m.get('p95'):.0f} ms | {m.get('failure_pct'):.2f}% | "
+                f"**{status}** |\n"
+            )
+        f.write("\n> *Tested using Locust against FastAPI endpoints: Auth, Notices, AI Chatbot, Attendance, Timetable, Voice Assistant.*")
+    print(f"  GitHub Summary:    {md_file}")
+
 # ─── Main ─────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Smart Notice Board Load Test Runner")
+    parser.add_argument("--users", type=int, default=USERS, help="Concurrent virtual users")
+    parser.add_argument("--spawn-rate", type=int, default=SPAWN_RATE, help="Spawn rate")
+    parser.add_argument("--duration", type=str, default=DURATION, help="Test duration (e.g. 30s, 1m)")
+    parser.add_argument("--host", type=str, default=BASE_URL, help="Target backend URL")
+    parser.add_argument("--stages", action="store_true", help="Run 100, 300, and 500 virtual users stages")
+    args = parser.parse_args()
+
+    BASE_URL = args.host
+    USERS = args.users
+    SPAWN_RATE = args.spawn_rate
+    DURATION = args.duration
+
     if not check_backend():
         sys.exit(1)
 
-    print(f"\n[2/4] Configuration Summary:")
-    print(f"      Virtual Users: {USERS}")
-    print(f"      Spawn Rate:    {SPAWN_RATE} users/second")
-    print(f"      Duration:      {DURATION}")
-    print(f"      Target URL:    {BASE_URL}")
-    print(f"      Locustfile:    {LOCUSTFILE}")
+    stages = [100, 300, 500] if args.stages else [USERS]
+    stage_summaries = []
 
-    elapsed = run_locust()
+    for stage_users in stages:
+        spawn_rate = max(10, stage_users // 5)
+        print(f"\n" + "="*60)
+        print(f"  RUNNING LOAD STAGE: {stage_users} CONCURRENT USERS")
+        print(f"="*60)
+        
+        CSV_PREFIX = str(REPORT_DIR / f"load_test_{stage_users}_users_{TIMESTAMP}")
+        elapsed = run_locust(target_users=stage_users, target_spawn=spawn_rate, target_duration=DURATION)
 
-    print(f"\n[3/4] Parsing results...")
-    rows, agg = parse_results()
+        print(f"\n[3/4] Parsing results for {stage_users} users...")
+        rows, agg = parse_results()
 
-    print(f"\n[4/4] Generating reports...")
-    metrics = print_summary(rows, agg, elapsed)
-    if rows and agg:
-        generate_excel(rows, agg, metrics)
+        print(f"\n[4/4] Generating reports for {stage_users} users...")
+        if rows and agg:
+            metrics = print_summary(rows, agg, elapsed)
+            metrics["users"] = stage_users
+            stage_summaries.append(metrics)
+            generate_excel(rows, agg, metrics)
 
-    print(f"\n  Done! All reports saved to load-tests/reports/\n")
+    if stage_summaries:
+        write_markdown_summary(stage_summaries)
+
+    print(f"\n  Done! All load test reports saved to load-tests/reports/\n")
